@@ -12,7 +12,6 @@ import { Contact } from './components/Contact';
 import { LanguageToggle } from './components/LanguageToggle';
 import { Background } from './components/Background';
 import './lib/i18n/config';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function App() {
   const { i18n } = useTranslation();
@@ -42,7 +41,6 @@ export default function App() {
       <Projects />
       <Certifications />
       <Contact />
-      <SpeedInsights />
     </div>
   );
 }
