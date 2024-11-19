@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
-import { GithubIcon, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export function Hero() {
   const { t } = useTranslation();
@@ -44,7 +45,7 @@ export function Hero() {
           
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button size="lg" variant="outline" className="text-lg">
-              <GithubIcon className="mr-2" />
+              <GitHubLogoIcon  className="mr-2" /> 
               GitHub
             </Button>
           </motion.div>

@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { GithubIcon, LinkedinIcon, Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon, Mail, MailIcon, Space } from "lucide-react";
 import { Button } from "./ui/button";
+import { GitHubLogoIcon, PaddingIcon } from "@radix-ui/react-icons";
 
 export function Hero() {
   const { t } = useTranslation();
@@ -65,7 +66,11 @@ export function Hero() {
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button variant="outline" size="lg" asChild>
             <a href="https://github.com/salemaljebaly" target="_blank" rel="noopener noreferrer">
-              <GithubIcon className="mr-2 h-5 w-5" />
+              <GitHubLogoIcon className="mr-2 h-5 w-5" style={
+                {
+                  padding: '2px'
+                }
+              } /> 
               GitHub
             </a>
           </Button>
@@ -73,7 +78,11 @@ export function Hero() {
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button variant="outline" size="lg" asChild>
             <a href="https://www.linkedin.com/in/salemaljebaly/" target="_blank" rel="noopener noreferrer">
-              <LinkedinIcon className="mr-2 h-5 w-5" />
+              <LinkedinIcon className="mr-2 h-5 w-5" style={
+                {
+                  padding: '2px'
+                }
+              }  />
               LinkedIn
             </a>
           </Button>
@@ -81,7 +90,11 @@ export function Hero() {
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button variant="outline" size="lg" asChild>
             <a href="mailto:salemaljebaly@gmail.com">
-              <Mail className="mr-2 h-5 w-5" />
+              <MailIcon className="mr-2 h-5 w-5" style={
+                {
+                  padding: '2px'
+                }
+              } />
               Email
             </a>
           </Button>

@@ -70,7 +70,7 @@ export const en = {
     aws: {
       title: 'AWS Cloud Quest: Cloud Practitioner',
       issuer: 'Amazon Web Services',
-      date: '2023',
+      date: '2024',
       link: 'https://www.credly.com/badges/d65ceb0b-b404-47c8-8720-99463ee58c37/public_url'
     },
     udacity: {

@@ -2,33 +2,33 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { ContainerIcon, CloudIcon, GithubIcon, UsersIcon } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export function Experience() {
-  const { t } = useTranslation();
 
   const experiences = [
     {
       icon: ContainerIcon,
       title: "Docker",
-      description: "Container orchestration and microservices architecture",
+      description: "Container orchestration",
       color: "from-blue-500/20 to-blue-500/10"
     },
     {
       icon: CloudIcon,
       title: "AWS",
-      description: "Cloud infrastructure and serverless applications",
+      description: "Cloud infrastructure",
       color: "from-orange-500/20 to-orange-500/10"
     },
     {
-      icon: GithubIcon,
+      icon: GitHubLogoIcon,
       title: "Git/GitHub",
-      description: "Version control and collaborative development",
+      description: "Version control",
       color: "from-purple-500/20 to-purple-500/10"
     },
     {
       icon: UsersIcon,
       title: "Team Management",
-      description: "Leading and mentoring development teams",
+      description: "Leading and mentoring",
       color: "from-green-500/20 to-green-500/10"
     }
   ];
@@ -56,8 +56,8 @@ export function Experience() {
               whileHover={{ scale: 1.05 }}
             >
               <Card className={`h-full bg-gradient-to-br ${exp.color}`}>
-                <CardHeader>
-                  <exp.icon className="h-12 w-12 mb-4" />
+                <CardHeader className="text-center">
+                  {/* <exp.icon className="h-12 w-12 mb-4" /> */}
                   <CardTitle>{exp.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
