@@ -19,6 +19,12 @@ export function Certifications() {
       issuer: t('certifications.udacity.issuer'),
       date: t('certifications.udacity.date'),
       link: t('certifications.udacity.link')
+    },
+    {
+      title: t('certifications.github.title'),
+      issuer: t('certifications.github.issuer'),
+      date: t('certifications.github.date'),
+      link: t('certifications.github.link')
     }
   ];
 

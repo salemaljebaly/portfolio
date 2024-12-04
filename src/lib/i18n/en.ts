@@ -78,6 +78,12 @@ export const en = {
       issuer: 'Udacity',
       date: '2019',
       link: 'https://www.udacity.com/certificate/e/1a32bc86-9c07-11e9-8dbc-978d36d216d2'
+    },
+    github: {
+      title: 'GitHub Foundations',
+      issuer: 'GitHub',
+      date: '2024',
+      link: 'https://www.credly.com/badges/f345672e-1f73-4d86-b14d-e0d93cde3ac8/public_url'
     }
   },
   contact: {
