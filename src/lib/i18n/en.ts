@@ -67,7 +67,7 @@ export const en = {
   },
   certifications: {
     title: 'Certifications',
-    aws: {
+    aws_cloud_guest: {
       title: 'AWS Cloud Quest: Cloud Practitioner',
       issuer: 'Amazon Web Services',
       date: '2024',
@@ -84,6 +84,12 @@ export const en = {
       issuer: 'GitHub',
       date: '2024',
       link: 'https://www.credly.com/badges/f345672e-1f73-4d86-b14d-e0d93cde3ac8/public_url'
+    },
+    CLF_C02: {
+      title: 'AWS Certified Cloud Practitioner',
+      issuer: 'AWS',
+      date: '2024',
+      link: 'https://www.credly.com/badges/77ff6273-0d8b-42c8-b703-9b3f251d50be/public_url'
     }
   },
   contact: {

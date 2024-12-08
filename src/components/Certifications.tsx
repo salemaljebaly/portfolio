@@ -9,10 +9,10 @@ export function Certifications() {
 
   const certifications = [
     {
-      title: t('certifications.aws.title'),
-      issuer: t('certifications.aws.issuer'),
-      date: t('certifications.aws.date'),
-      link: t('certifications.aws.link')
+      title: t('certifications.aws_cloud_guest.title'),
+      issuer: t('certifications.aws_cloud_guest.issuer'),
+      date: t('certifications.aws_cloud_guest.date'),
+      link: t('certifications.aws_cloud_guest.link')
     },
     {
       title: t('certifications.udacity.title'),
@@ -25,6 +25,12 @@ export function Certifications() {
       issuer: t('certifications.github.issuer'),
       date: t('certifications.github.date'),
       link: t('certifications.github.link')
+    },
+    {
+      title: t('certifications.CLF_C02.title'),
+      issuer: t('certifications.CLF_C02.issuer'),
+      date: t('certifications.CLF_C02.date'),
+      link: t('certifications.CLF_C02.link')
     }
   ];
 
