@@ -87,7 +87,7 @@ export const en = {
     },
     CLF_C02: {
       title: 'AWS Certified Cloud Practitioner',
-      issuer: 'AWS',
+      issuer: 'Amazon Web Services',
       date: '2024',
       link: 'https://www.credly.com/badges/77ff6273-0d8b-42c8-b703-9b3f251d50be/public_url'
     }
