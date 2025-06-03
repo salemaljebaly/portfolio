@@ -1,0 +1,321 @@
+"use client";
+
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { useState } from "react";
+import { submitContactForm } from "../api/contact/route";
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    inquiryType: "general",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const result = await submitContactForm(formData);
+      if (result.success) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          inquiryType: "general",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation />
+
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="py-20 bg-muted/50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+              Get In Touch
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl">
+              Let's discuss how I can help transform your organization's
+              technical infrastructure and drive innovation through DevOps
+              excellence.
+            </p>
+          </div>
+        </section>
+
+        {/* Contact Content */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              {/* Contact Form */}
+              <div>
+                <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium mb-2"
+                      >
+                        Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-2"
+                      >
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-medium mb-2"
+                      >
+                        Company
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                        placeholder="Your company (optional)"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="inquiryType"
+                        className="block text-sm font-medium mb-2"
+                      >
+                        Inquiry Type
+                      </label>
+                      <select
+                        id="inquiryType"
+                        name="inquiryType"
+                        value={formData.inquiryType}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                      >
+                        <option value="general">General Inquiry</option>
+                        <option value="consulting">Consulting Services</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={6}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
+                      placeholder="Tell me about your project or inquiry..."
+                    />
+                  </div>
+
+                  {/* Honeypot field for spam protection */}
+                  <input
+                    type="text"
+                    name="website"
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+
+                  {/* Status Messages */}
+                  {submitStatus === "success" && (
+                    <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
+                      Thank you for your message! I'll get back to you as soon
+                      as possible.
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400">
+                      Sorry, there was an error sending your message. Please try
+                      again or contact me directly via email.
+                    </div>
+                  )}
+                </form>
+              </div>
+
+              {/* Contact Information */}
+              <div className="space-y-8">
+                <div>
+                  <h2 className="text-2xl font-bold mb-6">
+                    Contact Information
+                  </h2>
+
+                  <div className="space-y-4">
+                    <a
+                      href="mailto:contact@docker.com.ly"
+                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors"
+                    >
+                      <Mail className="w-5 h-5 text-primary" />
+                      <div>
+                        <div className="font-medium">Email</div>
+                        <div className="text-sm text-muted-foreground">
+                          contact@docker.com.ly
+                        </div>
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://linkedin.com/in/salemaljebaly"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors"
+                    >
+                      <Linkedin className="w-5 h-5 text-primary" />
+                      <div>
+                        <div className="font-medium">LinkedIn</div>
+                        <div className="text-sm text-muted-foreground">
+                          linkedin.com/in/salemaljebaly
+                        </div>
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://github.com/salemaljebaly"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors"
+                    >
+                      <Github className="w-5 h-5 text-primary" />
+                      <div>
+                        <div className="font-medium">GitHub</div>
+                        <div className="text-sm text-muted-foreground">
+                          github.com/salemaljebaly
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-4">
+                    Additional Information
+                  </h3>
+
+                  <div className="space-y-3 text-muted-foreground">
+                    <div className="flex items-center gap-3">
+                      <MapPin className="w-5 h-5 text-primary" />
+                      <span>Based in Libya</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="w-5 h-5 text-primary" />
+                      <span>Available for remote work globally</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-muted/50 rounded-lg">
+                  <h3 className="font-semibold mb-2">Schedule a Meeting</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Prefer to schedule a call? Calendar integration coming soon!
+                  </p>
+                  <div className="text-sm text-muted-foreground">
+                    For now, please mention your preferred meeting time in your
+                    message.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
