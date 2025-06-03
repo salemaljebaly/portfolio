@@ -54,3 +54,7 @@ Deploy to Vercel and configure custom domain (docker.com.ly).
 - Framer Motion
 - Zain Google Font
 - TypeScript
+
+## TODO
+
+- add robots.txt
