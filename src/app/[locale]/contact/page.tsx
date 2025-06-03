@@ -1,10 +1,10 @@
 "use client";
 
+import { submitContactForm } from "@/app/api/contact/route";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
-import { submitContactForm } from "../api/contact/route";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

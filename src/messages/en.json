@@ -1,0 +1,26 @@
+{
+  "common": {
+    "name": "Salem Aljebaly",
+    "title": "CTO & DevOps Architect",
+    "downloadCV": "CV",
+    "allRightsReserved": "All rights reserved."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroSubtitle": "Transforming businesses through automation, cloud infrastructure & technical leadership",
+    "ctaTitle": "Interested in transforming your tech infrastructure?",
+    "ctaDescription": "Let's discuss how I can help your organization achieve its goals.",
+    "ctaButton": "Let's Talk"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "location": "Libya"
+  }
+}

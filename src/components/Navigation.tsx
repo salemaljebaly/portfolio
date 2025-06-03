@@ -3,26 +3,27 @@
 import { cn } from "@/lib/utils";
 import { Download, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useTranslations } from "./TranslationProvider";
 
 interface NavLink {
   href: string;
-  label: string;
-  arLabel: string;
+  labelKey: string;
 }
 
 const navLinks: NavLink[] = [
-  { href: "/", label: "Home", arLabel: "الرئيسية" },
-  { href: "/about", label: "About", arLabel: "حول" },
-  { href: "/projects", label: "Projects", arLabel: "المشاريع" },
-  { href: "/certifications", label: "Certifications", arLabel: "الشهادات" },
-  { href: "/contact", label: "Contact", arLabel: "تواصل" },
+  { href: "/", labelKey: "nav.home" },
+  { href: "/about", labelKey: "nav.about" },
+  { href: "/projects", labelKey: "nav.projects" },
+  { href: "/certifications", labelKey: "nav.certifications" },
+  { href: "/contact", labelKey: "nav.contact" },
 ];
 
 export default function Navigation() {
+  const { t, locale, isRtl } = useTranslations();
   const pathname = usePathname();
-  const isArabic = pathname.startsWith("/ar");
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -36,18 +37,26 @@ export default function Navigation() {
   }, []);
 
   const getLocalizedPath = (path: string) => {
-    if (isArabic) {
-      return path === "/" ? "/ar" : `/ar${path}`;
-    }
-    return path;
+    // Remove current locale prefix if present
+    const pathWithoutLocale = pathname
+      .split('/')
+      .filter((segment, index) => index === 0 || segment !== locale)
+      .join('/');
+      
+    // Get the path without the locale prefix
+    const basePath = path === "/" ? "" : path;
+    
+    return `/${locale}${basePath}`;
   };
 
   const toggleLanguage = () => {
-    if (isArabic) {
-      window.location.href = pathname.replace("/ar", "") || "/";
-    } else {
-      window.location.href = `/ar${pathname}`;
-    }
+    const newLocale = locale === "ar" ? "en" : "ar";
+    
+    // Get current path without locale
+    const currentPath = pathname.replace(new RegExp(`^\/${locale}`), "") || "/";
+    
+    // Navigate to the same path with new locale
+    router.push(`/${newLocale}${currentPath}`);
   };
 
   return (
@@ -66,11 +75,11 @@ export default function Navigation() {
             href={getLocalizedPath("/")}
             className="font-bold text-xl hover:text-primary transition-colors"
           >
-            {isArabic ? "سالم الجبالي" : "Salem Aljebaly"}
+            {String(t("common.name"))}
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+          <div className={`hidden md:flex items-center ${isRtl ? 'space-x-reverse' : ''} space-x-8`}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -82,22 +91,20 @@ export default function Navigation() {
                     : "text-muted-foreground"
                 )}
               >
-                {isArabic ? link.arLabel : link.label}
+                {String(t(link.labelKey))}
               </Link>
             ))}
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+          <div className={`flex items-center ${isRtl ? 'space-x-reverse' : ''} space-x-4`}>
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
               className="text-sm font-medium px-3 py-1 rounded-md hover:bg-accent transition-colors"
-              aria-label={
-                isArabic ? "Switch to English" : "التبديل إلى العربية"
-              }
+              aria-label={locale === "ar" ? "Switch to English" : "التبديل إلى العربية"}
             >
-              {isArabic ? "EN" : "AR"}
+              {locale === "ar" ? "EN" : "AR"}
             </button>
 
             {/* CV Download */}
@@ -105,17 +112,17 @@ export default function Navigation() {
               href="/SalemAljebalyCV.pdf"
               download
               className="hidden sm:flex items-center gap-2 text-sm font-medium px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-              aria-label={isArabic ? "تحميل السيرة الذاتية" : "Download CV"}
+              aria-label={locale === "ar" ? "تحميل السيرة الذاتية" : "Download CV"}
             >
               <Download className="w-4 h-4" />
-              {isArabic ? "السيرة الذاتية" : "CV"}
+              {String(t("common.downloadCV"))}
             </a>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-md hover:bg-accent transition-colors"
-              aria-label={isArabic ? "قائمة التنقل" : "Navigation menu"}
+              aria-label={locale === "ar" ? "قائمة التنقل" : "Navigation menu"}
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -142,7 +149,7 @@ export default function Navigation() {
                       : "text-muted-foreground"
                   )}
                 >
-                  {isArabic ? link.arLabel : link.label}
+                  {String(t(link.labelKey))}
                 </Link>
               ))}
               <a
@@ -151,7 +158,7 @@ export default function Navigation() {
                 className="sm:hidden flex items-center gap-2 text-sm font-medium px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
               >
                 <Download className="w-4 h-4" />
-                {isArabic ? "تحميل السيرة الذاتية" : "Download CV"}
+                {String(t("common.downloadCV"))}
               </a>
             </div>
           </div>
