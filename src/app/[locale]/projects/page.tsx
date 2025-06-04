@@ -145,19 +145,20 @@ const categories = [
   "Security",
 ];
 
-export default async function ProjectsPage({
-  params,
-}: {
-  params: { locale: Promise<string> };
-}) {
+export default async function ProjectsPage(
+  props: {
+    params: Promise<{ locale: Promise<string> }>;
+  }
+) {
+  const params = await props.params;
   const locale = await params.locale;
-  
+
   if (!isValidLocale(locale)) {
     return null;
   }
-  
+
   const translations = await getTranslations(locale as Locale);
-  
+
   return (
     <TranslationProvider locale={locale as Locale} translations={translations}>
       <ProjectsClient 
