@@ -2,28 +2,28 @@
 
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "./TranslationProvider";
 
 export default function Footer() {
-  const pathname = usePathname();
-  const isArabic = pathname.startsWith("/ar");
+  const { t, locale, isRtl } = useTranslations();
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-muted/50 border-t">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Updated to use center alignment for the grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           {/* About */}
           <div className="md:col-span-2">
             <h3 className="font-semibold text-lg mb-4">
-              {isArabic ? "سالم الجبالي" : "Salem Aljebaly"}
+              {String(t("common.name"))}
             </h3>
             <p className="text-muted-foreground mb-4">
-              {isArabic
+              {locale === "ar"
                 ? "مدير تقني وخبير DevOps متخصص في تحويل الأعمال من خلال الأتمتة والبنية التحتية السحابية والقيادة التقنية."
                 : "CTO & DevOps Architect specializing in transforming businesses through automation, cloud infrastructure, and technical leadership."}
             </p>
-            <div className="flex gap-4">
+            <div className="flex justify-center gap-4">
               <a
                 href="https://github.com/salemaljebaly"
                 target="_blank"
@@ -55,39 +55,39 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">
-              {isArabic ? "روابط سريعة" : "Quick Links"}
+              {String(t("footer.quickLinks"))}
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href={isArabic ? "/ar/about" : "/about"}
+                  href={`/${locale}/about`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {isArabic ? "حول" : "About"}
+                  {String(t("nav.about"))}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={isArabic ? "/ar/projects" : "/projects"}
+                  href={`/${locale}/projects`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {isArabic ? "المشاريع" : "Projects"}
+                  {String(t("nav.projects"))}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={isArabic ? "/ar/certifications" : "/certifications"}
+                  href={`/${locale}/certifications`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {isArabic ? "الشهادات" : "Certifications"}
+                  {String(t("nav.certifications"))}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={isArabic ? "/ar/contact" : "/contact"}
+                  href={`/${locale}/contact`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {isArabic ? "تواصل" : "Contact"}
+                  {String(t("nav.contact"))}
                 </Link>
               </li>
             </ul>
@@ -96,10 +96,10 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="font-semibold mb-4">
-              {isArabic ? "معلومات التواصل" : "Contact Info"}
+              {String(t("footer.contactInfo"))}
             </h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>{isArabic ? "ليبيا" : "Libya"}</li>
+              <li>{String(t("footer.location"))}</li>
               <li>
                 <a
                   href="mailto:contact@docker.com.ly"
@@ -112,11 +112,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar - Already centered */}
         <div className="mt-8 pt-8 border-t text-center text-muted-foreground">
           <p>
-            &copy; {currentYear} {isArabic ? "سالم الجبالي" : "Salem Aljebaly"}.{" "}
-            {isArabic ? "جميع الحقوق محفوظة." : "All rights reserved."}
+            &copy; {currentYear} {String(t("common.name"))}. {String(t("common.allRightsReserved"))}
           </p>
         </div>
       </div>

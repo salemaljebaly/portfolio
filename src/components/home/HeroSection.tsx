@@ -64,7 +64,33 @@ export default function HeroSection() {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    
+    // Add the CSS animation style here
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 1s ease-out;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      // Clean up the style element
+      if (style.parentNode) {
+        style.parentNode.removeChild(style);
+      }
+    };
   }, []);
 
   return (

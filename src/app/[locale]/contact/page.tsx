@@ -1,5 +1,6 @@
 "use client";
 
+import { submitContactForm } from "@/app/api/contact/route";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
