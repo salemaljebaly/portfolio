@@ -58,8 +58,8 @@ const nextConfig: NextConfig = {
   },
 };
 
-module.exports = {
-  distDir: "dist",
-};
+// module.exports = {
+//   distDir: "dist",
+// };
 
 export default nextConfig;
