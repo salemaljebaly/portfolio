@@ -1,11 +1,8 @@
 "use client";
 
+import { Particles } from "@/components/magicui/particles";
 import { Download } from "lucide-react";
 import { useEffect, useRef } from "react";
-// Import MagicUI components after installation
-// import { Particles } from "@/components/magicui/particles";
-// import { TypingAnimation } from "@/components/magicui/typing-animation";
-// import { ShimmerButton } from "@/components/magicui/shimmer-button";
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -78,13 +75,13 @@ export default function HeroSection() {
         className="absolute inset-0 z-0"
         style={{ opacity: 0.3 }}
       />
-      {/* <Particles
+      <Particles
         className="absolute inset-0"
         quantity={50}
         ease={80}
         color="#3B82F6"
         refresh
-      /> */}
+      />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -116,11 +113,11 @@ export default function HeroSection() {
             download
             className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
           >
-            <Download className="w-5 h-5" />
+            <Download className="w-5 h-5" href="/SalemAljebalyCV.pdf" />
             Download CV
           </a>
-          {/* <ShimmerButton size="lg" className="gap-2">
-            <Download className="w-5 h-5" />
+          {/* <ShimmerButton className="gap-2">
+            <Download className="w-5 h-5" href="/SalemAljebalyCV.pdf" />
             Download CV
           </ShimmerButton> */}
 
@@ -150,22 +147,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
-// Temporary CSS animation
-const style = document.createElement("style");
-style.textContent = `
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fadeIn {
-    animation: fadeIn 1s ease-out;
-  }
-`;
-document.head.appendChild(style);
