@@ -85,6 +85,8 @@ const skills = [
 ];
 
 export default function AboutClient({ locale }: AboutClientProps) {
+  const isRTL = locale === "ar";
+  
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -93,7 +95,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
       <main className="pt-20">
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">About Me</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">About Me</h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
               From optimizing assembly lines to optimizing cloud pipelines - my
               journey has been about continuous improvement and technological
@@ -105,7 +107,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
         {/* Professional Journey */}
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">
+            <h2 className="text-3xl font-bold mb-12 text-center text-foreground">
               Professional Journey
             </h2>
 
@@ -113,14 +115,14 @@ export default function AboutClient({ locale }: AboutClientProps) {
               {/* Timeline */}
               <div className="relative">
                 {/* Timeline line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+                <div className={`absolute ${isRTL ? 'right-8' : 'left-8'} top-0 bottom-0 w-0.5 bg-border`} />
 
                 {/* Timeline items */}
                 <div className="space-y-12">
                   {timeline.map((item, index) => (
                     <div
                       key={index}
-                      className="relative flex gap-8 group"
+                      className={`relative flex gap-8 group ${isRTL ? 'flex-row-reverse' : ''}`}
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       {/* Icon */}
@@ -144,7 +146,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
                               </>
                             )}
                           </div>
-                          <h3 className="text-xl font-semibold mb-2">
+                          <h3 className="text-xl font-semibold mb-2 text-foreground">
                             {item.title}
                           </h3>
                           <p className="text-muted-foreground">
@@ -163,7 +165,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
         {/* Skills Matrix */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">
+            <h2 className="text-3xl font-bold mb-12 text-center text-foreground">
               Technical Expertise
             </h2>
 
@@ -196,20 +198,20 @@ export default function AboutClient({ locale }: AboutClientProps) {
         {/* Personal Philosophy */}
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-8">My Philosophy</h2>
+            <h2 className="text-3xl font-bold mb-8 text-foreground">My Philosophy</h2>
             <blockquote className="text-2xl font-light text-muted-foreground max-w-4xl mx-auto">
               "DevOps isn't just about tools and automation - it's about
               creating a culture of continuous improvement, collaboration, and
               delivering value to users faster and more reliably."
             </blockquote>
-            <p className="mt-4 text-lg">- Salem Aljebaly</p>
+            <p className="mt-4 text-lg text-foreground">- Salem Aljebaly</p>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Want to Know More?</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Want to Know More?</h2>
             <p className="text-lg text-muted-foreground mb-8">
               Download my detailed CV or get in touch to discuss how I can help
               your organization.

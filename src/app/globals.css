@@ -168,6 +168,9 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground;
+  }
 }
 
 /* Marquee Animation */
@@ -197,6 +200,31 @@
 .rtl {
   direction: rtl;
   text-align: right;
+}
+
+[dir="rtl"] {
+  .flex {
+    flex-direction: row-reverse;
+  }
+  
+  .space-x-1,
+  .space-x-2,
+  .space-x-3,
+  .space-x-4,
+  .space-x-6,
+  .space-x-8 {
+    --tw-space-x-reverse: 1;
+  }
+
+  .ml-auto {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .mr-auto {
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
 
 .ltr {
