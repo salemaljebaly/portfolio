@@ -1,11 +1,6 @@
-"use client";
-
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
-import { ChevronRight, ExternalLink, Filter, Github } from "lucide-react";
-import { useState } from "react";
 import { TranslationProvider } from "@/components/TranslationProvider";
 import { Locale, getTranslations, isValidLocale } from "@/i18n";
+import ProjectsClient from "./ProjectsClient";
 // Import MagicUI components after installation
 // import { BentoGrid, BentoGridItem } from "@/components/magicui/bento-grid";
 // import { BoxReveal } from "@/components/magicui/box-reveal";
@@ -27,7 +22,7 @@ interface Project {
   solution: string;
 }
 
-const projects: Project[] = [
+const projects = [
   {
     id: 1,
     title: "ThingsBoard Mobile App Localization",
@@ -150,13 +145,12 @@ const categories = [
   "Security",
 ];
 
-// Remove the first ProjectsPage function and keep only this one
 export default async function ProjectsPage({
   params,
 }: {
-  params: { locale: string };
+  params: { locale: Promise<string> };
 }) {
-  const locale = params.locale;
+  const locale = await params.locale;
   
   if (!isValidLocale(locale)) {
     return null;
@@ -168,7 +162,8 @@ export default async function ProjectsPage({
     <TranslationProvider locale={locale as Locale} translations={translations}>
       <ProjectsClient 
         projects={projects} 
-        categories={categories} 
+        categories={categories}
+        locale={locale}
       />
     </TranslationProvider>
   );

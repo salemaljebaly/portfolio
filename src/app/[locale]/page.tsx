@@ -1,26 +1,26 @@
 import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
 import CertificationsCarousel from "@/components/home/CertificationsCarousel";
 import DevOpsAnimation from "@/components/home/DevOpsAnimation";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import HeroSection from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
+import Navigation from "@/components/Navigation";
 import { TranslationProvider } from "@/components/TranslationProvider";
 import { Locale, getTranslations, isValidLocale } from "@/i18n";
 
 export default async function Home({
   params,
 }: {
-  params: { locale: Promise<string> };
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = await params.locale;
-  
+  const { locale } = await params;
+
   if (!isValidLocale(locale)) {
     return null;
   }
-  
+
   const translations = await getTranslations(locale as Locale);
-  
+
   return (
     <TranslationProvider locale={locale as Locale} translations={translations}>
       <div className="min-h-screen bg-background">

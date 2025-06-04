@@ -1,31 +1,37 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { locales, isValidLocale } from './i18n';
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
+
+let locales = ['en', 'ar']
+
+// Get the preferred locale, similar to the above or using a different method
+function getLocale(request: NextRequest) {
+  const acceptLanguage = request.headers.get('accept-language')
+  return acceptLanguage?.split(',')?.[0]?.split('-')?.[0] || 'en'
+}
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+  // Check if there is any supported locale in the pathname
+  const pathname = request.nextUrl.pathname
   
-  // Check if the pathname already has a valid locale
+  // Check if the pathname starts with /en or /ar
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
+  )
 
-  if (pathnameHasLocale) return NextResponse.next();
+  if (pathnameHasLocale) return
 
   // Redirect if there is no locale
-  const locale = request.headers.get('accept-language')?.split(',')[0].split('-')[0] || 'en';
-  const defaultLocale = isValidLocale(locale) ? locale : 'en';
+  const locale = pathname === '/' ? 'en' : getLocale(request)
+  request.nextUrl.pathname = pathname === '/' ? pathname : `/${locale}${pathname}`
   
-  // Special case for root path
-  if (pathname === '/') {
-    return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url));
-  }
-  
-  // Rewrite for all other paths
-  return NextResponse.rewrite(
-    new URL(`/${defaultLocale}${pathname}`, request.url)
-  );
+  // e.g. incoming request is /products
+  // The new URL is now /en/products
+  return NextResponse.redirect(request.nextUrl)
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\.svg$).*)'],
-};
+  matcher: [
+    // Skip all internal paths (_next)
+    '/((?!_next|api|favicon.ico).*)',
+  ],
+}
