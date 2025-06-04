@@ -34,13 +34,14 @@ export default function Home() {
               Interested in transforming your tech infrastructure?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Let's discuss how I can help your organization achieve its goals.
+              Let&apos;s discuss how I can help your organization achieve its
+              goals.
             </p>
             <a
               href="/contact"
               className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
-              Let's Talk
+              Let&apos;s Talk
             </a>
           </div>
         </section>
