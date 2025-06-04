@@ -13,7 +13,8 @@ export async function POST(request: Request) {
     } else {
       return NextResponse.json({ message: result.message }, { status: 400 });
     }
-  } finally {
+  } catch (error) {
+    console.error("Failed to submit contact form:", error);
     return NextResponse.json(
       { message: "Failed to send message" },
       { status: 500 }
