@@ -1,3 +1,4 @@
+"use client";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import {
@@ -7,6 +8,7 @@ import {
   Rocket,
   Users,
 } from "lucide-react";
+import { useEffect } from "react";
 // Import MagicUI components after installation
 // import { AnimatedList } from "@/components/magicui/animated-list";
 // import { TextReveal } from "@/components/magicui/text-reveal";
@@ -110,6 +112,16 @@ const skills: Skill[] = [
 ];
 
 export default function AboutPage() {
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      // Safe to use document
+    }
+    // This code runs only on the client
+    // Safe to use document here
+    // Example:
+    // document.title = "My Portfolio";
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -223,9 +235,10 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold mb-8">My Philosophy</h2>
             <blockquote className="text-2xl font-light text-muted-foreground max-w-4xl mx-auto">
-              "DevOps isn't just about tools and automation - it's about
-              creating a culture of continuous improvement, collaboration, and
-              delivering value to users faster and more reliably."
+              &ldquo;DevOps isn&apos;t just about tools and automation -
+              it&apos;s about creating a culture of continuous improvement,
+              collaboration, and delivering value to users faster and more
+              reliably.&rdquo;
             </blockquote>
             <p className="mt-4 text-lg">- Salem Aljebaly</p>
           </div>

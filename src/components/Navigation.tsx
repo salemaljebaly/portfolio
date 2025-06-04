@@ -42,13 +42,14 @@ export default function Navigation() {
     return path;
   };
 
-  const toggleLanguage = () => {
-    if (isArabic) {
-      window.location.href = pathname.replace("/ar", "") || "/";
-    } else {
-      window.location.href = `/ar${pathname}`;
-    }
-  };
+  // Commented out for now - can be re-enabled when Arabic translation is ready
+  // const toggleLanguage = () => {
+  //   if (isArabic) {
+  //     window.location.href = pathname.replace("/ar", "") || "/";
+  //   } else {
+  //     window.location.href = `/ar${pathname}`;
+  //   }
+  // };
 
   return (
     <header
@@ -90,7 +91,7 @@ export default function Navigation() {
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
             {/* Language Toggle */}
-            <button
+            {/* <button
               onClick={toggleLanguage}
               className="text-sm font-medium px-3 py-1 rounded-md hover:bg-accent transition-colors"
               aria-label={
@@ -98,7 +99,7 @@ export default function Navigation() {
               }
             >
               {isArabic ? "EN" : "AR"}
-            </button>
+            </button> */}
 
             {/* CV Download */}
             <a

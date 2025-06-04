@@ -101,7 +101,6 @@ const categories = ["All", "AWS", "GitHub", "Google Cloud", "Other"];
 
 export default function CertificationsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [expandedCert, setExpandedCert] = useState<number | null>(null);
 
   const filteredCertifications =
     selectedCategory === "All"
@@ -262,7 +261,7 @@ export default function CertificationsPage() {
             <h2 className="text-3xl font-bold mb-4">Verified Credentials</h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               All certifications are verified and can be validated through
-              Credly's digital badge platform
+              Credly&apos;s digital badge platform
             </p>
             <a
               href="https://www.credly.com/users/salem-aljebaly"

@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
-import { submitContactForm } from "../api/contact/route";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -25,8 +24,15 @@ export default function ContactPage() {
     setSubmitStatus("idle");
 
     try {
-      const result = await submitContactForm(formData);
-      if (result.success) {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
         setSubmitStatus("success");
         setFormData({
           name: "",
@@ -38,7 +44,7 @@ export default function ContactPage() {
       } else {
         setSubmitStatus("error");
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -68,9 +74,9 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
-              Let's discuss how I can help transform your organization's
-              technical infrastructure and drive innovation through DevOps
-              excellence.
+              Let&apos;s discuss how I can help transform your
+              organization&apos;s technical infrastructure and drive innovation
+              through DevOps excellence.
             </p>
           </div>
         </section>
@@ -215,8 +221,8 @@ export default function ContactPage() {
                   {/* Status Messages */}
                   {submitStatus === "success" && (
                     <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
-                      Thank you for your message! I'll get back to you as soon
-                      as possible.
+                      Thank you for your message! I&apos;ll get back to you as
+                      soon as possible.
                     </div>
                   )}
 
