@@ -42,13 +42,14 @@ export default function Navigation() {
     return path;
   };
 
-  const toggleLanguage = () => {
-    if (isArabic) {
-      window.location.href = pathname.replace("/ar", "") || "/";
-    } else {
-      window.location.href = `/ar${pathname}`;
-    }
-  };
+  // Commented out for now - can be re-enabled when Arabic translation is ready
+  // const toggleLanguage = () => {
+  //   if (isArabic) {
+  //     window.location.href = pathname.replace("/ar", "") || "/";
+  //   } else {
+  //     window.location.href = `/ar${pathname}`;
+  //   }
+  // };
 
   return (
     <header
