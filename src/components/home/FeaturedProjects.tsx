@@ -2,6 +2,7 @@
 
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
+import { BorderBeam } from "../magicui/border-beam";
 
 interface Project {
   title: string;
@@ -134,6 +135,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </div>
       </div>
+      <BorderBeam duration={8} size={100} />
     </div>
   );
 }
