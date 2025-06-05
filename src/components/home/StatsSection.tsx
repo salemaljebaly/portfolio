@@ -65,7 +65,7 @@ export default function StatsSection() {
               className="flex flex-col items-center text-center p-8 rounded-lg bg-background shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="text-primary mb-4">{stat.icon}</div>
-              <div className="text-4xl font-bold mb-2">
+              <div className="text-4xl font-bold mb-2 text-foreground">
                 {/* Replace with MagicUI NumberTicker */}
                 {isVisible && <Counter value={stat.value} />}
                 {/* <NumberTicker value={stat.value} /> */}

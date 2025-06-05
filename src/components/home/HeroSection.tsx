@@ -64,7 +64,7 @@ export default function HeroSection() {
     };
 
     window.addEventListener("resize", handleResize);
-    
+
     // Add the CSS animation style here
     const style = document.createElement("style");
     style.textContent = `
@@ -83,7 +83,7 @@ export default function HeroSection() {
       }
     `;
     document.head.appendChild(style);
-    
+
     return () => {
       window.removeEventListener("resize", handleResize);
       // Clean up the style element
@@ -149,7 +149,7 @@ export default function HeroSection() {
 
           <a
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-all hover:scale-105"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-all hover:scale-105 text-foreground"
           >
             Get In Touch
           </a>
