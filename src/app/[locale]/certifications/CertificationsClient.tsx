@@ -20,84 +20,6 @@ interface Certification {
   description: string;
 }
 
-const certifications: Certification[] = [
-  {
-    id: 1,
-    name: "AWS Certified Solutions Architect - Associate",
-    issuer: "Amazon Web Services",
-    category: "AWS",
-    date: "March 2023",
-    expiryDate: "March 2026",
-    credentialId: "AWS-SAA-123456",
-    credlyUrl: "https://www.credly.com/badges/123456",
-    logo: "/certifications/aws-sa-associate.png",
-    skills: [
-      "AWS Architecture",
-      "Cloud Design",
-      "Security",
-      "Cost Optimization",
-    ],
-    description:
-      "Validates ability to design distributed systems on AWS platform",
-  },
-  {
-    id: 2,
-    name: "AWS Certified DevOps Engineer - Professional",
-    issuer: "Amazon Web Services",
-    category: "AWS",
-    date: "June 2023",
-    expiryDate: "June 2026",
-    credentialId: "AWS-DOP-789012",
-    credlyUrl: "https://www.credly.com/badges/789012",
-    logo: "/certifications/aws-devops-pro.png",
-    skills: ["CI/CD", "Automation", "Monitoring", "Security"],
-    description:
-      "Advanced certification for implementing and managing continuous delivery systems on AWS",
-  },
-  {
-    id: 3,
-    name: "AWS Certified SysOps Administrator - Associate",
-    issuer: "Amazon Web Services",
-    category: "AWS",
-    date: "January 2022",
-    expiryDate: "January 2025",
-    credentialId: "AWS-SOA-345678",
-    credlyUrl: "https://www.credly.com/badges/345678",
-    logo: "/certifications/aws-sysops.png",
-    skills: ["Operations", "Deployment", "Management", "Troubleshooting"],
-    description:
-      "Demonstrates expertise in deploying, managing, and operating workloads on AWS",
-  },
-  {
-    id: 4,
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    category: "AWS",
-    date: "September 2021",
-    expiryDate: "September 2024",
-    credentialId: "AWS-CCP-901234",
-    credlyUrl: "https://www.credly.com/badges/901234",
-    logo: "/certifications/aws-cloud-practitioner.png",
-    skills: ["Cloud Concepts", "AWS Services", "Security", "Billing"],
-    description:
-      "Foundational understanding of AWS Cloud concepts and services",
-  },
-  {
-    id: 5,
-    name: "GitHub Actions",
-    issuer: "GitHub",
-    category: "GitHub",
-    date: "November 2023",
-    credentialId: "GH-ACTIONS-567890",
-    credlyUrl: "https://www.credly.com/badges/567890",
-    logo: "/certifications/github-actions.png",
-    skills: ["CI/CD", "Automation", "Workflows", "DevOps"],
-    description: "Proficiency in automating workflows with GitHub Actions",
-  },
-];
-
-const categories = ["All", "AWS", "GitHub", "Google Cloud", "Other"];
-
 interface CertificationsClientProps {
   certifications: {
     id: number;
@@ -116,22 +38,26 @@ interface CertificationsClientProps {
   locale: string;
 }
 
-export default function CertificationsClient({ certifications, categories, locale }: CertificationsClientProps) {
+export default function CertificationsClient({
+  certifications,
+  categories,
+  locale,
+}: CertificationsClientProps) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { t } = useTranslations();
-  
-  const filteredCertifications = 
+
+  const filteredCertifications =
     selectedCategory === "All"
       ? certifications
       : certifications.filter((cert) => cert.category === selectedCategory);
-  
+
   const certificationsByCategory = categories
-    .filter(category => category !== "All")
-    .map(category => ({
+    .filter((category) => category !== "All")
+    .map((category) => ({
       category,
-      count: certifications.filter(cert => cert.category === category).length
+      count: certifications.filter((cert) => cert.category === category).length,
     }));
-  
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -187,7 +113,7 @@ export default function CertificationsClient({ certifications, categories, local
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     selectedCategory === category
                       ? "bg-primary text-primary-foreground"
-                      : "bg-muted hover:bg-accent"
+                      : "bg-muted hover:bg-accent text-foreground"
                   }`}
                 >
                   {category}
@@ -217,7 +143,9 @@ export default function CertificationsClient({ certifications, categories, local
                       {/* Certification Info */}
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-xl font-semibold text-foreground">{cert.name}</h3>
+                          <h3 className="text-xl font-semibold text-foreground">
+                            {cert.name}
+                          </h3>
                           <a
                             href={cert.credlyUrl}
                             target="_blank"
@@ -241,7 +169,8 @@ export default function CertificationsClient({ certifications, categories, local
                             </span>
                             {cert.expiryDate && (
                               <span>
-                                {String(t("certifications.expires"))}: {cert.expiryDate}
+                                {String(t("certifications.expires"))}:{" "}
+                                {cert.expiryDate}
                               </span>
                             )}
                           </div>
@@ -303,4 +232,4 @@ export default function CertificationsClient({ certifications, categories, local
       <Footer />
     </div>
   );
-} 
+}
