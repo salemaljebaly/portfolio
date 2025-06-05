@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
+import { useTranslations } from "@/components/TranslationProvider";
 import { Briefcase, Download, GraduationCap, Rocket, Users } from "lucide-react";
 
 interface AboutClientProps {
@@ -85,6 +86,7 @@ const skills = [
 ];
 
 export default function AboutClient({ locale }: AboutClientProps) {
+  const { t } = useTranslations();
   const isRTL = locale === "ar";
   
   return (
@@ -95,11 +97,11 @@ export default function AboutClient({ locale }: AboutClientProps) {
       <main className="pt-20">
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">About Me</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
+              {String(t("about.title"))}
+            </h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
-              From optimizing assembly lines to optimizing cloud pipelines - my
-              journey has been about continuous improvement and technological
-              innovation.
+              {String(t("about.description"))}
             </p>
           </div>
         </section>
@@ -108,7 +110,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-12 text-center text-foreground">
-              Professional Journey
+              {String(t("about.professionalJourney"))}
             </h2>
 
             <div className="max-w-4xl mx-auto">
@@ -166,7 +168,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-12 text-center text-foreground">
-              Technical Expertise
+              {String(t("about.technicalExpertise"))}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -198,23 +200,26 @@ export default function AboutClient({ locale }: AboutClientProps) {
         {/* Personal Philosophy */}
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-8 text-foreground">My Philosophy</h2>
+            <h2 className="text-3xl font-bold mb-8 text-foreground">
+              {String(t("about.myPhilosophy.title"))}
+            </h2>
             <blockquote className="text-2xl font-light text-muted-foreground max-w-4xl mx-auto">
-              "DevOps isn't just about tools and automation - it's about
-              creating a culture of continuous improvement, collaboration, and
-              delivering value to users faster and more reliably."
+              {String(t("about.myPhilosophy.quote"))}
             </blockquote>
-            <p className="mt-4 text-lg text-foreground">- Salem Aljebaly</p>
+            <p className="mt-4 text-lg text-foreground">
+              - {String(t("about.myPhilosophy.author"))}
+            </p>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Want to Know More?</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">
+              {String(t("about.cta.title"))}
+            </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Download my detailed CV or get in touch to discuss how I can help
-              your organization.
+              {String(t("about.cta.description"))}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -223,13 +228,13 @@ export default function AboutClient({ locale }: AboutClientProps) {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 <Download className="w-5 h-5" />
-                Download CV
+                {String(t("about.cta.downloadCV"))}
               </a>
               <a
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent text-foreground transition-colors"
               >
-                Contact Me
+                {String(t("about.cta.contactMe"))}
               </a>
             </div>
           </div>

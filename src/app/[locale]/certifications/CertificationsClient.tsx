@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
+import { useTranslations } from "@/components/TranslationProvider";
 import { Award, Calendar, ExternalLink, Filter, Shield } from "lucide-react";
 import { useState } from "react";
 
@@ -103,6 +104,7 @@ interface CertificationsClientProps {
 
 export default function CertificationsClient({ locale }: CertificationsClientProps) {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const { t } = useTranslations();
   
   const filteredCertifications = 
     selectedCategory === "All"
@@ -125,11 +127,10 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
-              Certifications
+              {String(t("certifications.title"))}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
-              Professional certifications and achievements that demonstrate my
-              expertise in cloud computing, DevOps, and software development.
+              {String(t("certifications.description"))}
             </p>
           </div>
         </section>
@@ -143,7 +144,7 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
                   {certifications.length}
                 </div>
                 <div className="text-muted-foreground">
-                  Total Certifications
+                  {String(t("certifications.stats.total"))}
                 </div>
               </div>
               {certificationsByCategory
@@ -209,7 +210,7 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
                             rel="noopener noreferrer"
                             className="flex items-center gap-1 text-sm text-primary hover:underline"
                           >
-                            Verify
+                            {String(t("certifications.verify"))}
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         </div>
@@ -225,11 +226,15 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
                               {cert.date}
                             </span>
                             {cert.expiryDate && (
-                              <span>Expires: {cert.expiryDate}</span>
+                              <span>
+                                {String(t("certifications.expires"))}: {cert.expiryDate}
+                              </span>
                             )}
                           </div>
                           <div>
-                            <span className="font-medium">Credential ID:</span>{" "}
+                            <span className="font-medium">
+                              {String(t("certifications.credentialId"))}:
+                            </span>{" "}
                             {cert.credentialId}
                           </div>
                         </div>
@@ -262,10 +267,11 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
         {/* Credly Integration Notice */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Verified Credentials</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">
+              {String(t("certifications.verifiedCredentials.title"))}
+            </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              All certifications are verified and can be validated through
-              Credly's digital badge platform
+              {String(t("certifications.verifiedCredentials.description"))}
             </p>
             <a
               href="https://www.credly.com/users/salem-aljebaly"
@@ -274,7 +280,7 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
               className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               <Award className="w-5 h-5" />
-              View All Badges on Credly
+              {String(t("certifications.verifiedCredentials.viewBadges"))}
             </a>
           </div>
         </section>
