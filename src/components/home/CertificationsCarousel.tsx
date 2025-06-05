@@ -128,14 +128,14 @@ export default function CertificationsCarousel() {
           {/* Navigation buttons */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-background rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-background rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow text-foreground"
             aria-label="Previous certification"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-background rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-background rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow text-foreground"
             aria-label="Next certification"
           >
             <ChevronRight className="w-6 h-6" />
