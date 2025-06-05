@@ -22,12 +22,13 @@ interface Project {
 }
 
 interface ProjectsPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default function ProjectsPage({ params }: ProjectsPageProps) {
+export default async function ProjectsPage(props: ProjectsPageProps) {
+  const params = await props.params;
   const projects = loadProjects(params.locale);
   const categories = ['All', ...new Set(projects.map(project => project.category))];
 
