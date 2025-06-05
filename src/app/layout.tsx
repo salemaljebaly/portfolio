@@ -57,8 +57,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={zain.variable}>
-      <body className="font-zain antialiased">{children}</body>
+    <html lang="en" className={zain.variable} suppressHydrationWarning>
+      <body className="font-zain antialiased" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }
