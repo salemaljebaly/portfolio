@@ -1,9 +1,8 @@
 "use client";
 
+import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Award, Briefcase, Code } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-// Import MagicUI NumberTicker after installation
-// import { NumberTicker } from "@/components/magicui/number-ticker";
 
 interface Stat {
   icon: React.ReactNode;
@@ -66,9 +65,7 @@ export default function StatsSection() {
             >
               <div className="text-primary mb-4">{stat.icon}</div>
               <div className="text-4xl font-bold mb-2 text-foreground">
-                {/* Replace with MagicUI NumberTicker */}
-                {isVisible && <Counter value={stat.value} />}
-                {/* <NumberTicker value={stat.value} /> */}
+                <NumberTicker value={stat.value} />
                 <span className="text-primary">{stat.suffix}</span>
               </div>
               <p className="text-muted-foreground">{stat.label}</p>
@@ -78,30 +75,4 @@ export default function StatsSection() {
       </div>
     </section>
   );
-}
-
-// Temporary counter component until MagicUI is installed
-function Counter({ value }: { value: number }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const duration = 2000;
-    const steps = 60;
-    const increment = value / steps;
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-
-    return () => clearInterval(timer);
-  }, [value]);
-
-  return <span>{count}</span>;
 }
