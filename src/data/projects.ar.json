@@ -1,0 +1,94 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Cloud Infrastructure Automation",
+      "description": "Automated cloud infrastructure deployment and management using Terraform and AWS",
+      "longDescription": "Developed a comprehensive infrastructure as code solution for automating the deployment and management of cloud resources across multiple environments.",
+      "category": "DevOps",
+      "tech": [
+        "Terraform",
+        "AWS",
+        "Python",
+        "Docker",
+        "Jenkins",
+        "GitLab CI"
+      ],
+      "image": "/projects/cloud-automation.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/cloud-automation",
+        "live": "https://demo.cloud-automation.com"
+      },
+      "impact": "Reduced infrastructure deployment time by 80% and eliminated manual configuration errors, leading to improved reliability and faster time-to-market.",
+      "problem": "Manual infrastructure provisioning was time-consuming, error-prone, and lacked consistency across environments.",
+      "solution": "Implemented infrastructure as code using Terraform with modular design, automated testing, and CI/CD pipeline integration."
+    },
+    {
+      "id": 2,
+      "title": "Microservices Monitoring Platform",
+      "description": "Built a comprehensive monitoring solution for microservices architecture",
+      "longDescription": "Created a robust monitoring and observability platform for distributed microservices using modern monitoring tools and practices.",
+      "category": "DevOps",
+      "tech": [
+        "Prometheus",
+        "Grafana",
+        "ELK Stack",
+        "Kubernetes",
+        "Go",
+        "Node.js"
+      ],
+      "image": "/projects/monitoring.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/monitoring-platform",
+        "live": "https://demo.monitoring-platform.com"
+      },
+      "impact": "Improved system reliability by 95% through early detection of issues and reduced MTTR by 60% with better observability.",
+      "problem": "Lack of visibility into microservices performance and health, making it difficult to identify and resolve issues quickly.",
+      "solution": "Implemented a comprehensive monitoring stack with custom dashboards, alerts, and automated incident response."
+    },
+    {
+      "id": 3,
+      "title": "CI/CD Pipeline Automation",
+      "description": "Designed and implemented automated CI/CD pipelines for multiple projects",
+      "longDescription": "Developed standardized CI/CD pipelines that automate the entire software delivery process from commit to production.",
+      "category": "DevOps",
+      "tech": [
+        "GitLab CI",
+        "Docker",
+        "Kubernetes",
+        "Helm",
+        "Bash",
+        "Python"
+      ],
+      "image": "/projects/cicd.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/cicd-automation"
+      },
+      "impact": "Reduced deployment time from hours to minutes and increased deployment frequency by 300% while maintaining reliability.",
+      "problem": "Inconsistent and manual deployment processes leading to delays and errors in software delivery.",
+      "solution": "Created templated CI/CD pipelines with automated testing, security scanning, and deployment strategies."
+    },
+    {
+      "id": 4,
+      "title": "Security Automation Framework",
+      "description": "Built an automated security scanning and compliance monitoring system",
+      "longDescription": "Developed a comprehensive security automation framework that integrates security scanning, compliance checking, and automated remediation.",
+      "category": "Security",
+      "tech": [
+        "Python",
+        "AWS Security Hub",
+        "Terraform",
+        "Docker",
+        "Kubernetes",
+        "Ansible"
+      ],
+      "image": "/projects/security.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/security-automation"
+      },
+      "impact": "Achieved 99.9% compliance rate and reduced security incident response time by 75% through automation.",
+      "problem": "Manual security processes were slow and inconsistent, leading to potential vulnerabilities and compliance issues.",
+      "solution": "Implemented automated security scanning, compliance checking, and remediation workflows integrated with CI/CD pipelines."
+    }
+  ]
+} 

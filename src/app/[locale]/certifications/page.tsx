@@ -1,24 +1,15 @@
-import { TranslationProvider } from "@/components/TranslationProvider";
-import { Locale, getTranslations, isValidLocale } from "@/i18n";
-import CertificationsClient from "./CertificationsClient";
+import { loadCertifications } from '@/utils/loadData';
+import CertificationsClient from './CertificationsClient';
 
-export default async function CertificationsPage(
-  props: {
-    params: Promise<{ locale: Promise<string> }>;
-  }
-) {
-  const params = await props.params;
-  const locale = await params.locale;
+interface CertificationsPageProps {
+  params: {
+    locale: string;
+  };
+}
 
-  if (!isValidLocale(locale)) {
-    return null;
-  }
+export default function CertificationsPage({ params }: CertificationsPageProps) {
+  const certifications = loadCertifications(params.locale);
+  const categories = ['All', ...new Set(certifications.map(cert => cert.category))];
 
-  const translations = await getTranslations(locale as Locale);
-
-  return (
-    <TranslationProvider locale={locale as Locale} translations={translations}>
-      <CertificationsClient locale={locale} />
-    </TranslationProvider>
-  );
+  return <CertificationsClient certifications={certifications} categories={categories} locale={params.locale} />;
 }

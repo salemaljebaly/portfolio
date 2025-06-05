@@ -99,10 +99,24 @@ const certifications: Certification[] = [
 const categories = ["All", "AWS", "GitHub", "Google Cloud", "Other"];
 
 interface CertificationsClientProps {
+  certifications: {
+    id: number;
+    name: string;
+    issuer: string;
+    category: string;
+    date: string;
+    expiryDate?: string;
+    credentialId: string;
+    credlyUrl: string;
+    logo: string;
+    skills: string[];
+    description: string;
+  }[];
+  categories: string[];
   locale: string;
 }
 
-export default function CertificationsClient({ locale }: CertificationsClientProps) {
+export default function CertificationsClient({ certifications, categories, locale }: CertificationsClientProps) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { t } = useTranslations();
   
