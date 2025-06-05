@@ -41,5 +41,77 @@
       "description": "Check out my latest open source work and contributions on GitHub",
       "viewProfile": "View GitHub Profile"
     }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "From optimizing assembly lines to optimizing cloud pipelines - my journey has been about continuous improvement and technological innovation.",
+    "professionalJourney": "Professional Journey",
+    "technicalExpertise": "Technical Expertise",
+    "myPhilosophy": {
+      "title": "My Philosophy",
+      "quote": "DevOps isn't just about tools and automation - it's about creating a culture of continuous improvement, collaboration, and delivering value to users faster and more reliably.",
+      "author": "Salem Aljebaly"
+    },
+    "cta": {
+      "title": "Want to Know More?",
+      "description": "Download my detailed CV or get in touch to discuss how I can help your organization.",
+      "downloadCV": "Download CV",
+      "contactMe": "Contact Me"
+    }
+  },
+  "certifications": {
+    "title": "Certifications",
+    "description": "Professional certifications and achievements that demonstrate my expertise in cloud computing, DevOps, and software development.",
+    "stats": {
+      "total": "Total Certifications"
+    },
+    "verify": "Verify",
+    "credentialId": "Credential ID",
+    "expires": "Expires",
+    "verifiedCredentials": {
+      "title": "Verified Credentials",
+      "description": "All certifications are verified and can be validated through Credly's digital badge platform",
+      "viewBadges": "View All Badges on Credly"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Let's discuss how I can help transform your organization's technical infrastructure and drive innovation through DevOps excellence.",
+    "form": {
+      "title": "Send a Message",
+      "name": "Name *",
+      "email": "Email *",
+      "company": "Company",
+      "companyPlaceholder": "Your company (optional)",
+      "inquiryType": "Inquiry Type",
+      "inquiryTypes": {
+        "general": "General Inquiry",
+        "consulting": "Consulting Services",
+        "collaboration": "Collaboration",
+        "other": "Other"
+      },
+      "message": "Message *",
+      "messagePlaceholder": "Tell me about your project or inquiry...",
+      "sending": "Sending...",
+      "send": "Send Message",
+      "success": "Thank you for your message! I'll get back to you as soon as possible.",
+      "error": "Sorry, there was an error sending your message. Please try again or contact me directly via email."
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "additional": {
+        "title": "Additional Information",
+        "location": "Based in Libya",
+        "availability": "Available for remote work globally"
+      },
+      "schedule": {
+        "title": "Schedule a Meeting",
+        "description": "Prefer to schedule a call? Calendar integration coming soon!",
+        "note": "For now, please mention your preferred meeting time in your message."
+      }
+    }
   }
 }
