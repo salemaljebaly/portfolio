@@ -2,9 +2,6 @@
 
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
-// Import MagicUI components after installation
-// import { MagicCard } from "@/components/magicui/magic-card";
-// import { BoxReveal } from "@/components/magicui/box-reveal";
 
 interface Project {
   title: string;
@@ -84,14 +81,11 @@ export default function FeaturedProjects() {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <div
-      className="group relative bg-background rounded-lg border border-border p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50"
+      className="group relative bg-background rounded-lg border border-border p-6  transition-all duration-300 hover:border-primary/50"
       style={{
         animationDelay: `${index * 100}ms`,
       }}
     >
-      {/* Replace with MagicUI MagicCard for hover effects */}
-      {/* <MagicCard className="p-6"> */}
-
       {/* Spotlight effect on hover */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-300" />
 
@@ -140,7 +134,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </div>
       </div>
-      {/* </MagicCard> */}
     </div>
   );
 }

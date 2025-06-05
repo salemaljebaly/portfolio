@@ -1,9 +1,5 @@
 import { loadProjects } from "@/utils/loadData";
 import ProjectsClient from "./ProjectsClient";
-// Import MagicUI components after installation
-// import { BentoGrid, BentoGridItem } from "@/components/magicui/bento-grid";
-// import { BoxReveal } from "@/components/magicui/box-reveal";
-
 interface ProjectsPageProps {
   params: Promise<{
     locale: string;
