@@ -4,6 +4,8 @@ import { Particles } from "@/components/magicui/particles";
 import { Download } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { ShimmerButton } from "../magicui/shimmer-button";
+import { TypingAnimation } from "../magicui/typing-animation";
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -119,38 +121,34 @@ export default function HeroSection() {
           CTO & DevOps Architect
         </p>
 
-        {/* Animated Subtitle - Replace with MagicUI TypingAnimation */}
         <div className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-          <span className="inline-block animate-fadeIn">
+          {/* <span className="inline-block animate-fadeIn">
             Transforming businesses through automation, cloud infrastructure &
             technical leadership
-          </span>
-          {/* <TypingAnimation
+          </span> */}
+          <TypingAnimation
             className="text-lg sm:text-xl lg:text-2xl text-muted-foreground"
-            text="Transforming businesses through automation, cloud infrastructure & technical leadership"
+            children="Transforming businesses through automation, cloud infrastructure & technical leadership"
             duration={100}
-          /> */}
+          />
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Download CV Button - Replace with MagicUI ShimmerButton */}
           <a
             href="/SalemAljebalyCV.pdf"
             download
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 px-0 py-1 text-lg font-medium  text-primary-foreground transition-all hover:scale-105"
           >
-            <Download className="w-5 h-5" href="/SalemAljebalyCV.pdf" />
-            Download CV
+            <ShimmerButton className="gap-2">
+              <Download href="/SalemAljebalyCV.pdf" />
+              Download CV
+            </ShimmerButton>
           </a>
-          {/* <ShimmerButton className="gap-2">
-            <Download className="w-5 h-5" href="/SalemAljebalyCV.pdf" />
-            Download CV
-          </ShimmerButton> */}
 
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-all hover:scale-105 text-foreground"
+            className="inline-flex items-center justify-center px-8 py-1 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-all hover:scale-105 text-foreground"
           >
             Get In Touch
           </Link>
