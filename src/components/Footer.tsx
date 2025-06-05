@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "./TranslationProvider";
 
 export default function Footer() {
-  const { t, locale, isRtl } = useTranslations();
+  const { t, locale } = useTranslations();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -115,7 +115,8 @@ export default function Footer() {
         {/* Bottom Bar - Already centered */}
         <div className="mt-8 pt-8 border-t text-center text-muted-foreground">
           <p>
-            &copy; {currentYear} {String(t("common.name"))}. {String(t("common.allRightsReserved"))}
+            &copy; {currentYear} {String(t("common.name"))}.{" "}
+            {String(t("common.allRightsReserved"))}
           </p>
         </div>
       </div>

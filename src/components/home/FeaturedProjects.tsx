@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import Link from "next/link";
 // Import MagicUI components after installation
 // import { MagicCard } from "@/components/magicui/magic-card";
 // import { BoxReveal } from "@/components/magicui/box-reveal";
@@ -67,13 +68,13 @@ export default function FeaturedProjects() {
         </div>
 
         <div className="text-center mt-12">
-          <a
+          <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
           >
             View All Projects
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

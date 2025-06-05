@@ -6,20 +6,6 @@ import { useTranslations } from "@/components/TranslationProvider";
 import { Award, Calendar, ExternalLink, Filter, Shield } from "lucide-react";
 import { useState } from "react";
 
-interface Certification {
-  id: number;
-  name: string;
-  issuer: string;
-  category: string;
-  date: string;
-  expiryDate?: string;
-  credentialId: string;
-  credlyUrl: string;
-  logo: string;
-  skills: string[];
-  description: string;
-}
-
 interface CertificationsClientProps {
   certifications: {
     id: number;
@@ -41,7 +27,6 @@ interface CertificationsClientProps {
 export default function CertificationsClient({
   certifications,
   categories,
-  locale,
 }: CertificationsClientProps) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { t } = useTranslations();

@@ -2,6 +2,7 @@
 
 import { Particles } from "@/components/magicui/particles";
 import { Download } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function HeroSection() {
@@ -147,12 +148,12 @@ export default function HeroSection() {
             Download CV
           </ShimmerButton> */}
 
-          <a
+          <Link
             href="/contact"
             className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-all hover:scale-105 text-foreground"
           >
             Get In Touch
-          </a>
+          </Link>
         </div>
       </div>
 

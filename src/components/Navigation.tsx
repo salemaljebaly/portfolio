@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Download, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslations } from "./TranslationProvider";
 
@@ -23,7 +23,6 @@ const navLinks: NavLink[] = [
 export default function Navigation() {
   const { t, locale, isRtl } = useTranslations();
   const pathname = usePathname();
-  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,10 +37,10 @@ export default function Navigation() {
 
   const getLocalizedPath = (path: string) => {
     // Remove current locale prefix if present
-    const pathWithoutLocale = pathname
-      .split("/")
-      .filter((segment, index) => index === 0 || segment !== locale)
-      .join("/");
+    // const pathWithoutLocale = pathname
+    //   .split("/")
+    //   .filter((segment, index) => index === 0 || segment !== locale)
+    //   .join("/");
 
     // Get the path without the locale prefix
     const basePath = path === "/" ? "" : path;

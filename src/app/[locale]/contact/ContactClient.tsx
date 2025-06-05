@@ -10,7 +10,7 @@ interface ContactClientProps {
   locale: string;
 }
 
-export default function ContactClient({ locale }: ContactClientProps) {
+export default function ContactClient({}: ContactClientProps) {
   const { t } = useTranslations();
   const [formData, setFormData] = useState({
     name: "",
@@ -20,9 +20,9 @@ export default function ContactClient({ locale }: ContactClientProps) {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">(
-    "idle"
-  );
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -151,7 +151,9 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         value={formData.company}
                         onChange={handleChange}
                         className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
-                        placeholder={String(t("contact.form.companyPlaceholder"))}
+                        placeholder={String(
+                          t("contact.form.companyPlaceholder")
+                        )}
                       />
                     </div>
 
@@ -169,10 +171,18 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         onChange={handleChange}
                         className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors text-foreground"
                       >
-                        <option value="general">{String(t("contact.form.inquiryTypes.general"))}</option>
-                        <option value="consulting">{String(t("contact.form.inquiryTypes.consulting"))}</option>
-                        <option value="collaboration">{String(t("contact.form.inquiryTypes.collaboration"))}</option>
-                        <option value="other">{String(t("contact.form.inquiryTypes.other"))}</option>
+                        <option value="general">
+                          {String(t("contact.form.inquiryTypes.general"))}
+                        </option>
+                        <option value="consulting">
+                          {String(t("contact.form.inquiryTypes.consulting"))}
+                        </option>
+                        <option value="collaboration">
+                          {String(t("contact.form.inquiryTypes.collaboration"))}
+                        </option>
+                        <option value="other">
+                          {String(t("contact.form.inquiryTypes.other"))}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -306,11 +316,15 @@ export default function ContactClient({ locale }: ContactClientProps) {
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex items-center gap-3">
                       <MapPin className="w-5 h-5 text-primary" />
-                      <span>{String(t("contact.info.additional.location"))}</span>
+                      <span>
+                        {String(t("contact.info.additional.location"))}
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Clock className="w-5 h-5 text-primary" />
-                      <span>{String(t("contact.info.additional.availability"))}</span>
+                      <span>
+                        {String(t("contact.info.additional.availability"))}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -335,4 +349,4 @@ export default function ContactClient({ locale }: ContactClientProps) {
       <Footer />
     </div>
   );
-} 
+}

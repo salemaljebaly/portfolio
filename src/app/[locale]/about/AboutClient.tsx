@@ -3,7 +3,14 @@
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { useTranslations } from "@/components/TranslationProvider";
-import { Briefcase, Download, GraduationCap, Rocket, Users } from "lucide-react";
+import {
+  Briefcase,
+  Download,
+  GraduationCap,
+  Rocket,
+  Users,
+} from "lucide-react";
+import Link from "next/link";
 
 interface AboutClientProps {
   locale: string;
@@ -88,11 +95,11 @@ const skills = [
 export default function AboutClient({ locale }: AboutClientProps) {
   const { t } = useTranslations();
   const isRTL = locale === "ar";
-  
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
       <main className="pt-20">
         <section className="py-20 bg-muted/50">
@@ -117,14 +124,20 @@ export default function AboutClient({ locale }: AboutClientProps) {
               {/* Timeline */}
               <div className="relative">
                 {/* Timeline line */}
-                <div className={`absolute ${isRTL ? 'right-8' : 'left-8'} top-0 bottom-0 w-0.5 bg-border`} />
+                <div
+                  className={`absolute ${
+                    isRTL ? "right-8" : "left-8"
+                  } top-0 bottom-0 w-0.5 bg-border`}
+                />
 
                 {/* Timeline items */}
                 <div className="space-y-12">
                   {timeline.map((item, index) => (
                     <div
                       key={index}
-                      className={`relative flex gap-8 group ${isRTL ? 'flex-row-reverse' : ''}`}
+                      className={`relative flex gap-8 group ${
+                        isRTL ? "flex-row-reverse" : ""
+                      }`}
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       {/* Icon */}
@@ -230,18 +243,18 @@ export default function AboutClient({ locale }: AboutClientProps) {
                 <Download className="w-5 h-5" />
                 {String(t("about.cta.downloadCV"))}
               </a>
-              <a
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent text-foreground transition-colors"
               >
                 {String(t("about.cta.contactMe"))}
-              </a>
+              </Link>
             </div>
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   );
-} 
+}

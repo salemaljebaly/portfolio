@@ -8,6 +8,7 @@ import {
   Rocket,
   Users,
 } from "lucide-react";
+import Link from "next/link";
 import { useEffect } from "react";
 // Import MagicUI components after installation
 // import { AnimatedList } from "@/components/magicui/animated-list";
@@ -261,12 +262,12 @@ export default function AboutPage() {
                 <Download className="w-5 h-5" />
                 Download CV
               </a>
-              <a
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-colors"
               >
                 Contact Me
-              </a>
+              </Link>
             </div>
           </div>
         </section>

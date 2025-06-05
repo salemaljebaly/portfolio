@@ -5,6 +5,7 @@ import DevOpsAnimation from "@/components/home/DevOpsAnimation";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import HeroSection from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -37,12 +38,12 @@ export default function Home() {
               Let&apos;s discuss how I can help your organization achieve its
               goals.
             </p>
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               Let&apos;s Talk
-            </a>
+            </Link>
           </div>
         </section>
       </main>

@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
-export const locales = ['en', 'ar'] as const;
+export const locales = ["en", "ar"] as const;
 export type Locale = (typeof locales)[number];
 
 // We can use this function to assert that a locale is valid
@@ -12,7 +12,7 @@ export function isValidLocale(locale: string): locale is Locale {
 export async function getTranslations(locale: Locale) {
   try {
     return (await import(`./messages/${locale}.json`)).default;
-  } catch (error) {
+  } catch {
     notFound();
   }
 }
