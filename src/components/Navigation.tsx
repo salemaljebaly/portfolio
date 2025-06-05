@@ -72,7 +72,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link
             href={getLocalizedPath("/")}
-            className="font-bold text-xl hover:text-primary transition-colors"
+            className="font-bold text-xl hover:text-primary transition-colors text-foreground"
           >
             {String(t("common.name"))}
           </Link>
@@ -88,7 +88,7 @@ export default function Navigation() {
                 key={link.href}
                 href={getLocalizedPath(link.href)}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-md font-medium transition-colors hover:text-primary",
                   pathname === getLocalizedPath(link.href)
                     ? "text-primary"
                     : "text-muted-foreground"
