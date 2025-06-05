@@ -33,7 +33,7 @@ const stats: Stat[] = [
 ];
 
 export default function StatsSection() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

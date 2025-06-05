@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
+import { AnimatedList } from "@/components/magicui/animated-list";
 import Navigation from "@/components/Navigation";
 import { useTranslations } from "@/components/TranslationProvider";
 import { Award, Calendar, ExternalLink, Filter, Shield } from "lucide-react";
@@ -112,86 +113,87 @@ export default function CertificationsClient({
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-6">
-              {filteredCertifications.map((cert, index) => (
-                <div
-                  key={cert.id}
-                  className="bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-all duration-300"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="p-6">
-                    <div className="flex items-start gap-6">
-                      {/* Badge Placeholder */}
-                      <div className="flex-shrink-0 w-24 h-24 bg-muted rounded-lg flex items-center justify-center">
-                        <Award className="w-12 h-12 text-primary" />
-                      </div>
-
-                      {/* Certification Info */}
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-xl font-semibold text-foreground">
-                            {cert.name}
-                          </h3>
-                          <a
-                            href={cert.credlyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-sm text-primary hover:underline"
-                          >
-                            {String(t("certifications.verify"))}
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
+              <AnimatedList>
+                {filteredCertifications.map((cert, index) => (
+                  <div
+                    key={cert.id}
+                    className="bg-card rounded-lg border overflow-hidden hover:shadow-lg transition-all duration-300"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="p-6">
+                      <div className="flex items-start gap-6">
+                        {/* Badge Placeholder */}
+                        <div className="flex-shrink-0 w-24 h-24 bg-muted rounded-lg flex items-center justify-center">
+                          <Award className="w-12 h-12 text-primary" />
                         </div>
 
-                        <div className="space-y-2 mb-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-4">
-                            <span className="flex items-center gap-1">
-                              <Shield className="w-4 h-4" />
-                              {cert.issuer}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Calendar className="w-4 h-4" />
-                              {cert.date}
-                            </span>
-                            {cert.expiryDate && (
-                              <span>
-                                {String(t("certifications.expires"))}:{" "}
-                                {cert.expiryDate}
-                              </span>
-                            )}
-                          </div>
-                          <div>
-                            <span className="font-medium">
-                              {String(t("certifications.credentialId"))}:
-                            </span>{" "}
-                            {cert.credentialId}
-                          </div>
-                        </div>
-
-                        {/* Skills */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {cert.skills.map((skill, i) => (
-                            <span
-                              key={i}
-                              className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
+                        {/* Certification Info */}
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between mb-2">
+                            <h3 className="text-xl font-semibold text-foreground">
+                              {cert.name}
+                            </h3>
+                            <a
+                              href={cert.credlyUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1 text-sm text-primary hover:underline"
                             >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
+                              {String(t("certifications.verify"))}
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
 
-                        {/* Description */}
-                        <p className="text-sm text-muted-foreground">
-                          {cert.description}
-                        </p>
+                          <div className="space-y-2 mb-4 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-4">
+                              <span className="flex items-center gap-1">
+                                <Shield className="w-4 h-4" />
+                                {cert.issuer}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Calendar className="w-4 h-4" />
+                                {cert.date}
+                              </span>
+                              {cert.expiryDate && (
+                                <span>
+                                  {String(t("certifications.expires"))}:{" "}
+                                  {cert.expiryDate}
+                                </span>
+                              )}
+                            </div>
+                            <div>
+                              <span className="font-medium">
+                                {String(t("certifications.credentialId"))}:
+                              </span>{" "}
+                              {cert.credentialId}
+                            </div>
+                          </div>
+
+                          {/* Skills */}
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {cert.skills.map((skill, i) => (
+                              <span
+                                key={i}
+                                className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+
+                          {/* Description */}
+                          <p className="text-sm text-muted-foreground">
+                            {cert.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </AnimatedList>
             </div>
           </div>
         </section>
-
         {/* Credly Integration Notice */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -42,9 +42,12 @@ export default function HeroSection() {
           </span> */}
           <TypingAnimation
             className="text-lg sm:text-xl lg:text-2xl text-muted-foreground"
-            children="Transforming businesses through automation, cloud infrastructure & technical leadership"
             duration={100}
-          />
+          >
+            {
+              "Transforming businesses through automation, cloud infrastructure & technical leadership"
+            }
+          </TypingAnimation>
         </div>
 
         {/* CTA Buttons */}
