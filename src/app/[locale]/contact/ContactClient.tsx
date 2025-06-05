@@ -12,6 +12,7 @@ interface ContactClientProps {
 
 export default function ContactClient({ locale }: ContactClientProps) {
   const { t } = useTranslations();
+  const isRTL = locale === "ar";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -256,7 +257,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     {String(t("contact.info.title"))}
                   </h2>
 
-                  <div className="space-y-4">
+                  <div className={`space-y-4 ${isRTL ? "[direction:rtl]" : ""}`}>
                     <a
                       href="mailto:contact@docker.com.ly"
                       className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors group"
