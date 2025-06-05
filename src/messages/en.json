@@ -23,23 +23,23 @@
     "contactInfo": "Contact Info",
     "location": "Libya"
   },
-    "projects": {
-      "title": "...",
-      "description": "...",
-      "more": "more",
-      "sourceCode": "Source Code",
-      "liveDemo": "Live Demo",
-      "showLess": "Show Less",
-      "learnMore": "Learn More",
-      "overview": "Overview",
-      "problem": "Problem",
-      "solution": "Solution",
-      "impact": "Impact & Results",
-      "techStack": "Full Tech Stack",
-      "openSource": {
-        "title": "Open Source Contributions",
-        "description": "Check out my latest open source work and contributions on GitHub",
-        "viewProfile": "View GitHub Profile"
-      }
+  "projects": {
+    "title": "Projects Portfolio",
+    "description": "Showcasing innovative solutions in DevOps, cloud architecture, and automation that have delivered real business value.",
+    "more": "more",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo",
+    "showLess": "Show Less",
+    "learnMore": "Learn More",
+    "overview": "Overview",
+    "problem": "Problem",
+    "solution": "Solution",
+    "impact": "Impact & Results",
+    "techStack": "Full Tech Stack",
+    "openSource": {
+      "title": "Open Source Contributions",
+      "description": "Check out my latest open source work and contributions on GitHub",
+      "viewProfile": "View GitHub Profile"
     }
+  }
 }
