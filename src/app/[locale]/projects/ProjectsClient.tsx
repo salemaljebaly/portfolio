@@ -49,7 +49,7 @@ export default function ProjectsClient({ projects, categories, locale }: Project
         {/* Hero Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
               {String(t('projects.title'))}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
@@ -92,7 +92,7 @@ export default function ProjectsClient({ projects, categories, locale }: Project
                   {/* Project Header */}
                   <div className="p-6">
                     <div className={`flex items-start justify-between mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                      <h3 className="text-xl font-semibold">{project.title}</h3>
+                      <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
                       <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
                         {project.category}
                       </span>
@@ -107,7 +107,7 @@ export default function ProjectsClient({ projects, categories, locale }: Project
                       {project.tech.slice(0, 4).map((tech, i) => (
                         <span
                           key={i}
-                          className="px-2 py-1 text-xs bg-muted rounded-md"
+                          className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
                         >
                           {tech}
                         </span>
@@ -177,7 +177,7 @@ export default function ProjectsClient({ projects, categories, locale }: Project
                   {expandedProject === project.id && (
                     <div className="border-t bg-muted/50 p-6 space-y-4">
                       <div>
-                        <h4 className="font-semibold mb-2">{String(t('projects.overview'))}</h4>
+                        <h4 className="font-semibold mb-2 text-foreground">{String(t('projects.overview'))}</h4>
                         <p className="text-sm text-muted-foreground">
                           {project.longDescription}
                         </p>
@@ -185,13 +185,13 @@ export default function ProjectsClient({ projects, categories, locale }: Project
 
                       <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${isRTL ? '[direction:rtl]' : ''}`}>
                         <div>
-                          <h4 className="font-semibold mb-2">{String(t('projects.problem'))}</h4>
+                          <h4 className="font-semibold mb-2 text-foreground">{String(t('projects.problem'))}</h4>
                           <p className="text-sm text-muted-foreground">
                             {project.problem}
                           </p>
                         </div>
                         <div>
-                          <h4 className="font-semibold mb-2">{String(t('projects.solution'))}</h4>
+                          <h4 className="font-semibold mb-2 text-foreground">{String(t('projects.solution'))}</h4>
                           <p className="text-sm text-muted-foreground">
                             {project.solution}
                           </p>
@@ -199,19 +199,19 @@ export default function ProjectsClient({ projects, categories, locale }: Project
                       </div>
 
                       <div>
-                        <h4 className="font-semibold mb-2">{String(t('projects.impact'))}</h4>
+                        <h4 className="font-semibold mb-2 text-foreground">{String(t('projects.impact'))}</h4>
                         <p className="text-sm text-muted-foreground">
                           {project.impact}
                         </p>
                       </div>
 
                       <div>
-                        <h4 className="font-semibold mb-2">{String(t('projects.techStack'))}</h4>
+                        <h4 className="font-semibold mb-2 text-foreground">{String(t('projects.techStack'))}</h4>
                         <div className={`flex flex-wrap gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                           {project.tech.map((tech, i) => (
                             <span
                               key={i}
-                              className="px-2 py-1 text-xs bg-background rounded-md border"
+                              className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
                             >
                               {tech}
                             </span>
@@ -229,7 +229,7 @@ export default function ProjectsClient({ projects, categories, locale }: Project
         {/* GitHub Integration Notice */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">
               {String(t('projects.openSource.title'))}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

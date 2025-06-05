@@ -124,7 +124,7 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
         {/* Hero Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
               Certifications
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
@@ -202,7 +202,7 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
                       {/* Certification Info */}
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-xl font-semibold">{cert.name}</h3>
+                          <h3 className="text-xl font-semibold text-foreground">{cert.name}</h3>
                           <a
                             href={cert.credlyUrl}
                             target="_blank"
@@ -239,7 +239,7 @@ export default function CertificationsClient({ locale }: CertificationsClientPro
                           {cert.skills.map((skill, i) => (
                             <span
                               key={i}
-                              className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-md"
+                              className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
                             >
                               {skill}
                             </span>

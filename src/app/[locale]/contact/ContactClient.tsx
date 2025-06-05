@@ -74,7 +74,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
         {/* Hero Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Get In Touch</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">Get In Touch</h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
               Let&apos;s discuss how I can help transform your organization&apos;s
               technical infrastructure and drive innovation through DevOps
@@ -89,14 +89,14 @@ export default function ContactClient({ locale }: ContactClientProps) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Contact Form */}
               <div>
-                <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">Send a Message</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium mb-2"
+                        className="block text-sm font-medium mb-2 text-foreground"
                       >
                         Name *
                       </label>
@@ -107,7 +107,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
                         placeholder="Your name"
                       />
                     </div>
@@ -115,7 +115,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium mb-2"
+                        className="block text-sm font-medium mb-2 text-foreground"
                       >
                         Email *
                       </label>
@@ -126,7 +126,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -136,7 +136,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     <div>
                       <label
                         htmlFor="company"
-                        className="block text-sm font-medium mb-2"
+                        className="block text-sm font-medium mb-2 text-foreground"
                       >
                         Company
                       </label>
@@ -146,7 +146,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
                         placeholder="Your company (optional)"
                       />
                     </div>
@@ -154,7 +154,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     <div>
                       <label
                         htmlFor="inquiryType"
-                        className="block text-sm font-medium mb-2"
+                        className="block text-sm font-medium mb-2 text-foreground"
                       >
                         Inquiry Type
                       </label>
@@ -163,7 +163,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         name="inquiryType"
                         value={formData.inquiryType}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors text-foreground"
                       >
                         <option value="general">General Inquiry</option>
                         <option value="consulting">Consulting Services</option>
@@ -176,7 +176,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium mb-2"
+                      className="block text-sm font-medium mb-2 text-foreground"
                     >
                       Message *
                     </label>
@@ -187,7 +187,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
+                      className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none placeholder:text-muted-foreground"
                       placeholder="Tell me about your project or inquiry..."
                     />
                   </div>
@@ -240,35 +240,22 @@ export default function ContactClient({ locale }: ContactClientProps) {
               {/* Contact Information */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-2xl font-bold mb-6">
+                  <h2 className="text-2xl font-bold mb-6 text-foreground">
                     Contact Information
                   </h2>
 
                   <div className="space-y-4">
                     <a
                       href="mailto:contact@docker.com.ly"
-                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors"
+                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors group"
                     >
                       <Mail className="w-5 h-5 text-primary" />
                       <div>
-                        <div className="font-medium">Email</div>
+                        <div className="font-medium text-foreground group-hover:text-primary transition-colors">
+                          Email
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           contact@docker.com.ly
-                        </div>
-                      </div>
-                    </a>
-
-                    <a
-                      href="https://linkedin.com/in/salemaljebaly"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors"
-                    >
-                      <Linkedin className="w-5 h-5 text-primary" />
-                      <div>
-                        <div className="font-medium">LinkedIn</div>
-                        <div className="text-sm text-muted-foreground">
-                          linkedin.com/in/salemaljebaly
                         </div>
                       </div>
                     </a>
@@ -277,13 +264,32 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       href="https://github.com/salemaljebaly"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors"
+                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors group"
                     >
                       <Github className="w-5 h-5 text-primary" />
                       <div>
-                        <div className="font-medium">GitHub</div>
+                        <div className="font-medium text-foreground group-hover:text-primary transition-colors">
+                          GitHub
+                        </div>
                         <div className="text-sm text-muted-foreground">
-                          github.com/salemaljebaly
+                          @salemaljebaly
+                        </div>
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://www.linkedin.com/in/salemaljebaly"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors group"
+                    >
+                      <Linkedin className="w-5 h-5 text-primary" />
+                      <div>
+                        <div className="font-medium text-foreground group-hover:text-primary transition-colors">
+                          LinkedIn
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          @salemaljebaly
                         </div>
                       </div>
                     </a>

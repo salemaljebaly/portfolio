@@ -227,7 +227,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
               </a>
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-colors"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border border-border hover:bg-accent text-foreground transition-colors"
               >
                 Contact Me
               </a>
