@@ -2,11 +2,9 @@ import { TranslationProvider } from "@/components/TranslationProvider";
 import { Locale, getTranslations, isValidLocale } from "@/i18n";
 import ContactClient from "./ContactClient";
 
-export default async function ContactPage(
-  props: {
-    params: Promise<{ locale: Promise<string> }>;
-  }
-) {
+export default async function ContactPage(props: {
+  params: Promise<{ locale: Promise<string> }>;
+}) {
   const params = await props.params;
   const locale = await params.locale;
 

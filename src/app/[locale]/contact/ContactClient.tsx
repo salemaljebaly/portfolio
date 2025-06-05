@@ -6,7 +6,11 @@ import { useTranslations } from "@/components/TranslationProvider";
 import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 
-export default function ContactClient() {
+interface ContactClientProps {
+  locale: string;
+}
+
+export default function ContactClient({ locale }: ContactClientProps) {
   const { t } = useTranslations();
   const [formData, setFormData] = useState({
     name: "",
