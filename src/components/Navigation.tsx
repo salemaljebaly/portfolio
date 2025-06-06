@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Download, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslations } from "./TranslationProvider";
 
@@ -23,7 +23,6 @@ const navLinks: NavLink[] = [
 export default function Navigation() {
   const { t, locale, isRtl } = useTranslations();
   const pathname = usePathname();
-  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,10 +37,10 @@ export default function Navigation() {
 
   const getLocalizedPath = (path: string) => {
     // Remove current locale prefix if present
-    const pathWithoutLocale = pathname
-      .split("/")
-      .filter((segment, index) => index === 0 || segment !== locale)
-      .join("/");
+    // const pathWithoutLocale = pathname
+    //   .split("/")
+    //   .filter((segment, index) => index === 0 || segment !== locale)
+    //   .join("/");
 
     // Get the path without the locale prefix
     const basePath = path === "/" ? "" : path;
@@ -72,7 +71,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link
             href={getLocalizedPath("/")}
-            className="font-bold text-xl hover:text-primary transition-colors"
+            className="font-bold text-xl hover:text-primary transition-colors text-foreground"
           >
             {String(t("common.name"))}
           </Link>
@@ -88,7 +87,7 @@ export default function Navigation() {
                 key={link.href}
                 href={getLocalizedPath(link.href)}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-md font-medium transition-colors hover:text-primary",
                   pathname === getLocalizedPath(link.href)
                     ? "text-primary"
                     : "text-muted-foreground"

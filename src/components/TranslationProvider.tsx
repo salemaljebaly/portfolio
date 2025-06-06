@@ -1,26 +1,43 @@
 "use client";
 
-import { createContext, useContext } from "react";
 import { Locale } from "@/i18n";
+import { createContext, useContext } from "react";
 
-type TranslationsContextType = {
+type TranslationValue = string | number | boolean | null | undefined | { [key: string]: TranslationValue };
+type Translations = Record<string, TranslationValue>;
+
+interface TranslationContextType {
   locale: Locale;
-  translations: Record<string, any>;
-};
+  translations: Translations;
+  isRtl: boolean;
+  t: (key: string) => string;
+}
 
-const TranslationsContext = createContext<TranslationsContextType | null>(null);
+interface TranslationProviderProps {
+  children: React.ReactNode;
+  locale: Locale;
+  translations: Translations;
+}
+
+const TranslationsContext = createContext<TranslationContextType | null>(null);
 
 export function TranslationProvider({
   children,
   locale,
   translations,
-}: {
-  children: React.ReactNode;
-  locale: Locale;
-  translations: Record<string, any>;
-}) {
+}: TranslationProviderProps) {
+  const t = (key: string): string => {
+    const value = key.split('.').reduce<TranslationValue>((obj, k) => {
+      if (obj && typeof obj === 'object' && k in obj) {
+        return obj[k];
+      }
+      return undefined;
+    }, translations);
+    return String(value ?? key);
+  };
+
   return (
-    <TranslationsContext.Provider value={{ locale, translations }}>
+    <TranslationsContext.Provider value={{ locale, translations, isRtl: locale === "ar", t }}>
       {children}
     </TranslationsContext.Provider>
   );
@@ -31,23 +48,5 @@ export function useTranslations() {
   if (!context) {
     throw new Error("useTranslations must be used within a TranslationProvider");
   }
-  
-  const { translations, locale } = context;
-  
-  function t(key: string) {
-    const keys = key.split(".");
-    let value = translations;
-    
-    for (const k of keys) {
-      if (value && typeof value === "object" && k in value) {
-        value = value[k];
-      } else {
-        return key; // Fallback to key if translation not found
-      }
-    }
-    
-    return value;
-  }
-  
-  return { t, locale, isRtl: locale === "ar" };
+  return context;
 }

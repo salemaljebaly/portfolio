@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
+import { useTranslations } from "@/components/TranslationProvider";
 import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 
@@ -10,6 +11,8 @@ interface ContactClientProps {
 }
 
 export default function ContactClient({ locale }: ContactClientProps) {
+  const { t } = useTranslations();
+  const isRTL = locale === "ar";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,9 +21,9 @@ export default function ContactClient({ locale }: ContactClientProps) {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">(
-    "idle"
-  );
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,11 +77,11 @@ export default function ContactClient({ locale }: ContactClientProps) {
         {/* Hero Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">Get In Touch</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
+              {String(t("contact.title"))}
+            </h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
-              Let&apos;s discuss how I can help transform your organization&apos;s
-              technical infrastructure and drive innovation through DevOps
-              excellence.
+              {String(t("contact.description"))}
             </p>
           </div>
         </section>
@@ -89,7 +92,9 @@ export default function ContactClient({ locale }: ContactClientProps) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Contact Form */}
               <div>
-                <h2 className="text-2xl font-bold mb-6 text-foreground">Send a Message</h2>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  {String(t("contact.form.title"))}
+                </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -98,7 +103,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         htmlFor="name"
                         className="block text-sm font-medium mb-2 text-foreground"
                       >
-                        Name *
+                        {String(t("contact.form.name"))}
                       </label>
                       <input
                         type="text"
@@ -108,7 +113,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
-                        placeholder="Your name"
+                        placeholder={String(t("contact.form.name"))}
                       />
                     </div>
 
@@ -117,7 +122,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         htmlFor="email"
                         className="block text-sm font-medium mb-2 text-foreground"
                       >
-                        Email *
+                        {String(t("contact.form.email"))}
                       </label>
                       <input
                         type="email"
@@ -138,7 +143,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         htmlFor="company"
                         className="block text-sm font-medium mb-2 text-foreground"
                       >
-                        Company
+                        {String(t("contact.form.company"))}
                       </label>
                       <input
                         type="text"
@@ -147,7 +152,9 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         value={formData.company}
                         onChange={handleChange}
                         className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
-                        placeholder="Your company (optional)"
+                        placeholder={String(
+                          t("contact.form.companyPlaceholder")
+                        )}
                       />
                     </div>
 
@@ -156,7 +163,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         htmlFor="inquiryType"
                         className="block text-sm font-medium mb-2 text-foreground"
                       >
-                        Inquiry Type
+                        {String(t("contact.form.inquiryType"))}
                       </label>
                       <select
                         id="inquiryType"
@@ -165,10 +172,18 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         onChange={handleChange}
                         className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors text-foreground"
                       >
-                        <option value="general">General Inquiry</option>
-                        <option value="consulting">Consulting Services</option>
-                        <option value="collaboration">Collaboration</option>
-                        <option value="other">Other</option>
+                        <option value="general">
+                          {String(t("contact.form.inquiryTypes.general"))}
+                        </option>
+                        <option value="consulting">
+                          {String(t("contact.form.inquiryTypes.consulting"))}
+                        </option>
+                        <option value="collaboration">
+                          {String(t("contact.form.inquiryTypes.collaboration"))}
+                        </option>
+                        <option value="other">
+                          {String(t("contact.form.inquiryTypes.other"))}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -178,7 +193,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       htmlFor="message"
                       className="block text-sm font-medium mb-2 text-foreground"
                     >
-                      Message *
+                      {String(t("contact.form.message"))}
                     </label>
                     <textarea
                       id="message"
@@ -188,7 +203,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none placeholder:text-muted-foreground"
-                      placeholder="Tell me about your project or inquiry..."
+                      placeholder={String(t("contact.form.messagePlaceholder"))}
                     />
                   </div>
 
@@ -210,12 +225,12 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     {isSubmitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                        Sending...
+                        {String(t("contact.form.sending"))}
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Send Message
+                        {String(t("contact.form.send"))}
                       </>
                     )}
                   </button>
@@ -223,15 +238,13 @@ export default function ContactClient({ locale }: ContactClientProps) {
                   {/* Status Messages */}
                   {submitStatus === "success" && (
                     <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
-                      Thank you for your message! I&apos;ll get back to you as soon
-                      as possible.
+                      {String(t("contact.form.success"))}
                     </div>
                   )}
 
                   {submitStatus === "error" && (
                     <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400">
-                      Sorry, there was an error sending your message. Please try
-                      again or contact me directly via email.
+                      {String(t("contact.form.error"))}
                     </div>
                   )}
                 </form>
@@ -241,10 +254,10 @@ export default function ContactClient({ locale }: ContactClientProps) {
               <div className="space-y-8">
                 <div>
                   <h2 className="text-2xl font-bold mb-6 text-foreground">
-                    Contact Information
+                    {String(t("contact.info.title"))}
                   </h2>
 
-                  <div className="space-y-4">
+                  <div className={`space-y-4 ${isRTL ? "[direction:rtl]" : ""}`}>
                     <a
                       href="mailto:contact@docker.com.ly"
                       className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors group"
@@ -252,7 +265,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       <Mail className="w-5 h-5 text-primary" />
                       <div>
                         <div className="font-medium text-foreground group-hover:text-primary transition-colors">
-                          Email
+                          {String(t("contact.info.email"))}
                         </div>
                         <div className="text-sm text-muted-foreground">
                           contact@docker.com.ly
@@ -269,7 +282,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       <Github className="w-5 h-5 text-primary" />
                       <div>
                         <div className="font-medium text-foreground group-hover:text-primary transition-colors">
-                          GitHub
+                          {String(t("contact.info.github"))}
                         </div>
                         <div className="text-sm text-muted-foreground">
                           @salemaljebaly
@@ -286,7 +299,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       <Linkedin className="w-5 h-5 text-primary" />
                       <div>
                         <div className="font-medium text-foreground group-hover:text-primary transition-colors">
-                          LinkedIn
+                          {String(t("contact.info.linkedin"))}
                         </div>
                         <div className="text-sm text-muted-foreground">
                           @salemaljebaly
@@ -297,30 +310,35 @@ export default function ContactClient({ locale }: ContactClientProps) {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
-                    Additional Information
+                  <h3 className="text-xl font-semibold mb-4 text-foreground">
+                    {String(t("contact.info.additional.title"))}
                   </h3>
 
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex items-center gap-3">
                       <MapPin className="w-5 h-5 text-primary" />
-                      <span>Based in Libya</span>
+                      <span>
+                        {String(t("contact.info.additional.location"))}
+                      </span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Clock className="w-5 h-5 text-primary" />
-                      <span>Available for remote work globally</span>
+                      <span>
+                        {String(t("contact.info.additional.availability"))}
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <div className="p-6 bg-muted/50 rounded-lg">
-                  <h3 className="font-semibold mb-2">Schedule a Meeting</h3>
+                  <h3 className="font-semibold mb-2 text-foreground">
+                    {String(t("contact.info.schedule.title"))}
+                  </h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Prefer to schedule a call? Calendar integration coming soon!
+                    {String(t("contact.info.schedule.description"))}
                   </p>
                   <div className="text-sm text-muted-foreground">
-                    For now, please mention your preferred meeting time in your
-                    message.
+                    {String(t("contact.info.schedule.note"))}
                   </div>
                 </div>
               </div>
@@ -332,4 +350,4 @@ export default function ContactClient({ locale }: ContactClientProps) {
       <Footer />
     </div>
   );
-} 
+}

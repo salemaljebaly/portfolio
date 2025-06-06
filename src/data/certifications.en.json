@@ -1,0 +1,133 @@
+{
+  "certifications": [
+    {
+      "id": 1,
+      "name": "Android Basic Nanodegree By Google",
+      "issuer": "Google",
+      "category": "Google",
+      "date": "July 2019",
+      "credentialId": "1a32bc86-9c07-11e9-8dbc-978d36d216d2",
+      "credlyUrl": "https://www.udacity.com/certificate/e/1a32bc86-9c07-11e9-8dbc-978d36d216d2",
+      "logo": "/certifications/github-actions.png",
+      "skills": ["Android", "Java", "XML", "Play Store"],
+      "description": " Android Basic Nanodegree By Google"
+    },
+    {
+      "id": 2,
+      "name": "Foundations of User Experience (UX) Design",
+      "issuer": "Google",
+      "category": "Google",
+      "date": "March 2022",
+      "credentialId": "9GFCG4TSLNY5",
+      "credlyUrl": "https://www.coursera.org/account/accomplishments/verify/9GFCG4TSLNY5",
+      "logo": "/certifications/github-actions.png",
+      "skills": ["UI", "UX", "Design", "Design Process"],
+      "description": " GitHub basics like repositories, commits, branching, markdowns, and project management"
+    },
+    {
+      "id": 3,
+      "name": "GitHub Foundations",
+      "issuer": "GitHub",
+      "category": "GitHub",
+      "date": "November 2024",
+      "credentialId": "f345672e-1f73-4d86-b14d-e0d93cde3ac8",
+      "credlyUrl": "https://www.credly.com/badges/f345672e-1f73-4d86-b14d-e0d93cde3ac8",
+      "logo": "/certifications/github-actions.png",
+      "skills": ["CI/CD", "Automation", "Workflows", "DevOps"],
+      "description": " GitHub basics like repositories, commits, branching, markdowns, and project management"
+    },
+    {
+      "id": 4,
+      "name": "AWS Cloud Quest: Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "category": "AWS",
+      "date": "August 2024",
+      "expiryDate": "",
+      "credentialId": "d65ceb0b-b404-47c8-8720-99463ee58c37",
+      "credlyUrl": "https://www.credly.com/badges/d65ceb0b-b404-47c8-8720-99463ee58c37",
+      "logo": "/certifications/aws-cloud-practitioner.png",
+      "skills": [
+        "Cloud Concepts",
+        "Cloud Foundation",
+        "Security",
+        "Cloud Platform"
+      ],
+      "description": " basic solution building knowledge using AWS services and have a fundamental understanding of AWS Cloud concepts with hands on laps"
+    },
+    {
+      "id": 5,
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "category": "AWS",
+      "date": "December 2024",
+      "expiryDate": "",
+      "credentialId": "becc7819-434b-45e7-a6fe-1311cbdc07ef",
+      "credlyUrl": "https://www.credly.com/badges/becc7819-434b-45e7-a6fe-1311cbdc07ef",
+      "logo": "/certifications/aws-cloud-practitioner.png",
+      "skills": ["Cloud Concepts", "AWS Services", "Security", "Billing"],
+      "description": "Foundational understanding of AWS Cloud concepts and services"
+    },
+    {
+      "id": 6,
+      "name": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services",
+      "category": "AWS",
+      "date": "December 2024",
+      "expiryDate": "",
+      "credentialId": "305f9ddd-7f2d-4cf1-b3f9-397fdd1a04e1",
+      "credlyUrl": "https://www.credly.com/badges/305f9ddd-7f2d-4cf1-b3f9-397fdd1a04e1",
+      "logo": "/certifications/aws-cloud-practitioner.png",
+      "skills": [
+        "Cloud Concepts",
+        "Cloud Infrastructure",
+        "Security",
+        "Cloud Data"
+      ],
+      "description": "Foundational understanding of AWS Cloud concepts and services"
+    },
+    {
+      "id": 7,
+      "name": "AWS Certified AI Practitioner Early Adopter",
+      "issuer": "Amazon Web Services",
+      "category": "AWS",
+      "date": "January 2022",
+      "expiryDate": "January 2025",
+      "credentialId": "bcd539a8-0c90-4f47-8494-060339eaffc6",
+      "credlyUrl": "https://www.credly.com/badges/bcd539a8-0c90-4f47-8494-060339eaffc6",
+      "logo": "/certifications/aws-sysops.png",
+      "skills": ["AI", "Generative AI", "ML", "Foundation Models"],
+      "description": "Earners of this badge passed the AWS Certified AI Practitioner exam by February 15, 2025 and are an Early Adopter of this certification."
+    },
+    {
+      "id": 8,
+      "name": "AWS Certified AI Practitioner",
+      "issuer": "Amazon Web Services",
+      "category": "AWS",
+      "date": "December 2024",
+      "expiryDate": "December 2027",
+      "credentialId": "8304dcbf-20d1-4230-85e4-7c01c33b4ead",
+      "credlyUrl": "https://www.credly.com/badges/8304dcbf-20d1-4230-85e4-7c01c33b4ead",
+      "logo": "/certifications/aws-devops-pro.png",
+      "skills": ["AI", "Generative AI", "ML", "Foundation Models"],
+      "description": "understand AI, ML, and generative AI concepts, methods, and strategies in general and on AWS"
+    },
+    {
+      "id": 9,
+      "name": "AWS Certified Developer – Associate",
+      "issuer": "Amazon Web Services",
+      "category": "AWS",
+      "date": "January 2025",
+      "expiryDate": "January 2028",
+      "credentialId": "5b864ac1-2c3e-4403-80d4-a050e435dab9",
+      "credlyUrl": "https://www.credly.com/badges/5b864ac1-2c3e-4403-80d4-a050e435dab9",
+      "logo": "/certifications/aws-sa-associate.png",
+      "skills": [
+        "Code Development",
+        "Cloud Design",
+        "Code Deployment",
+        "Cost Optimization"
+      ],
+      "description": "writing applications with AWS service APIs, AWS CLI, and SDKs; using containers; and deploying with a CI/CD pipeline"
+    }
+  ]
+}

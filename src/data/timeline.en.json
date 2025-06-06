@@ -1,0 +1,245 @@
+{
+  "timeline": [
+    {
+      "id": 1,
+      "title": "Chief Technology Officer",
+      "company": "Lamah Technologies",
+      "location": "Misrata District, Libya",
+      "period": "Mar 2025 - Present",
+      "type": "Full-time",
+      "description": "Leading technology strategy and innovation as CTO, overseeing all technical aspects of the company.",
+      "achievements": [
+        "Providing technology leadership and strategic direction",
+        "Managing technology infrastructure and systems",
+        "Driving technological innovation and digital transformation"
+      ],
+      "skills": [
+        "Technology Leadership",
+        "Technology Management",
+        "Strategic Planning",
+        "Innovation Management"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Head of Development",
+      "company": "Lamah Technologies",
+      "location": "Misrata District, Libya",
+      "period": "Feb 2023 - Present",
+      "type": "Full-time",
+      "description": "Leading development teams and managing technical projects while implementing modern development practices.",
+      "achievements": [
+        "Led development teams and managed project lifecycles",
+        "Implemented CI/CD pipelines and DevOps practices",
+        "Established mobile automation frameworks",
+        "Improved developer relations and team collaboration"
+      ],
+      "skills": [
+        "Mobile Automation",
+        "DevOps",
+        "Team Management",
+        "Strategy",
+        "Leading Development Teams",
+        "CI/CD",
+        "Project Management",
+        "Developer Relations"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "UI Designer",
+      "company": "Lamah Technologies",
+      "location": "Misrata District, Libya",
+      "period": "Jan 2021 - Dec 2023",
+      "type": "Part-time",
+      "description": "Designed user interfaces and improved user experience for various digital products.",
+      "achievements": [
+        "Created intuitive and user-friendly interface designs",
+        "Developed interactive prototypes",
+        "Improved user experience through iterative design"
+      ],
+      "skills": [
+        "User Interface Prototyping",
+        "User Experience (UX)",
+        "Web Interface Design"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Software Engineer",
+      "company": "Lamah Technologies",
+      "location": "Misrata District, Libya",
+      "period": "Oct 2020 - Feb 2023",
+      "type": "Full-time",
+      "description": "Developed and maintained software solutions with focus on mobile applications and automation.",
+      "achievements": [
+        "Implemented mobile automation solutions",
+        "Led technical teams on various projects",
+        "Established DevOps practices and workflows"
+      ],
+      "skills": [
+        "Mobile Automation",
+        "Automation",
+        "DevOps",
+        "Team Management",
+        "Mobile Application Development"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Android Developer",
+      "company": "Lamah Technologies",
+      "location": "Misrata District, Libya",
+      "period": "Oct 2020 - Dec 2022",
+      "type": "Full-time",
+      "description": "Specialized in Android application development using modern technologies and best practices.",
+      "achievements": [
+        "Developed and maintained Android applications",
+        "Implemented Kotlin-based solutions",
+        "Enhanced mobile application performance"
+      ],
+      "skills": [
+        "Kotlin",
+        "Mobile Application Development",
+        "Android Framework"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Graphic Designer",
+      "company": "Lucans",
+      "location": "Misrata District, Libya",
+      "period": "Nov 2020 - Present",
+      "type": "Freelance",
+      "description": "Providing creative design solutions for various clients as a freelance graphic designer.",
+      "achievements": [
+        "Created visual designs for multiple clients",
+        "Developed brand identities",
+        "Delivered print and digital design solutions"
+      ],
+      "skills": [
+        "Graphic Design",
+        "Visual Design",
+        "Brand Design",
+        "Digital Media"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Software Developer",
+      "company": "Self-employed",
+      "location": "Libya",
+      "period": "Feb 2017 - Present",
+      "type": "Freelance",
+      "description": "Working as an independent software developer on various projects and technologies.",
+      "achievements": [
+        "Developed custom software solutions",
+        "Managed client relationships",
+        "Delivered multiple successful projects"
+      ],
+      "skills": [
+        "Software Development",
+        "Project Management",
+        "Client Relations"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Start-up Owner",
+      "company": "mumayazly",
+      "location": "Misrata District, Libya",
+      "period": "Nov 2022 - Jan 2024",
+      "type": "Part-time",
+      "description": "Founded and managed a start-up company focusing on innovative solutions.",
+      "achievements": [
+        "Led company strategy and operations",
+        "Managed marketing and business development",
+        "Oversaw accounting and financial operations"
+      ],
+      "skills": ["Graphic Design", "Accounting", "Management", "Marketing"]
+    },
+    {
+      "id": 9,
+      "title": "Web Developer",
+      "company": "منصة للتقنية",
+      "location": "Misrata District, Libya",
+      "period": "Apr 2020 - Dec 2020",
+      "type": "Freelance",
+      "description": "Developed web solutions and applications for clients.",
+      "achievements": [
+        "Built responsive web applications",
+        "Implemented modern web technologies",
+        "Delivered client-specific solutions"
+      ],
+      "skills": [
+        "Web Development",
+        "Frontend Development",
+        "Backend Development"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Designer and CNC Operator",
+      "company": "مجموع بلحاج للتجارة والصناعة",
+      "location": "Misratah, Libya",
+      "period": "Mar 2020 - Nov 2020",
+      "type": "Part-time",
+      "description": "Combined design skills with CNC machine operation for manufacturing.",
+      "achievements": [
+        "Created technical designs for CNC production",
+        "Operated CNC machinery",
+        "Managed production teams"
+      ],
+      "skills": ["CNC Operation", "Technical Design", "Team Management"]
+    },
+    {
+      "id": 11,
+      "title": "Computer Numerical Control Operator",
+      "company": "شركة الصدى الصناعي",
+      "location": "Mişrātah, Libya",
+      "period": "Dec 2019 - Nov 2020",
+      "type": "Full-time",
+      "description": "Operated CNC machines and managed production processes.",
+      "achievements": [
+        "Operated complex CNC machinery",
+        "Managed production workflows",
+        "Supervised team operations"
+      ],
+      "skills": ["CNC Operation", "Production Management", "Team Management"]
+    },
+    {
+      "id": 12,
+      "title": "Heating Air Conditioning Technician",
+      "company": "Raslanuf Oil and Gas Processing company (RASCO)",
+      "location": "Libya",
+      "period": "Nov 2012 - Jan 2020",
+      "type": "Full-time",
+      "description": "Provided HVAC technical support and maintenance in the oil and gas industry.",
+      "achievements": [
+        "Maintained HVAC systems",
+        "Provided technical support",
+        "Designed HVAC solutions"
+      ],
+      "skills": ["Technical Support", "HVAC", "HVAC Design"]
+    },
+    {
+      "id": 13,
+      "title": "Android Developer",
+      "company": "Riyadah Libya",
+      "location": "Libya",
+      "period": "Sep 2017 - Aug 2018",
+      "type": "Full-time",
+      "description": "Developed Android applications and managed mobile development projects.",
+      "achievements": [
+        "Developed mobile applications",
+        "Implemented automation solutions",
+        "Led development teams"
+      ],
+      "skills": [
+        "Mobile Automation",
+        "Team Management",
+        "Mobile Application Development"
+      ]
+    }
+  ]
+}

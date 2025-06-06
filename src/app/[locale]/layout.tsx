@@ -9,30 +9,20 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ locale: Promise<string> }>;
-  }
-): Promise<Metadata> {
-  const params = await props.params;
-  const locale = await params.locale;
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Salem Aljebaly - Portfolio",
     description: "Full Stack Developer & DevOps Engineer",
   };
 }
 
-export default async function RootLayout(
-  props: {
-    children: React.ReactNode;
-    params: Promise<{ locale: Promise<string> }>;
-  }
-) {
+export default async function RootLayout(props: {
+  children: React.ReactNode;
+  params: Promise<{ locale: Promise<string> }>;
+}) {
   const params = await props.params;
 
-  const {
-    children
-  } = props;
+  const { children } = props;
 
   const locale = await params.locale;
 

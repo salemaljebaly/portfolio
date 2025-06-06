@@ -1,37 +1,41 @@
-import type { NextRequest } from 'next/server'
-import { NextResponse } from 'next/server'
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
-let locales = ['en', 'ar']
-
-// Get the preferred locale, similar to the above or using a different method
-function getLocale(request: NextRequest) {
-  const acceptLanguage = request.headers.get('accept-language')
-  return acceptLanguage?.split(',')?.[0]?.split('-')?.[0] || 'en'
-}
+const locales = ["en", "ar"];
 
 export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
-  const pathname = request.nextUrl.pathname
-  
+  const pathname = request.nextUrl.pathname;
+
   // Check if the pathname starts with /en or /ar
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
+  );
 
-  if (pathnameHasLocale) return
+  // If pathname has locale, allow the request to continue
+  if (pathnameHasLocale) return;
 
-  // Redirect if there is no locale
-  const locale = pathname === '/' ? 'en' : getLocale(request)
-  request.nextUrl.pathname = pathname === '/' ? pathname : `/${locale}${pathname}`
-  
-  // e.g. incoming request is /products
-  // The new URL is now /en/products
-  return NextResponse.redirect(request.nextUrl)
+  // Skip API routes and static files
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.includes(".") // Files with extensions
+  ) {
+    return;
+  }
+
+  // For root path, let the page.tsx handle the redirect
+  if (pathname === "/") {
+    return;
+  }
+
+  // For all other paths without locale, redirect to /en version
+  const newUrl = new URL(`/en${pathname}`, request.url);
+  return NextResponse.redirect(newUrl);
 }
 
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    '/((?!_next|api|favicon.ico).*)',
+    "/((?!_next|api|favicon.ico).*)",
   ],
-}
+};

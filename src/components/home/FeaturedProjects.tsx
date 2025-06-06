@@ -1,11 +1,12 @@
 "use client";
 
+import projectsData from "@/data/projects.en.json";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-// Import MagicUI components after installation
-// import { MagicCard } from "@/components/magicui/magic-card";
-// import { BoxReveal } from "@/components/magicui/box-reveal";
+import Link from "next/link";
+import { BorderBeam } from "../magicui/border-beam";
 
 interface Project {
+  id: number;
   title: string;
   description: string;
   image?: string;
@@ -13,38 +14,16 @@ interface Project {
   links: {
     github?: string;
     live?: string;
+    contribution?: string;
+    package?: string;
   };
+  featured: boolean;
 }
 
-const featuredProjects: Project[] = [
-  {
-    title: "IoT Platform Localization (ThingsBoard)",
-    description:
-      "Contributed to ThingsBoard's mobile app by adding Arabic locale support, enhancing accessibility for Arabic-speaking users in IoT domain.",
-    tech: ["Flutter", "Dart", "IoT", "Localization"],
-    links: {
-      github: "https://github.com/thingsboard/flutter_thingsboard_app",
-    },
-  },
-  {
-    title: "Infrastructure Automation Tool",
-    description:
-      "Built a comprehensive CI/CD pipeline automation tool that reduced deployment time by 80% and improved system reliability.",
-    tech: ["Jenkins", "Docker", "Kubernetes", "Terraform"],
-    links: {
-      github: "https://github.com/salemaljebaly",
-    },
-  },
-  {
-    title: "Cloud Architecture Migration",
-    description:
-      "Led the migration of a monolithic application to microservices architecture on AWS, resulting in 60% cost reduction.",
-    tech: ["AWS", "Docker", "ECS", "RDS"],
-    links: {
-      live: "https://example.com",
-    },
-  },
-];
+// Filter featured projects from the projects data
+const featuredProjects: Project[] = projectsData.projects.filter(
+  (project) => project.featured
+);
 
 export default function FeaturedProjects() {
   return (
@@ -55,25 +34,24 @@ export default function FeaturedProjects() {
             Featured Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Showcasing innovative solutions in DevOps, cloud architecture, and
-            automation
+            Showcasing innovative solutions in design, IoT, and development
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} index={project.id} />
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <a
+          <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
           >
             View All Projects
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -83,14 +61,11 @@ export default function FeaturedProjects() {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <div
-      className="group relative bg-background rounded-lg border border-border p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50"
+      className="group relative bg-background rounded-lg border border-border p-6  transition-all duration-300 hover:border-primary/50"
       style={{
         animationDelay: `${index * 100}ms`,
       }}
     >
-      {/* Replace with MagicUI MagicCard for hover effects */}
-      {/* <MagicCard className="p-6"> */}
-
       {/* Spotlight effect on hover */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-300" />
 
@@ -137,9 +112,31 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               Live Demo
             </a>
           )}
+          {project.links.contribution && (
+            <a
+              href={project.links.contribution}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Contribution
+            </a>
+          )}
+          {project.links.package && (
+            <a
+              href={project.links.package}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Package
+            </a>
+          )}
         </div>
       </div>
-      {/* </MagicCard> */}
+      <BorderBeam duration={8} size={100} />
     </div>
   );
 }

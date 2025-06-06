@@ -1,0 +1,120 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Penpot Heroicons Plugin",
+      "description": "A plugin for Penpot that allows easy search and insertion of Heroicons into designs",
+      "longDescription": "Developed a plugin for Penpot that enables designers to quickly search and insert Heroicons into their designs. The plugin features a compact grid layout and efficient search functionality.",
+      "category": "Design Tools",
+      "tech": ["TypeScript", "CSS", "HTML", "Vite"],
+      "image": "/projects/penpot-heroicons.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/penpot-heroicons-plugin",
+        "live": "https://penpot.app/penpothub/plugins/heroicons"
+      },
+      "impact": "Improved designer workflow by providing quick access to Heroicons within Penpot",
+      "problem": "Designers needed an efficient way to access and insert Heroicons in Penpot",
+      "solution": "Created a plugin with search functionality and grid layout for easy icon access",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "ThingsBoard Mobile App",
+      "description": "Contributed to the development of ThingsBoard's Flutter mobile application",
+      "longDescription": "Made significant contributions to both the open-source and enterprise versions of ThingsBoard's Flutter mobile application, helping create a powerful IoT mobile platform.",
+      "category": "IoT",
+      "tech": ["Flutter", "Dart", "IoT", "Mobile Development"],
+      "image": "/projects/thingsboard-mobile.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/flutter_thingsboard_app",
+        "contribution": "https://github.com/thingsboard/flutter_thingsboard_app/graphs/contributors"
+      },
+      "impact": "Enhanced the mobile experience for ThingsBoard users with improved features and functionality",
+      "problem": "Need for a robust mobile interface for ThingsBoard IoT platform",
+      "solution": "Contributed to both open-source and enterprise versions of the mobile application",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Cost Calculator",
+      "description": "Script for project cost estimation and calculation",
+      "longDescription": "Developed a script to help estimate and calculate project costs, streamlining the project planning process",
+      "category": "Development Tools",
+      "tech": ["JavaScript", "Cost Estimation", "Project Management"],
+      "image": "/projects/cost-calculator.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/cost-calculator"
+      },
+      "impact": "Simplified project cost estimation process",
+      "problem": "Need for accurate and efficient project cost estimation",
+      "solution": "Created an automated calculation script for project costs",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "ThemePathPro Figma Plugin",
+      "description": "Figma plugin for swapping between styles and fixing community issues",
+      "longDescription": "Created a Figma plugin that addresses style management issues in the community and provides enhanced style swapping capabilities",
+      "category": "Design Tools",
+      "tech": ["Figma API", "JavaScript", "UI Design"],
+      "image": "/projects/themepathpro.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/ThemePathPro",
+        "live": "https://www.figma.com/community/plugin/1496660427618574399/themepathpro"
+      },
+      "impact": "Improved workflow for Figma users dealing with style management",
+      "problem": "Style management issues in Figma community",
+      "solution": "Developed a plugin for efficient style swapping and management",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "React Doc Viewer",
+      "description": "Contributed to React document viewer component",
+      "longDescription": "Made contributions to the React Doc Viewer project, enhancing document viewing capabilities in React applications",
+      "category": "Web Development",
+      "tech": ["React", "JavaScript", "Document Viewing"],
+      "image": "/projects/react-doc-viewer.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/react-doc-viewer",
+        "contribution": "https://github.com/cyntler/react-doc-viewer/graphs/contributors"
+      },
+      "impact": "Enhanced document viewing capabilities in React applications",
+      "problem": "Need for improved document viewing in React",
+      "solution": "Contributed improvements to the React Doc Viewer component",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "ThingsBoard Installation Guide",
+      "description": "Updated ThingsBoard documentation to simplify installation process",
+      "longDescription": "Forked and improved the ThingsBoard project documentation to make the installation process more straightforward and user-friendly",
+      "category": "Documentation",
+      "tech": ["Technical Writing", "IoT", "Documentation"],
+      "image": "/projects/thingsboard-docs.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/thingsboard/commits/master"
+      },
+      "impact": "Simplified ThingsBoard installation process for users",
+      "problem": "Complex installation documentation",
+      "solution": "Rewrote and simplified installation instructions",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "GraphHopper Navigation Android",
+      "description": "Enhanced Android navigation library with fixes and improvements",
+      "longDescription": "Forked and improved the GraphHopper navigation Android library, fixing issues and publishing updates as GitHub packages",
+      "category": "Mobile Development",
+      "tech": ["Android", "Java", "Navigation", "Maps"],
+      "image": "/projects/graphhopper.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/graphhopper-navigation-android",
+        "package": "https://github.com/salemaljebaly/graphhopper-navigation-android/packages/1724001"
+      },
+      "impact": "Improved Android navigation capabilities",
+      "problem": "Issues in existing navigation library",
+      "solution": "Fixed bugs and published improved package"
+    }
+  ]
+}

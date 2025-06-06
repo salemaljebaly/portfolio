@@ -24,22 +24,94 @@
     "location": "ليبيا"
   },
   "projects": {
-      "title": "...",
-      "description": "...",
-      "more": "more",
-      "sourceCode": "Source Code",
-      "liveDemo": "Live Demo",
-      "showLess": "Show Less",
-      "learnMore": "Learn More",
-      "overview": "Overview",
-      "problem": "Problem",
-      "solution": "Solution",
-      "impact": "Impact & Results",
-      "techStack": "Full Tech Stack",
-      "openSource": {
-        "title": "Open Source Contributions",
-        "description": "Check out my latest open source work and contributions on GitHub",
-        "viewProfile": "View GitHub Profile"
+    "title": "معرض المشاريع",
+    "description": "عرض الحلول المبتكرة في DevOps والبنية السحابية والأتمتة التي قدمت قيمة حقيقية للأعمال.",
+    "more": "المزيد",
+    "sourceCode": "الكود المصدري",
+    "liveDemo": "عرض حي",
+    "showLess": "عرض أقل",
+    "learnMore": "اعرف المزيد",
+    "overview": "نظرة عامة",
+    "problem": "المشكلة",
+    "solution": "الحل",
+    "impact": "التأثير والنتائج",
+    "techStack": "التقنيات المستخدمة",
+    "openSource": {
+      "title": "المساهمات مفتوحة المصدر",
+      "description": "تفقد أحدث أعمالي ومساهماتي في المشاريع مفتوحة المصدر على GitHub",
+      "viewProfile": "عرض الملف الشخصي على GitHub"
+    }
+  },
+  "about": {
+    "title": "نبذة عني",
+    "description": "من تحسين خطوط الإنتاج إلى تحسين البنية السحابية - رحلتي كانت حول التحسين المستمر والابتكار التقني.",
+    "professionalJourney": "المسيرة المهنية",
+    "technicalExpertise": "الخبرات التقنية",
+    "myPhilosophy": {
+      "title": "فلسفتي",
+      "quote": "DevOps ليست مجرد أدوات وأتمتة - إنها تتعلق بخلق ثقافة التحسين المستمر والتعاون وتقديم قيمة للمستخدمين بشكل أسرع وأكثر موثوقية.",
+      "author": "سالم الجبالي"
+    },
+    "cta": {
+      "title": "تريد معرفة المزيد؟",
+      "description": "قم بتحميل سيرتي الذاتية المفصلة أو تواصل معي لمناقشة كيف يمكنني مساعدة مؤسستك.",
+      "downloadCV": "تحميل السيرة الذاتية",
+      "contactMe": "تواصل معي"
+    }
+  },
+  "certifications": {
+    "title": "الشهادات",
+    "description": "الشهادات والإنجازات المهنية التي تثبت خبرتي في الحوسبة السحابية و DevOps وتطوير البرمجيات.",
+    "stats": {
+      "total": "إجمالي الشهادات"
+    },
+    "verify": "تحقق",
+    "credentialId": "رقم الشهادة",
+    "expires": "تنتهي في",
+    "verifiedCredentials": {
+      "title": "شهادات موثقة",
+      "description": "جميع الشهادات موثقة ويمكن التحقق منها من خلال منصة Credly للشارات الرقمية",
+      "viewBadges": "عرض جميع الشارات على Credly"
+    }
+  },
+  "contact": {
+    "title": "تواصل معي",
+    "description": "دعنا نناقش كيف يمكنني المساعدة في تحويل البنية التحتية التقنية لمؤسستك وتعزيز الابتكار من خلال التميز في DevOps.",
+    "form": {
+      "title": "أرسل رسالة",
+      "name": "الاسم *",
+      "email": "البريد الإلكتروني *",
+      "company": "الشركة",
+      "companyPlaceholder": "اسم شركتك (اختياري)",
+      "inquiryType": "نوع الاستفسار",
+      "inquiryTypes": {
+        "general": "استفسار عام",
+        "consulting": "خدمات استشارية",
+        "collaboration": "تعاون",
+        "other": "أخرى"
+      },
+      "message": "الرسالة *",
+      "messagePlaceholder": "أخبرني عن مشروعك أو استفسارك...",
+      "sending": "جاري الإرسال...",
+      "send": "إرسال الرسالة",
+      "success": "شكراً لرسالتك! سأرد عليك في أقرب وقت ممكن.",
+      "error": "عذراً، حدث خطأ في إرسال رسالتك. يرجى المحاولة مرة أخرى أو التواصل معي مباشرة عبر البريد الإلكتروني."
+    },
+    "info": {
+      "title": "معلومات التواصل",
+      "email": "البريد الإلكتروني",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "additional": {
+        "title": "معلومات إضافية",
+        "location": "مقيم في ليبيا",
+        "availability": "متاح للعمل عن بعد عالمياً"
+      },
+      "schedule": {
+        "title": "جدولة اجتماع",
+        "description": "تفضل تحديد موعد للمكالمة؟ تكامل التقويم قادم قريباً!",
+        "note": "حالياً، يرجى ذكر الوقت المفضل للاجتماع في رسالتك."
       }
     }
+  }
 }
