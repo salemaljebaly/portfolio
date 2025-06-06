@@ -36,7 +36,7 @@ ${pages
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
     <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
-  </url>`
+  </url>`,
   )
   .join("")}
 </urlset>`;

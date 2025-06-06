@@ -3,7 +3,13 @@
 import { Locale } from "@/i18n";
 import { createContext, useContext } from "react";
 
-type TranslationValue = string | number | boolean | null | undefined | { [key: string]: TranslationValue };
+type TranslationValue =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | { [key: string]: TranslationValue };
 type Translations = Record<string, TranslationValue>;
 
 interface TranslationContextType {
@@ -27,8 +33,8 @@ export function TranslationProvider({
   translations,
 }: TranslationProviderProps) {
   const t = (key: string): string => {
-    const value = key.split('.').reduce<TranslationValue>((obj, k) => {
-      if (obj && typeof obj === 'object' && k in obj) {
+    const value = key.split(".").reduce<TranslationValue>((obj, k) => {
+      if (obj && typeof obj === "object" && k in obj) {
         return obj[k];
       }
       return undefined;
@@ -37,7 +43,9 @@ export function TranslationProvider({
   };
 
   return (
-    <TranslationsContext.Provider value={{ locale, translations, isRtl: locale === "ar", t }}>
+    <TranslationsContext.Provider
+      value={{ locale, translations, isRtl: locale === "ar", t }}
+    >
       {children}
     </TranslationsContext.Provider>
   );
@@ -46,7 +54,9 @@ export function TranslationProvider({
 export function useTranslations() {
   const context = useContext(TranslationsContext);
   if (!context) {
-    throw new Error("useTranslations must be used within a TranslationProvider");
+    throw new Error(
+      "useTranslations must be used within a TranslationProvider",
+    );
   }
   return context;
 }

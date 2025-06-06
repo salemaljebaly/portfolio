@@ -61,7 +61,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData({
       ...formData,
@@ -153,7 +153,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         onChange={handleChange}
                         className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground text-foreground"
                         placeholder={String(
-                          t("contact.form.companyPlaceholder")
+                          t("contact.form.companyPlaceholder"),
                         )}
                       />
                     </div>

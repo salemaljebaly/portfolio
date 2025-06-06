@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
 
   // Check if the pathname starts with /en or /ar
   const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
   // If pathname has locale, allow the request to continue

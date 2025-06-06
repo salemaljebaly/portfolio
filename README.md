@@ -24,7 +24,7 @@ npx magicui-cli@latest add particles typing-animation number-ticker magic-card a
 
 - Add Salem's CV as `public/SalemAljebalyCV.pdf`
 - Add certification images in `public/certifications/`
- - Copy `.env.example` to `.env.local` and update the values
+- Copy `.env.example` to `.env.local` and update the values
 
 4. **Run development:**
 
