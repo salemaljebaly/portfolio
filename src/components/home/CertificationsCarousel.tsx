@@ -4,54 +4,27 @@ import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
 // Import MagicUI components after installation
 // import { Marquee } from "@/components/magicui/marquee";
+import { loadCertifications } from "@/utils/loadData";
+import { useParams } from "next/navigation";
 
 interface Certification {
+  id: number;
   name: string;
   issuer: string;
   logo: string;
   date: string;
-  credlyUrl?: string;
+  credlyUrl: string;
+  category: string;
+  credentialId: string;
+  skills: string[];
+  description: string;
+  expiryDate?: string;
 }
 
-const certifications: Certification[] = [
-  {
-    name: "AWS Certified Solutions Architect - Associate",
-    issuer: "Amazon Web Services",
-    logo: "/aws-sa-associate.png",
-    date: "2023",
-    credlyUrl: "https://www.credly.com/badges/",
-  },
-  {
-    name: "AWS Certified DevOps Engineer - Professional",
-    issuer: "Amazon Web Services",
-    logo: "/aws-devops-pro.png",
-    date: "2023",
-    credlyUrl: "https://www.credly.com/badges/",
-  },
-  {
-    name: "AWS Certified SysOps Administrator",
-    issuer: "Amazon Web Services",
-    logo: "/aws-sysops.png",
-    date: "2022",
-    credlyUrl: "https://www.credly.com/badges/",
-  },
-  {
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    logo: "/aws-cloud-practitioner.png",
-    date: "2022",
-    credlyUrl: "https://www.credly.com/badges/",
-  },
-  {
-    name: "GitHub Actions",
-    issuer: "GitHub",
-    logo: "/github-actions.png",
-    date: "2023",
-    credlyUrl: "https://www.credly.com/badges/",
-  },
-];
-
 export default function CertificationsCarousel() {
+  const params = useParams();
+  const locale = (params?.locale as string) || "en";
+  const certifications: Certification[] = loadCertifications(locale);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -106,18 +79,21 @@ export default function CertificationsCarousel() {
                     <p className="text-muted-foreground mb-2">{cert.issuer}</p>
                     <p className="text-sm text-muted-foreground mb-4">
                       Achieved: {cert.date}
+                      {cert.expiryDate && ` • Expires: ${cert.expiryDate}`}
                     </p>
 
                     {cert.credlyUrl && (
-                      <a
-                        href={cert.credlyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-primary hover:underline text-sm"
-                      >
-                        Verify on Credly
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
+                      <div className="space-y-2">
+                        <a
+                          href={cert.credlyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-primary hover:underline text-sm"
+                        >
+                          Verify Certificate
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
                     )}
                   </div>
                 </div>
