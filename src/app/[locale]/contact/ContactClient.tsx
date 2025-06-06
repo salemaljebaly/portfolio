@@ -112,7 +112,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground text-foreground"
                         placeholder={String(t("contact.form.name"))}
                       />
                     </div>
@@ -131,7 +131,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground text-foreground"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -151,7 +151,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground"
+                        className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors placeholder:text-muted-foreground text-foreground"
                         placeholder={String(
                           t("contact.form.companyPlaceholder")
                         )}
@@ -202,7 +202,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none placeholder:text-muted-foreground"
+                      className="w-full px-4 py-2 rounded-lg border bg-background hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none placeholder:text-muted-foreground text-foreground"
                       placeholder={String(t("contact.form.messagePlaceholder"))}
                     />
                   </div>
@@ -257,7 +257,9 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     {String(t("contact.info.title"))}
                   </h2>
 
-                  <div className={`space-y-4 ${isRTL ? "[direction:rtl]" : ""}`}>
+                  <div
+                    className={`space-y-4 ${isRTL ? "[direction:rtl]" : ""}`}
+                  >
                     <a
                       href="mailto:contact@docker.com.ly"
                       className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors group"
