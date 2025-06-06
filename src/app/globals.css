@@ -168,7 +168,12 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply text-foreground;
   }
 }
@@ -206,7 +211,7 @@
   .flex {
     flex-direction: row-reverse;
   }
-  
+
   .space-x-1,
   .space-x-2,
   .space-x-3,

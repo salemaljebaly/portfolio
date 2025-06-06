@@ -61,7 +61,7 @@ export function generateWebsiteSchema() {
 }
 
 export function generateBreadcrumbSchema(
-  items: Array<{ name: string; url: string }>
+  items: Array<{ name: string; url: string }>,
 ) {
   return {
     "@context": "https://schema.org",

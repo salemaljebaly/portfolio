@@ -180,7 +180,7 @@ export default function ProjectsClient({
                       <button
                         onClick={() =>
                           setExpandedProject(
-                            expandedProject === project.id ? null : project.id
+                            expandedProject === project.id ? null : project.id,
                           )
                         }
                         className={`${

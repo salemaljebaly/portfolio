@@ -6,21 +6,27 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    
+
     // Basic request validation
     if (!data.name || !data.email || !data.message || !data.inquiryType) {
       return NextResponse.json(
-        { 
+        {
           success: false,
           message: "Please fill in all required fields",
           validationErrors: [
             {
-              field: !data.name ? "name" : !data.email ? "email" : !data.message ? "message" : "inquiryType",
-              message: "This field is required"
-            }
-          ]
+              field: !data.name
+                ? "name"
+                : !data.email
+                  ? "email"
+                  : !data.message
+                    ? "message"
+                    : "inquiryType",
+              message: "This field is required",
+            },
+          ],
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -28,31 +34,32 @@ export async function POST(request: Request) {
 
     if (result.success) {
       return NextResponse.json(
-        { 
+        {
           success: true,
-          message: result.message 
-        }, 
-        { status: 200 }
+          message: result.message,
+        },
+        { status: 200 },
       );
     } else {
       // Return validation errors if present
       return NextResponse.json(
-        { 
+        {
           success: false,
           message: result.message,
-          validationErrors: 'validationErrors' in result ? result.validationErrors : undefined
-        }, 
-        { status: 400 }
+          validationErrors:
+            "validationErrors" in result ? result.validationErrors : undefined,
+        },
+        { status: 400 },
       );
     }
   } catch (error) {
     console.error("Failed to submit contact form:", error);
     return NextResponse.json(
-      { 
+      {
         success: false,
-        message: "An unexpected error occurred. Please try again later." 
+        message: "An unexpected error occurred. Please try again later.",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
