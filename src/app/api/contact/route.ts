@@ -6,17 +6,43 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const data = await request.json();
+    
+    if (!data.name || !data.email || !data.message || !data.inquiryType) {
+      return NextResponse.json(
+        { 
+          success: false,
+          message: "Please fill in all required fields" 
+        },
+        { status: 400 }
+      );
+    }
+
     const result = await submitContactForm(data);
 
     if (result.success) {
-      return NextResponse.json({ message: result.message }, { status: 200 });
+      return NextResponse.json(
+        { 
+          success: true,
+          message: result.message 
+        }, 
+        { status: 200 }
+      );
     } else {
-      return NextResponse.json({ message: result.message }, { status: 400 });
+      return NextResponse.json(
+        { 
+          success: false,
+          message: result.message 
+        }, 
+        { status: 400 }
+      );
     }
   } catch (error) {
     console.error("Failed to submit contact form:", error);
     return NextResponse.json(
-      { message: "Failed to send message" },
+      { 
+        success: false,
+        message: "An unexpected error occurred. Please try again later." 
+      },
       { status: 500 }
     );
   }
