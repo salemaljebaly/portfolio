@@ -3,98 +3,73 @@
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { useTranslations } from "@/components/TranslationProvider";
-import {
-  Briefcase,
-  Download,
-  GraduationCap,
-  Rocket,
-  Users,
-} from "lucide-react";
+import { loadTimeline } from "@/utils/loadData";
+import { Briefcase, Code, Download, Rocket } from "lucide-react";
 import Link from "next/link";
 
 interface AboutClientProps {
   locale: string;
 }
 
-const timeline = [
-  {
-    year: "2023",
-    title: "DevOps Engineer",
-    company: "Freelance",
-    description:
-      "Leading DevOps transformations and implementing cloud-native solutions for various clients.",
-    icon: <Rocket className="w-6 h-6" />,
-  },
-  {
-    year: "2021-2023",
-    title: "Full Stack Developer",
-    company: "Various Projects",
-    description:
-      "Developed and deployed full-stack applications using modern technologies.",
-    icon: <Briefcase className="w-6 h-6" />,
-  },
-  {
-    year: "2020",
-    title: "Bachelor's in Computer Science",
-    company: "University",
-    description:
-      "Graduated with honors, focusing on software engineering and cloud computing.",
-    icon: <GraduationCap className="w-6 h-6" />,
-  },
-  {
-    year: "2019",
-    title: "First Tech Role",
-    company: "Tech Startup",
-    description:
-      "Started career in technology, working on web development projects.",
-    icon: <Users className="w-6 h-6" />,
-  },
-];
-
 const skills = [
-  {
-    category: "Cloud & DevOps",
-    items: [
-      "AWS",
-      "Azure",
-      "Docker",
-      "Kubernetes",
-      "Terraform",
-      "CI/CD",
-      "Jenkins",
-      "GitLab",
-    ],
-  },
-  {
-    category: "Backend Development",
-    items: [
-      "Node.js",
-      "Python",
-      "Java",
-      "Go",
-      "REST APIs",
-      "GraphQL",
-      "MongoDB",
-      "PostgreSQL",
-    ],
-  },
   {
     category: "Frontend Development",
     items: [
       "React",
       "Next.js",
       "TypeScript",
+      "JavaScript",
       "Tailwind CSS",
       "Material-UI",
-      "Redux",
-      "Testing",
+      "Flutter",
+      "Dart",
+    ],
+  },
+  {
+    category: "Backend Development",
+    items: [
+      "Node.js",
+      "Express",
+      "NestJS",
+      "REST APIs",
+      "GraphQL",
+      "MongoDB",
+      "PostgreSQL",
+      "MySQL",
+    ],
+  },
+  {
+    category: "Tools & Technologies",
+    items: [
+      "Git",
+      "GitHub",
+      "Docker",
+      "CI/CD",
+      "Android",
+      "Java",
+      "Figma",
+      "Plugin Development",
     ],
   },
 ];
 
+const getTimelineIcon = (type: string) => {
+  switch (type) {
+    case "Full-time":
+      return <Briefcase className="w-6 h-6" />;
+    case "Contract":
+      return <Code className="w-6 h-6" />;
+    case "Project-based":
+      return <Rocket className="w-6 h-6" />;
+    default:
+      return <Briefcase className="w-6 h-6" />;
+  }
+};
+
 export default function AboutClient({ locale }: AboutClientProps) {
   const { t } = useTranslations();
   const isRTL = locale === "ar";
+  const timeline = loadTimeline(locale);
 
   return (
     <div className="min-h-screen bg-background">
@@ -142,7 +117,9 @@ export default function AboutClient({ locale }: AboutClientProps) {
                     >
                       {/* Icon */}
                       <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-background border-2 border-primary shadow-lg group-hover:shadow-xl transition-shadow">
-                        <div className="text-primary">{item.icon}</div>
+                        <div className="text-primary">
+                          {getTimelineIcon(item.type)}
+                        </div>
                       </div>
 
                       {/* Content */}
@@ -150,7 +127,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
                         <div className="bg-card p-6 rounded-lg border shadow-sm group-hover:shadow-md transition-shadow">
                           <div className="flex flex-wrap items-center gap-2 mb-2">
                             <span className="text-sm font-medium text-primary">
-                              {item.year}
+                              {item.period}
                             </span>
                             {item.company && (
                               <>
@@ -160,13 +137,45 @@ export default function AboutClient({ locale }: AboutClientProps) {
                                 </span>
                               </>
                             )}
+                            {item.location && (
+                              <>
+                                <span className="text-muted-foreground">•</span>
+                                <span className="text-sm text-muted-foreground">
+                                  {item.location}
+                                </span>
+                              </>
+                            )}
                           </div>
                           <h3 className="text-xl font-semibold mb-2 text-foreground">
                             {item.title}
                           </h3>
-                          <p className="text-muted-foreground">
+                          <p className="text-muted-foreground mb-4">
                             {item.description}
                           </p>
+                          {item.achievements && (
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-semibold text-primary">
+                                Key Achievements
+                              </h4>
+                              <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                                {item.achievements.map((achievement, i) => (
+                                  <li key={i}>{achievement}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {item.skills && (
+                            <div className="mt-4 flex flex-wrap gap-2">
+                              {item.skills.map((skill, i) => (
+                                <span
+                                  key={i}
+                                  className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-md"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -198,7 +207,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
                     {skillGroup.items.map((skill, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
+                        className="px-2 py-1 text-sm bg-muted rounded-md text-muted-foreground"
                       >
                         {skill}
                       </span>
