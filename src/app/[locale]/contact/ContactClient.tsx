@@ -261,7 +261,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     className={`space-y-4 ${isRTL ? "[direction:rtl]" : ""}`}
                   >
                     <a
-                      href="mailto:contact@docker.com.ly"
+                      href="mailto:salemaljebaly@gmail.com"
                       className="flex items-center gap-4 p-4 rounded-lg border hover:border-primary/50 transition-colors group"
                     >
                       <Mail className="w-5 h-5 text-primary" />
@@ -270,7 +270,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                           {String(t("contact.info.email"))}
                         </div>
                         <div className="text-sm text-muted-foreground">
-                          contact@docker.com.ly
+                          salemaljebaly@gmail.com
                         </div>
                       </div>
                     </a>

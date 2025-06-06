@@ -105,7 +105,7 @@ export default function Footer() {
                   href="mailto:contact@docker.com.ly"
                   className="hover:text-primary transition-colors"
                 >
-                  contact@docker.com.ly
+                  salemaljebaly@gmail.com
                 </a>
               </li>
             </ul>
