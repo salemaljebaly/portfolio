@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/salemaljebaly/portfolio/compare/v1.0.0...v1.0.1) (2025-06-06)
+
+
+### Bug Fixes
+
+* format code ([bf031a4](https://github.com/salemaljebaly/portfolio/commit/bf031a4d6014fd1a117eb8d4ad59e1aa9f1c6ff1))
+* remove unnecessary line breaks in Navigation component for cleaner code ([6fca2d9](https://github.com/salemaljebaly/portfolio/commit/6fca2d9431ec28e83786aee29919731dafcc6701))
+
 ## 1.0.0 (2025-06-06)
 
 
