@@ -129,7 +129,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md hover:bg-accent transition-colors"
+              className="md:hidden p-2 rounded-md hover:bg-accent transition-colors text-foreground"
               aria-label={locale === "ar" ? "قائمة التنقل" : "Navigation menu"}
             >
               {isMobileMenuOpen ? (
