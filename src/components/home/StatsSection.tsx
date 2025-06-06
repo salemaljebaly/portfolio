@@ -14,21 +14,21 @@ interface Stat {
 const stats: Stat[] = [
   {
     icon: <Briefcase className="w-8 h-8" />,
-    value: 10,
+    value: 6,
     suffix: "+",
     label: "Years Experience",
   },
   {
     icon: <Code className="w-8 h-8" />,
-    value: 20,
+    value: 40,
     suffix: "+",
     label: "Projects Delivered",
   },
   {
     icon: <Award className="w-8 h-8" />,
-    value: 5,
+    value: 8,
     suffix: "x",
-    label: "Certified (AWS, GitHub)",
+    label: "Certified (AWS, Google, GitHub)",
   },
 ];
 
