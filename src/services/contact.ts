@@ -1,14 +1,32 @@
 import nodemailer from "nodemailer";
 import { z } from "zod";
 
-// Validation schema
+// Validation schema with custom error messages
 const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters long"
+  }).max(100, {
+    message: "Name must not exceed 100 characters"
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address"
+  }),
   company: z.string().optional(),
-  inquiryType: z.enum(["general", "consulting", "collaboration", "other"]),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  inquiryType: z.enum(["general", "consulting", "collaboration", "other"], {
+    errorMap: () => ({ message: "Please select a valid inquiry type" })
+  }),
+  message: z.string().min(10, {
+    message: "Message must be at least 10 characters long"
+  }).max(5000, {
+    message: "Message must not exceed 5000 characters"
+  }),
 });
+
+// Type for validation errors
+export type ValidationError = {
+  field: string;
+  message: string;
+};
 
 // Create email transporter with more secure settings
 const createTransporter = async () => {
@@ -80,17 +98,22 @@ export async function submitContactForm(data: {
 
     return {
       success: true,
-      message:
-        "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+      message: "Thank you! Your message has been sent successfully. We'll get back to you soon.",
     };
   } catch (error) {
     console.error("Error in submitContactForm:", error);
     
-    // Handle specific error types
+    // Handle Zod validation errors
     if (error instanceof z.ZodError) {
+      const validationErrors: ValidationError[] = error.issues.map(issue => ({
+        field: issue.path[0].toString(),
+        message: issue.message
+      }));
+
       return {
         success: false,
-        message: "Invalid form data. Please check your inputs and try again.",
+        message: "Please correct the following errors:",
+        validationErrors
       };
     }
     

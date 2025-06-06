@@ -7,11 +7,18 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
     
+    // Basic request validation
     if (!data.name || !data.email || !data.message || !data.inquiryType) {
       return NextResponse.json(
         { 
           success: false,
-          message: "Please fill in all required fields" 
+          message: "Please fill in all required fields",
+          validationErrors: [
+            {
+              field: !data.name ? "name" : !data.email ? "email" : !data.message ? "message" : "inquiryType",
+              message: "This field is required"
+            }
+          ]
         },
         { status: 400 }
       );
@@ -28,10 +35,12 @@ export async function POST(request: Request) {
         { status: 200 }
       );
     } else {
+      // Return validation errors if present
       return NextResponse.json(
         { 
           success: false,
-          message: result.message 
+          message: result.message,
+          validationErrors: 'validationErrors' in result ? result.validationErrors : undefined
         }, 
         { status: 400 }
       );
