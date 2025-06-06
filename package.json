@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@fontsource/zain": "^5.2.5",
