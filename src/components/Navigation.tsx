@@ -63,7 +63,7 @@ export default function Navigation() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-background/80 backdrop-blur-md shadow-md"
-          : "bg-transparent",
+          : "bg-transparent"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function Navigation() {
                   "text-md font-medium transition-colors hover:text-primary",
                   pathname === getLocalizedPath(link.href)
                     ? "text-primary"
-                    : "text-muted-foreground",
+                    : "text-muted-foreground"
                 )}
               >
                 {String(t(link.labelKey))}
@@ -129,7 +129,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md hover:bg-accent transition-colors"
+              className="md:hidden p-2 rounded-md hover:bg-accent transition-colors text-foreground"
               aria-label={locale === "ar" ? "قائمة التنقل" : "Navigation menu"}
             >
               {isMobileMenuOpen ? (
@@ -154,7 +154,7 @@ export default function Navigation() {
                     "text-sm font-medium px-4 py-2 rounded-md transition-colors hover:bg-accent",
                     pathname === getLocalizedPath(link.href)
                       ? "bg-accent text-primary"
-                      : "text-muted-foreground",
+                      : "text-muted-foreground"
                   )}
                 >
                   {String(t(link.labelKey))}
