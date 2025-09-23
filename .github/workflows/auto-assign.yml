@@ -46,4 +46,3 @@ jobs:
               assignees: [assignee],
             });
             core.info('Assigned PR #' + pr.number + ' to ' + assignee);
-
