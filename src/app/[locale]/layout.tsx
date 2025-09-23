@@ -18,13 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: Promise<{ locale: Promise<string> }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const params = await props.params;
-
   const { children } = props;
 
-  const locale = await params.locale;
+  const { locale } = await props.params;
 
   if (!isValidLocale(locale)) {
     return null;
