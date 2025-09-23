@@ -18,6 +18,7 @@ const navLinks: NavLink[] = [
   { href: "/projects", labelKey: "nav.projects" },
   { href: "/certifications", labelKey: "nav.certifications" },
   { href: "/contact", labelKey: "nav.contact" },
+  { href: "/book", labelKey: "nav.book" },
 ];
 
 export default function Navigation() {

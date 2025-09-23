@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import { useTranslations } from "@/components/TranslationProvider";
 import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 interface ContactClientProps {
   locale: string;
@@ -343,26 +344,12 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     {String(t("contact.info.schedule.note"))}
                   </div>
 
-                  {/* Cal.com inline embed (uses public env var) */}
-                  {process.env.NEXT_PUBLIC_CAL_LINK ? (
-                    <div className="rounded-lg overflow-hidden border bg-background">
-                      <iframe
-                        src={`${process.env.NEXT_PUBLIC_CAL_LINK}?hide_event_type_details=1&embed_source=portfolio`}
-                        className="w-full h-[660px] bg-background"
-                        loading="lazy"
-                        title="Schedule a meeting"
-                      />
-                    </div>
-                  ) : (
-                    <a
-                      href={`https://cal.com/${process.env.NEXT_PUBLIC_CAL_USERNAME ?? ""}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                    >
-                      Schedule a meeting on Cal.com
-                    </a>
-                  )}
+                  <Link
+                    href="/book"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  >
+                    Book a Call
+                  </Link>
                 </div>
               </div>
             </div>
