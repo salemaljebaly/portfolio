@@ -116,6 +116,86 @@
       "problem": "Issues in existing navigation library",
       "solution": "Fixed bugs and published improved package",
       "featured": false
+    },
+    {
+      "id": 8,
+      "title": "mac-dev-setup",
+      "description": "Automated macOS developer machine setup with Homebrew and scripts",
+      "longDescription": "A streamlined setup for macOS development machines using Homebrew and shell scripts to install common tools, apps, and dotfiles for a consistent developer environment.",
+      "category": "DevOps",
+      "tech": ["macOS", "Bash", "Homebrew"],
+      "image": "/projects/mac-dev-setup.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/mac-dev-setup"
+      },
+      "impact": "Speeds up onboarding and ensures consistent local environments",
+      "problem": "Manual machine setup is slow and inconsistent",
+      "solution": "Automate installation of packages, apps, and developer tooling",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "bulk-image-importer",
+      "description": "CLI utility to import and process images in bulk",
+      "longDescription": "Command-line tool for batch importing images with basic processing steps and automation-friendly defaults, useful for catalogs and content pipelines.",
+      "category": "Developer Tools",
+      "tech": ["Node.js", "CLI", "Images"],
+      "image": "/projects/bulk-image-importer.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/bulk-image-importer"
+      },
+      "impact": "Reduces manual work for large image batches",
+      "problem": "Bulk image preparation/import is repetitive",
+      "solution": "Provide a scriptable CLI for batch operations",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "pdf2csv",
+      "description": "Convert PDF documents to CSV for analysis",
+      "longDescription": "A utility that extracts tabular data from PDFs and exports clean CSV files for downstream analysis, reporting, or ingestion.",
+      "category": "Utilities",
+      "tech": ["Node.js", "PDF", "CSV"],
+      "image": "/projects/pdf2csv.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/pdf2csv"
+      },
+      "impact": "Unlocks data trapped in PDFs for easier processing",
+      "problem": "Tabular data in PDFs is hard to reuse",
+      "solution": "Automate extraction and export to CSV",
+      "featured": false
+    },
+    {
+      "id": 11,
+      "title": "mstore-api-optimizer",
+      "description": "API response optimization and tooling for MStore workflows",
+      "longDescription": "Tools and scripts to optimize API responses and performance in MStore-related integrations, improving perceived speed and reliability.",
+      "category": "Performance",
+      "tech": ["Node.js", "API", "Performance"],
+      "image": "/projects/mstore-api-optimizer.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/mstore-api-optimizer"
+      },
+      "impact": "Improves API efficiency and response times",
+      "problem": "Inefficient API payloads affect UX",
+      "solution": "Provide optimizations and scripts for leaner responses",
+      "featured": false
+    },
+    {
+      "id": 12,
+      "title": "EnvSeeder",
+      "description": "Seed and manage environment variables for projects",
+      "longDescription": "A helper utility to seed, validate, and manage environment variables across local and CI environments, reducing misconfiguration and setup time.",
+      "category": "DevOps",
+      "tech": ["Node.js", "CLI", "Environment"],
+      "image": "/projects/envseeder.png",
+      "links": {
+        "github": "https://github.com/salemaljebaly/EnvSeeder"
+      },
+      "impact": "Prevents configuration drift and speeds up onboarding",
+      "problem": "Environment setup is error-prone and manual",
+      "solution": "Automate seeding and validation of env vars",
+      "featured": false
     }
   ]
 }
