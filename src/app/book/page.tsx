@@ -26,7 +26,7 @@ export default function BookPage() {
         </section>
 
         <section className="py-12">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             {calLink ? (
               <div className="rounded-lg overflow-hidden border bg-background">
                 <iframe
