@@ -24,7 +24,9 @@ export default function Footer() {
               {String(t("common.name"))}
             </h3>
             <p className="text-muted-foreground mb-4">
-              CTO & DevOps Architect specializing in transforming businesses through automation, cloud infrastructure, and technical leadership.
+              CTO & DevOps Architect specializing in transforming businesses
+              through automation, cloud infrastructure, and technical
+              leadership.
             </p>
             <div className="flex justify-center gap-4">
               <a
