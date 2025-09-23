@@ -36,16 +36,10 @@ export default function Navigation() {
   }, []);
 
   const getLocalizedPath = (path: string) => {
-    // Remove current locale prefix if present
-    // const pathWithoutLocale = pathname
-    //   .split("/")
-    //   .filter((segment, index) => index === 0 || segment !== locale)
-    //   .join("/");
-
-    // Get the path without the locale prefix
     const basePath = path === "/" ? "" : path;
-
-    return `/${locale}${basePath}`;
+    // For default English, no locale prefix; for Arabic, prefix with /ar
+    if (locale === "en") return path;
+    return `/ar${basePath}`;
   };
 
   // Commented out for now - can be re-enabled when Arabic translation is ready

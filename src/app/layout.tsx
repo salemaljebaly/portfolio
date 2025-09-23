@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { TranslationProvider } from "@/components/TranslationProvider";
+import { getTranslations, type Locale } from "@/i18n";
 import { Zain } from "next/font/google";
 import "./globals.css";
 
@@ -51,15 +53,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale: Locale = "en";
+  const translations = await getTranslations(locale);
+
   return (
     <html lang="en" className={zain.variable} suppressHydrationWarning>
       <body className="font-zain antialiased" suppressHydrationWarning>
-        {children}
+        <TranslationProvider locale={locale} translations={translations}>
+          {children}
+        </TranslationProvider>
       </body>
     </html>
   );
