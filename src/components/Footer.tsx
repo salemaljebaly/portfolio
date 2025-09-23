@@ -6,6 +6,11 @@ import { useTranslations } from "./TranslationProvider";
 
 export default function Footer() {
   const { t, locale } = useTranslations();
+  const getLocalizedPath = (path: string) => {
+    const basePath = path === "/" ? "" : path;
+    if (locale === "en") return path;
+    return `/ar${basePath}`;
+  };
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,9 +24,7 @@ export default function Footer() {
               {String(t("common.name"))}
             </h3>
             <p className="text-muted-foreground mb-4">
-              {locale === "ar"
-                ? "مدير تقني وخبير DevOps متخصص في تحويل الأعمال من خلال الأتمتة والبنية التحتية السحابية والقيادة التقنية."
-                : "CTO & DevOps Architect specializing in transforming businesses through automation, cloud infrastructure, and technical leadership."}
+              CTO & DevOps Architect specializing in transforming businesses through automation, cloud infrastructure, and technical leadership.
             </p>
             <div className="flex justify-center gap-4">
               <a
@@ -60,7 +63,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href={`/${locale}/about`}
+                  href={getLocalizedPath("/about")}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {String(t("nav.about"))}
@@ -68,7 +71,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href={`/${locale}/projects`}
+                  href={getLocalizedPath("/projects")}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {String(t("nav.projects"))}
@@ -76,7 +79,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href={`/${locale}/certifications`}
+                  href={getLocalizedPath("/certifications")}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {String(t("nav.certifications"))}
@@ -84,7 +87,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={getLocalizedPath("/contact")}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {String(t("nav.contact"))}

@@ -112,9 +112,7 @@ export default function Navigation() {
               href="/SalemAljebalyCV.pdf"
               download
               className="hidden sm:flex items-center gap-2 text-sm font-medium px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-              aria-label={
-                locale === "ar" ? "تحميل السيرة الذاتية" : "Download CV"
-              }
+              aria-label={"Download CV"}
             >
               <Download className="w-4 h-4" />
               {String(t("common.downloadCV"))}
@@ -124,7 +122,7 @@ export default function Navigation() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-md hover:bg-accent transition-colors text-foreground"
-              aria-label={locale === "ar" ? "قائمة التنقل" : "Navigation menu"}
+              aria-label={"Navigation menu"}
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5" />

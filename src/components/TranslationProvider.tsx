@@ -44,7 +44,7 @@ export function TranslationProvider({
 
   return (
     <TranslationsContext.Provider
-      value={{ locale, translations, isRtl: locale === "ar", t }}
+      value={{ locale, translations, isRtl: false, t }}
     >
       {children}
     </TranslationsContext.Provider>
