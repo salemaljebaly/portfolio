@@ -15,9 +15,7 @@ const contactSchema = z.object({
     message: "Please enter a valid email address",
   }),
   company: z.string().optional(),
-  inquiryType: z.enum(["general", "consulting", "collaboration", "other"], {
-    errorMap: () => ({ message: "Please select a valid inquiry type" }),
-  }),
+  inquiryType: z.enum(["general", "consulting", "collaboration", "other"]),
   message: z
     .string()
     .min(10, {
