@@ -164,11 +164,14 @@ test.describe("Book a Call", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: "Schedule a Meeting" }),
     ).toBeVisible();
+
+    const bookingIframe = page.locator("iframe");
+    await expect(bookingIframe).toBeVisible();
+    const bookingFrame = page.frameLocator("iframe");
+    await page.waitForLoadState("networkidle");
     await expect(
-      page
-        .frameLocator("iframe")
-        .getByRole("heading", { name: "30 Min Meeting" }),
-    ).toBeVisible();
+      bookingFrame.getByRole("heading", { name: "30 Min Meeting" }),
+    ).toBeVisible({ timeout: 15000 });
   });
 });
 
