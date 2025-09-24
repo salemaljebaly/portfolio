@@ -20,9 +20,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(newUrl);
   }
 
-  // Allow Arabic prefixed routes (/ar) to pass through
+  // Temporarily disable Arabic: redirect /ar/* to non-prefixed path
   if (pathname === "/ar" || pathname.startsWith("/ar/")) {
-    return;
+    const newPath = pathname.replace(/^\/ar(\/|$)/, "/");
+    const newUrl = new URL(newPath, request.url);
+    return NextResponse.redirect(newUrl);
   }
 
   // All other paths are default English without prefix; allow

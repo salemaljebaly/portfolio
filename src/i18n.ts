@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
-export const locales = ["en", "ar"] as const;
+// Temporarily support English only
+export const locales = ["en"] as const;
 export type Locale = (typeof locales)[number];
 
 // We can use this function to assert that a locale is valid

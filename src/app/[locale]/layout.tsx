@@ -1,12 +1,18 @@
 import { TranslationProvider } from "@/components/TranslationProvider";
 import { Locale, getTranslations, isValidLocale } from "@/i18n";
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Zain } from "next/font/google";
 import "../globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+const zain = Zain({
+  subsets: ["latin", "arabic"],
+  variable: "--font-zain",
+  display: "swap",
+  weight: ["300", "400", "700", "800", "900"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,12 +35,14 @@ export default async function RootLayout(props: {
   }
 
   const translations = await getTranslations(locale as Locale);
-  const isRTL = locale === "ar";
+  // Arabic temporarily disabled; force LTR
+  const isRTL = false;
 
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${isRTL ? "rtl" : "ltr"}`}
+      dir={isRTL ? "rtl" : "ltr"}
+      className={`${isRTL ? zain.variable : inter.variable} ${isRTL ? "rtl" : "ltr"}`}
       suppressHydrationWarning
     >
       <head>
