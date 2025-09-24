@@ -1,36 +1,32 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-const locales = ["en", "ar"];
-
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-
-  // Check if the pathname starts with /en or /ar
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
-  );
-
-  // If pathname has locale, allow the request to continue
-  if (pathnameHasLocale) return;
 
   // Skip API routes and static files
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
-    pathname.includes(".") // Files with extensions
+    pathname.includes(".")
   ) {
     return;
   }
 
-  // For root path, let the page.tsx handle the redirect
-  if (pathname === "/") {
+  // Redirect any /en or /en/* to the non-prefixed path
+  if (pathname === "/en" || pathname.startsWith("/en/")) {
+    const newPath = pathname.replace(/^\/en(\/|$)/, "/");
+    const newUrl = new URL(newPath, request.url);
+    return NextResponse.redirect(newUrl);
+  }
+
+  // Allow Arabic prefixed routes (/ar) to pass through
+  if (pathname === "/ar" || pathname.startsWith("/ar/")) {
     return;
   }
 
-  // For all other paths without locale, redirect to /en version
-  const newUrl = new URL(`/en${pathname}`, request.url);
-  return NextResponse.redirect(newUrl);
+  // All other paths are default English without prefix; allow
+  return;
 }
 
 export const config = {
