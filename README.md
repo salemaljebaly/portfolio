@@ -32,6 +32,23 @@ npx magicui-cli@latest add particles typing-animation number-ticker magic-card a
 npm run dev
 ```
 
+## End-to-End Tests
+
+Playwright smoke tests cover core desktop and mobile flows.
+
+```bash
+# install Playwright browsers once
+npm run playwright:install
+
+# run the suite (Playwright starts/stops the Next.js server automatically)
+npm run test:e2e
+
+# watch the tests interactively
+npx playwright test --headed --debug
+# or
+PWDEBUG=1 npx playwright test --headed --project=chromium
+```
+
 ## Key Features
 
 - ✅ Bilingual (English/Arabic) with RTL support
