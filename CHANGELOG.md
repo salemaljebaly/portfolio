@@ -2,22 +2,20 @@
 
 ## [1.1.0](https://github.com/salemaljebaly/portfolio/compare/v1.0.1...v1.1.0) (2025-09-24)
 
-
 ### Features
 
-* **contact/book:** move Cal scheduler to dedicated /book page and add nav link; remove embed from Contact ([8d617e7](https://github.com/salemaljebaly/portfolio/commit/8d617e735186df7db54ca79d135b2fb88c709ea7))
-* **contact:** add Cal.com scheduling (inline iframe or link) and allow cal.com in CSP; add env examples ([692b0c1](https://github.com/salemaljebaly/portfolio/commit/692b0c18e04a06ad2c7a4d39a59f1c2bb32705fe))
-* **i18n:** default English at root; Arabic under /ar; remove /en prefix and add root pages ([480e947](https://github.com/salemaljebaly/portfolio/commit/480e947bff16ead5b502fd8bd7f06b12bee8b607))
-* **i18n:** temporarily disable Arabic; enforce EN-only, redirect /ar/* to root, simplify UI conditionals ([f5ba1cf](https://github.com/salemaljebaly/portfolio/commit/f5ba1cf7ecb2af7d2b54a7e0ab517da908796dc4))
-* **projects:** add mac-dev-setup, bulk-image-importer, pdf2csv, mstore-api-optimizer, EnvSeeder to projects page ([c4c3b2a](https://github.com/salemaljebaly/portfolio/commit/c4c3b2a04c8d58fdda2a1af0ee864cb155ee0115))
-* **projects:** sort priority projects first and normalize categories (merge similar) ([69f72dc](https://github.com/salemaljebaly/portfolio/commit/69f72dccd7b6186996e8a2ffd5270bfb07290feb))
-
+- **contact/book:** move Cal scheduler to dedicated /book page and add nav link; remove embed from Contact ([8d617e7](https://github.com/salemaljebaly/portfolio/commit/8d617e735186df7db54ca79d135b2fb88c709ea7))
+- **contact:** add Cal.com scheduling (inline iframe or link) and allow cal.com in CSP; add env examples ([692b0c1](https://github.com/salemaljebaly/portfolio/commit/692b0c18e04a06ad2c7a4d39a59f1c2bb32705fe))
+- **i18n:** default English at root; Arabic under /ar; remove /en prefix and add root pages ([480e947](https://github.com/salemaljebaly/portfolio/commit/480e947bff16ead5b502fd8bd7f06b12bee8b607))
+- **i18n:** temporarily disable Arabic; enforce EN-only, redirect /ar/\* to root, simplify UI conditionals ([f5ba1cf](https://github.com/salemaljebaly/portfolio/commit/f5ba1cf7ecb2af7d2b54a7e0ab517da908796dc4))
+- **projects:** add mac-dev-setup, bulk-image-importer, pdf2csv, mstore-api-optimizer, EnvSeeder to projects page ([c4c3b2a](https://github.com/salemaljebaly/portfolio/commit/c4c3b2a04c8d58fdda2a1af0ee864cb155ee0115))
+- **projects:** sort priority projects first and normalize categories (merge similar) ([69f72dc](https://github.com/salemaljebaly/portfolio/commit/69f72dccd7b6186996e8a2ffd5270bfb07290feb))
 
 ### Bug Fixes
 
-* **framer-motion:** use spring literal type to satisfy Transition typing ([da9c632](https://github.com/salemaljebaly/portfolio/commit/da9c632d67057bb05af102f8a30989f8e9c3087e))
-* **next@15.5:** align [locale] layout params with Next async params typing ([ddc96cf](https://github.com/salemaljebaly/portfolio/commit/ddc96cfda6011854056502fd43753c4e7dab108c))
-* **zod@4:** remove deprecated enum errorMap usage ([ffaa1e6](https://github.com/salemaljebaly/portfolio/commit/ffaa1e68511180e813a4ce5b69b9393ca0f90496))
+- **framer-motion:** use spring literal type to satisfy Transition typing ([da9c632](https://github.com/salemaljebaly/portfolio/commit/da9c632d67057bb05af102f8a30989f8e9c3087e))
+- **next@15.5:** align [locale] layout params with Next async params typing ([ddc96cf](https://github.com/salemaljebaly/portfolio/commit/ddc96cfda6011854056502fd43753c4e7dab108c))
+- **zod@4:** remove deprecated enum errorMap usage ([ffaa1e6](https://github.com/salemaljebaly/portfolio/commit/ffaa1e68511180e813a4ce5b69b9393ca0f90496))
 
 ## [1.0.1](https://github.com/salemaljebaly/portfolio/compare/v1.0.0...v1.0.1) (2025-06-06)
 
