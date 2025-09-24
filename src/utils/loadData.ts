@@ -5,8 +5,21 @@ import projectsEn from "@/data/projects.en.json";
 import timelineAr from "@/data/timeline.ar.json";
 import timelineEn from "@/data/timeline.en.json";
 
+function normalizeCategory(category: string): string {
+  const map: Record<string, string> = {
+    "Development Tools": "Developer Tools",
+    "Developer Tools": "Developer Tools",
+    DevOps: "Developer Tools",
+    Utilities: "Developer Tools",
+    Performance: "Developer Tools",
+    Documentation: "Developer Tools",
+  };
+  return map[category] ?? category;
+}
+
 export function loadProjects(locale: string) {
-  return locale === "ar" ? projectsAr.projects : projectsEn.projects;
+  const data = locale === "ar" ? projectsAr.projects : projectsEn.projects;
+  return data.map((p) => ({ ...p, category: normalizeCategory(p.category) }));
 }
 
 export function loadCertifications(locale: string) {
