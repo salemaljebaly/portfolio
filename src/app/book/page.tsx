@@ -7,8 +7,37 @@ import { useTranslations } from "@/components/TranslationProvider";
 export default function BookPage() {
   const { t } = useTranslations();
 
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK;
+  const rawCalLink = process.env.NEXT_PUBLIC_CAL_LINK;
   const calUsername = process.env.NEXT_PUBLIC_CAL_USERNAME;
+
+  // Build a robust Cal embed URL when a full link is provided.
+  // If the link is invalid, fall back to the simple profile button.
+  const siteDomain = process.env.NEXT_PUBLIC_DOMAIN;
+  let embedDomain = "";
+  if (siteDomain) {
+    try {
+      embedDomain = new URL(siteDomain).hostname;
+    } catch {
+      embedDomain = "";
+    }
+  }
+  if (!embedDomain && typeof window !== "undefined") {
+    embedDomain = window.location.hostname;
+  }
+
+  let calEmbedSrc: string | null = null;
+  if (rawCalLink) {
+    try {
+      const u = new URL(rawCalLink);
+      if (embedDomain) u.searchParams.set("embed_domain", embedDomain);
+      u.searchParams.set("embed_type", "inline");
+      u.searchParams.set("hide_event_type_details", "1");
+      u.searchParams.set("embed_source", "portfolio");
+      calEmbedSrc = u.toString();
+    } catch {
+      calEmbedSrc = null;
+    }
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -27,10 +56,10 @@ export default function BookPage() {
 
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            {calLink ? (
+            {calEmbedSrc ? (
               <div className="rounded-lg overflow-hidden border bg-background">
                 <iframe
-                  src={`${calLink}?hide_event_type_details=1&embed_source=portfolio`}
+                  src={calEmbedSrc}
                   className="w-full h-[760px] bg-background"
                   loading="lazy"
                   title="Schedule a meeting"
