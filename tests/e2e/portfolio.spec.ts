@@ -166,12 +166,17 @@ test.describe("Book a Call", () => {
     ).toBeVisible();
 
     const bookingIframe = page.locator("iframe");
-    await expect(bookingIframe).toBeVisible();
+    await expect(bookingIframe).toBeVisible({ timeout: 15000 });
     const bookingFrame = page.frameLocator("iframe");
-    await page.waitForLoadState("networkidle");
-    await expect(
-      bookingFrame.getByRole("heading", { name: "30 Min Meeting" }),
-    ).toBeVisible({ timeout: 15000 });
+    await expect
+      .poll(
+        async () =>
+          bookingFrame
+            .getByRole("heading", { name: "30 Min Meeting" })
+            .isVisible(),
+        { timeout: 20000 },
+      )
+      .toBeTruthy();
   });
 });
 

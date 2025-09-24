@@ -12,6 +12,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      NEXT_PUBLIC_CAL_LINK: ${{ secrets.NEXT_PUBLIC_CAL_LINK }}
+      NEXT_PUBLIC_CAL_USERNAME: ${{ secrets.NEXT_PUBLIC_CAL_USERNAME }}
 
     steps:
       - name: Checkout repository
