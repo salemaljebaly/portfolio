@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/salemaljebaly/portfolio/compare/v1.1.0...v1.1.1) (2025-09-24)
+
+
+### Bug Fixes
+
+* potential fix for code scanning alert no. 6: Workflow does not contain permissions ([bf72cf4](https://github.com/salemaljebaly/portfolio/commit/bf72cf49e81d206dd29e029657d6915498bf5a5d))
+
 ## [1.1.0](https://github.com/salemaljebaly/portfolio/compare/v1.0.1...v1.1.0) (2025-09-24)
 
 ### Features
