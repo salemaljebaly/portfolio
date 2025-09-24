@@ -1,4 +1,6 @@
 name: Playwright E2E
+permissions:
+  contents: read
 
 on:
   push:
