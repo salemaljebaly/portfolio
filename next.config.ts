@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel.app; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https: *.credly.com; connect-src 'self' *.github.com api.github.com; frame-src 'self' *.calendly.com;",
+              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel.app; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https: *.credly.com; connect-src 'self' *.github.com api.github.com; frame-src 'self' *.calendly.com *.cal.com cal.com;",
           },
         ],
       },

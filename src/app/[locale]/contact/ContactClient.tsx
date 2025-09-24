@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import { useTranslations } from "@/components/TranslationProvider";
 import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+// import Link from "next/link";
 
 interface ContactClientProps {
   locale: string;
@@ -332,17 +333,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                   </div>
                 </div>
 
-                <div className="p-6 bg-muted/50 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-foreground">
-                    {String(t("contact.info.schedule.title"))}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {String(t("contact.info.schedule.description"))}
-                  </p>
-                  <div className="text-sm text-muted-foreground">
-                    {String(t("contact.info.schedule.note"))}
-                  </div>
-                </div>
+                {null}
               </div>
             </div>
           </div>
