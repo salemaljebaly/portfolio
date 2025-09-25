@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/salemaljebaly/portfolio/compare/v1.1.1...v1.2.0) (2025-09-25)
+
+
+### Features
+
+* add vercel speed insights ([1ce1bfb](https://github.com/salemaljebaly/portfolio/commit/1ce1bfbca7731b0622d09979d7ab6175066b9b3c))
+
 ## [1.1.1](https://github.com/salemaljebaly/portfolio/compare/v1.1.0...v1.1.1) (2025-09-24)
 
 
