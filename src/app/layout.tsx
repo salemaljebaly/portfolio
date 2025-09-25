@@ -3,6 +3,7 @@ import { TranslationProvider } from "@/components/TranslationProvider";
 import { getTranslations, type Locale } from "@/i18n";
 import { Zain } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const zain = Zain({
   subsets: ["latin", "arabic"],
@@ -66,6 +67,7 @@ export default async function RootLayout({
         <TranslationProvider locale={locale} translations={translations}>
           {children}
         </TranslationProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
