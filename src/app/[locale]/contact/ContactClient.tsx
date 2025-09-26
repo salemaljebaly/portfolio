@@ -3,7 +3,7 @@
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { useTranslations } from "@/components/TranslationProvider";
-import { Clock, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { Clock, Github, Linkedin, Mail, Send } from "lucide-react";
 import { useState } from "react";
 // import Link from "next/link";
 
@@ -318,12 +318,13 @@ export default function ContactClient({ locale }: ContactClientProps) {
                   </h3>
 
                   <div className="space-y-3 text-muted-foreground">
-                    <div className="flex items-center gap-3">
+                    {/* Location details intentionally hidden until finalized */}
+                    {/* <div className="flex items-center gap-3">
                       <MapPin className="w-5 h-5 text-primary" />
                       <span>
                         {String(t("contact.info.additional.location"))}
                       </span>
-                    </div>
+                    </div> */}
                     <div className="flex items-center gap-3">
                       <Clock className="w-5 h-5 text-primary" />
                       <span>

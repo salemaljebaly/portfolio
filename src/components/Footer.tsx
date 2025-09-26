@@ -104,7 +104,8 @@ export default function Footer() {
               {String(t("footer.contactInfo"))}
             </h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>{String(t("footer.location"))}</li>
+              {/* Location temporarily hidden until new details are confirmed */}
+              {/* <li>{String(t("footer.location"))}</li> */}
               <li>
                 <a
                   href="mailto:contact@docker.com.ly"

@@ -1,6 +1,6 @@
 # Salem Aljebaly Portfolio
 
-Bilingual (English/Arabic) portfolio website built with Next.js 15, MagicUI, and Tailwind CSS.
+Portfolio website built with Next.js 15, MagicUI, and Tailwind CSS.
 
 ## Quick Setup
 
@@ -51,7 +51,6 @@ PWDEBUG=1 npx playwright test --headed --project=chromium
 
 ## Key Features
 
-- ✅ Bilingual (English/Arabic) with RTL support
 - ✅ MagicUI animated components
 - ✅ SEO optimized with structured data
 - ✅ Edge runtime ready
