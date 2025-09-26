@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/salemaljebaly/portfolio/compare/v1.2.0...v1.2.1) (2025-09-26)
+
+
+### Bug Fixes
+
+* **ci:** ensure lightningcss binary on linux ([c7905ee](https://github.com/salemaljebaly/portfolio/commit/c7905ee87f410a6127960ddf23a1e8343271d14d))
+
 ## [1.2.0](https://github.com/salemaljebaly/portfolio/compare/v1.1.1...v1.2.0) (2025-09-25)
 
 
