@@ -137,14 +137,15 @@ export default function AboutClient({ locale }: AboutClientProps) {
                                 </span>
                               </>
                             )}
-                            {item.location && (
+                            {/* Location withheld until updated details are available */}
+                            {/* {item.location && (
                               <>
                                 <span className="text-muted-foreground">•</span>
                                 <span className="text-sm text-muted-foreground">
                                   {item.location}
                                 </span>
                               </>
-                            )}
+                            )} */}
                           </div>
                           <h3 className="text-xl font-semibold mb-2 text-foreground">
                             {item.title}

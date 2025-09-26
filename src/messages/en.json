@@ -22,7 +22,7 @@
   "footer": {
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
-    "location": "Libya"
+    "location": "Remote"
   },
   "projects": {
     "title": "Projects Portfolio",
@@ -105,13 +105,13 @@
       "linkedin": "LinkedIn",
       "additional": {
         "title": "Additional Information",
-        "location": "Based in Libya",
+        "location": "Working remotely worldwide",
         "availability": "Available for remote work globally"
       },
       "schedule": {
         "title": "Schedule a Meeting",
-        "description": "Prefer to schedule a call? Calendar integration coming soon!",
-        "note": "For now, please mention your preferred meeting time in your message."
+        "description": "Prefer to schedule a call? Book instantly using the calendar below.",
+        "note": "Pick a time that works for you—the invite is sent automatically."
       }
     }
   }

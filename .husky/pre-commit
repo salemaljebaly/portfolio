@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+printf "\033[36m› Running lint-staged...\033[0m\n"
+npx lint-staged
