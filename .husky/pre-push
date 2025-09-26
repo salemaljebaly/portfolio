@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+printf "\033[36m› npm run format:check\033[0m\n"
+npm run format:check
+
+printf "\033[36m› npm run lint\033[0m\n"
+npm run lint
+
+printf "\033[36m› npm run type-check\033[0m\n"
+npm run type-check
+
+printf "\033[36m› npm run build\033[0m\n"
+npm run build
