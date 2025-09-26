@@ -19,7 +19,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          package-name: salem
 
       - uses: actions/checkout@v5
         if: ${{ steps.release.outputs.release_created }}
