@@ -1,28 +1,40 @@
 # Auto-label pull requests based on changed files
 frontend:
-  - "src/**"
-  - "public/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/**"
+          - "public/**"
 
 ci:
-  - ".github/workflows/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
 
 config:
-  - "*.json"
-  - "*.js"
-  - "*.mjs"
-  - "*.ts"
-  - "*.yml"
-  - "*.yaml"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.json"
+          - "*.js"
+          - "*.mjs"
+          - "*.ts"
+          - "*.yml"
+          - "*.yaml"
 
 styles:
-  - "**/*.css"
-  - "**/*.scss"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.css"
+          - "**/*.scss"
 
 docs:
-  - "README.md"
-  - "docs/**"
-  - "CONTRIBUTING.md"
-  - "CODE_OF_CONDUCT.md"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "README.md"
+          - "docs/**"
+          - "CONTRIBUTING.md"
+          - "CODE_OF_CONDUCT.md"
 
 tests:
-  - "tests/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "tests/**"

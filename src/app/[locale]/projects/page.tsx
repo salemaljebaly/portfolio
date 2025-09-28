@@ -1,14 +1,20 @@
+import { isValidLocale } from "@/i18n";
 import { loadProjects } from "@/utils/loadData";
+import { notFound } from "next/navigation";
 import ProjectsClient from "./ProjectsClient";
+
 interface ProjectsPageProps {
-  params: Promise<{
-    locale: string;
-  }>;
+  params: Promise<{ locale: string }>;
 }
 
-export default async function ProjectsPage(props: ProjectsPageProps) {
-  const params = await props.params;
-  const projects = loadProjects(params.locale);
+export default async function ProjectsPage({ params }: ProjectsPageProps) {
+  const { locale } = await params;
+
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+
+  const projects = loadProjects(locale);
   const categories = [
     "All",
     ...new Set(projects.map((project) => project.category)),
@@ -18,7 +24,7 @@ export default async function ProjectsPage(props: ProjectsPageProps) {
     <ProjectsClient
       projects={projects}
       categories={categories}
-      locale={params.locale}
+      locale={locale}
     />
   );
 }
