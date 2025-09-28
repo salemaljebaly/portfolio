@@ -1,22 +1,17 @@
-import { TranslationProvider } from "@/components/TranslationProvider";
-import { Locale, getTranslations, isValidLocale } from "@/i18n";
+import { isValidLocale } from "@/i18n";
+import { notFound } from "next/navigation";
 import AboutClient from "./AboutClient";
 
-export default async function AboutPage(props: {
-  params: Promise<{ locale: Promise<string> }>;
-}) {
-  const params = await props.params;
-  const locale = await params.locale;
+interface AboutPageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { locale } = await params;
 
   if (!isValidLocale(locale)) {
-    return null;
+    notFound();
   }
 
-  const translations = await getTranslations(locale as Locale);
-
-  return (
-    <TranslationProvider locale={locale as Locale} translations={translations}>
-      <AboutClient locale={locale} />
-    </TranslationProvider>
-  );
+  return <AboutClient locale={locale} />;
 }

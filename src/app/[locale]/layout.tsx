@@ -1,5 +1,6 @@
 import { TranslationProvider } from "@/components/TranslationProvider";
-import { Locale, getTranslations, isValidLocale } from "@/i18n";
+import { Locale, getTranslations, isValidLocale, locales } from "@/i18n";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { Inter, Zain } from "next/font/google";
 import "../globals.css";
@@ -27,14 +28,14 @@ export default async function RootLayout(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { children } = props;
-
   const { locale } = await props.params;
 
   if (!isValidLocale(locale)) {
-    return null;
+    notFound();
   }
 
-  const translations = await getTranslations(locale as Locale);
+  const normalizedLocale = locale as Locale;
+  const translations = await getTranslations(normalizedLocale);
   // Arabic temporarily disabled; force LTR
   const isRTL = false;
 
@@ -50,7 +51,7 @@ export default async function RootLayout(props: {
       </head>
       <body suppressHydrationWarning>
         <TranslationProvider
-          locale={locale as Locale}
+          locale={normalizedLocale}
           translations={translations}
         >
           {children}
@@ -58,4 +59,11 @@ export default async function RootLayout(props: {
       </body>
     </html>
   );
+}
+
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }

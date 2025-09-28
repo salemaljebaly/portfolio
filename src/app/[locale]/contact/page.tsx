@@ -1,22 +1,17 @@
-import { TranslationProvider } from "@/components/TranslationProvider";
-import { Locale, getTranslations, isValidLocale } from "@/i18n";
+import { isValidLocale } from "@/i18n";
+import { notFound } from "next/navigation";
 import ContactClient from "./ContactClient";
 
-export default async function ContactPage(props: {
-  params: Promise<{ locale: Promise<string> }>;
-}) {
-  const params = await props.params;
-  const locale = await params.locale;
+interface ContactPageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function ContactPage({ params }: ContactPageProps) {
+  const { locale } = await params;
 
   if (!isValidLocale(locale)) {
-    return null;
+    notFound();
   }
 
-  const translations = await getTranslations(locale as Locale);
-
-  return (
-    <TranslationProvider locale={locale as Locale} translations={translations}>
-      <ContactClient locale={locale} />
-    </TranslationProvider>
-  );
+  return <ContactClient locale={locale} />;
 }
