@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
 
 permissions:
+  contents: read
   issues: write
-  metadata: read
 
 jobs:
   sync:
