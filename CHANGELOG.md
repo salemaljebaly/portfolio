@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/salemaljebaly/portfolio/compare/v1.3.0...v1.3.1) (2025-09-28)
+
+
+### Bug Fixes
+
+* stabilise particles animation lifecycle ([14edc69](https://github.com/salemaljebaly/portfolio/commit/14edc6973e5d89eb1b918c38fad8640e589ec0df))
+
 ## [1.3.0](https://github.com/salemaljebaly/portfolio/compare/v1.2.0...v1.3.0) (2025-09-28)
 
 
