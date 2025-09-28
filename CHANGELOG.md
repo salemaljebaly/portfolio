@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.3.0](https://github.com/salemaljebaly/portfolio/compare/v1.2.0...v1.3.0) (2025-09-28)
+
+
+### Features
+
+* enable daily dependabot auto-merge flow ([fb7bfcf](https://github.com/salemaljebaly/portfolio/commit/fb7bfcf4103a0613da265e745a10de67d7d9b0bd))
+* enable daily dependabot auto-merge flow ([8b5d9d5](https://github.com/salemaljebaly/portfolio/commit/8b5d9d5ebcb773951c140153658838be0b219939))
+
+
+### Bug Fixes
+
+* **ci:** ensure lightningcss binary on linux ([c7905ee](https://github.com/salemaljebaly/portfolio/commit/c7905ee87f410a6127960ddf23a1e8343271d14d))
+* initialize header scroll state on mount ([402d30f](https://github.com/salemaljebaly/portfolio/commit/402d30f38eee91aaef1cd4265fa6c0fd57fc6ae3))
+* set repo when enabling dependabot auto-merge ([48a7887](https://github.com/salemaljebaly/portfolio/commit/48a78876aa1c6268d3fd6d71374359180e22b2c5))
+* set repo when enabling dependabot auto-merge ([050a9bc](https://github.com/salemaljebaly/portfolio/commit/050a9bc709ed44911fb20d57be1ec4e06f0fa21f))
+
 ## [1.2.0](https://github.com/salemaljebaly/portfolio/compare/v1.1.1...v1.2.0) (2025-09-25)
 
 
