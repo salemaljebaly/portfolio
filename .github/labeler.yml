@@ -1,11 +1,14 @@
 # Auto-label pull requests based on changed files
 frontend:
   - changed-files:
-      - any-glob-to-any-file: ["src/**", "public/**"]
+      - any-glob-to-any-file:
+          - "src/**"
+          - "public/**"
 
 ci:
   - changed-files:
-      - any-glob-to-any-file: [".github/workflows/**"]
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
 
 config:
   - changed-files:
@@ -33,4 +36,5 @@ docs:
 
 tests:
   - changed-files:
-      - any-glob-to-any-file: ["tests/**"]
+      - any-glob-to-any-file:
+          - "tests/**"
