@@ -1,0 +1,27 @@
+- name: frontend
+  color: "1d76db"
+  description: "Changes affecting UI components or styling"
+- name: ci
+  color: "5319e7"
+  description: "Continuous integration and workflow updates"
+- name: config
+  color: "fbca04"
+  description: "Tooling or configuration changes"
+- name: docs
+  color: "0e8a16"
+  description: "Documentation updates"
+- name: tests
+  color: "d93f0b"
+  description: "Adds or updates automated tests"
+- name: dependencies
+  color: "0366d6"
+  description: "Dependency version updates"
+- name: bug
+  color: "d73a4a"
+  description: "Something is not working"
+- name: triage
+  color: "cfd3d7"
+  description: "Needs investigation or reproduction"
+- name: enhancement
+  color: "a2eeef"
+  description: "New feature or request"

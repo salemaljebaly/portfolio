@@ -1,0 +1,28 @@
+# Auto-label pull requests based on changed files
+frontend:
+  - "src/**"
+  - "public/**"
+
+ci:
+  - ".github/workflows/**"
+
+config:
+  - "*.json"
+  - "*.js"
+  - "*.mjs"
+  - "*.ts"
+  - "*.yml"
+  - "*.yaml"
+
+styles:
+  - "**/*.css"
+  - "**/*.scss"
+
+docs:
+  - "README.md"
+  - "docs/**"
+  - "CONTRIBUTING.md"
+  - "CODE_OF_CONDUCT.md"
+
+tests:
+  - "tests/**"
