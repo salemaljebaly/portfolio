@@ -1,0 +1,41 @@
+name: Feature request
+description: Suggest an idea to improve the portfolio.
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share the context for your feature so we can understand the problem it solves.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      placeholder: I'd like to … because …
+      description: What challenge are you trying to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      placeholder: Add a new section showing …
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      placeholder: Other approaches or workarounds you have tried.
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      placeholder: Screenshots, examples, or links that help illustrate the idea.
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: Checks
+      options:
+        - label: I have searched open issues for similar requests.
+          required: true

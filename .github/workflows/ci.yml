@@ -37,8 +37,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # - name: Run ESLint
-      #   run: npm run lint
+      - name: Run ESLint
+        run: npm run lint
 
       - name: Check formatting with Prettier
         run: npm run format:check
@@ -111,10 +111,11 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: Build static export
-        run: npm run build
-        env:
-          NEXT_TELEMETRY_DISABLED: 1
+      - name: Upload production build
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: .next
 
   security:
     name: Security Scan
