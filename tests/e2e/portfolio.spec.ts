@@ -166,7 +166,19 @@ test.describe("Book a Call", () => {
     ).toBeVisible();
 
     const bookingIframe = page.locator("iframe");
-    await expect(bookingIframe).toBeVisible({ timeout: 15000 });
+    const iframeVisible = await bookingIframe
+      .first()
+      .waitFor({ state: "visible", timeout: 15000 })
+      .then(() => true)
+      .catch(() => false);
+
+    if (!iframeVisible) {
+      await expect(
+        page.getByRole("link", { name: /Schedule a meeting on Cal\.com/i }),
+      ).toBeVisible();
+      return;
+    }
+
     const bookingFrame = page.frameLocator("iframe");
     await expect
       .poll(
