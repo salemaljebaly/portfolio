@@ -36,6 +36,12 @@ jobs:
               event: 'APPROVE'
             })
 
+      - name: Wait for status checks
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr checks "${{ github.event.pull_request.number }}" --watch --fail-fast --repo "${{ github.repository }}"
+
       - name: Enable auto-merge
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
