@@ -87,12 +87,6 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: Upload production build
-        uses: actions/upload-artifact@v4
-        with:
-          name: next-build
-          path: .next
-
   test:
     name: test
     runs-on: ubuntu-latest
@@ -128,69 +122,3 @@ jobs:
       - name: Run security audit
         run: npm audit --production --audit-level=moderate
         continue-on-error: true
-
-  bundle-analysis:
-    name: Bundle Size Analysis
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'pull_request'
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: "22"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: next-build
-          path: .next
-
-      - name: Analyze bundle
-        run: |
-          ANALYZE=true npm run build > bundle-analysis.txt 2>&1 || true
-          echo "Bundle analysis completed"
-
-      - name: Upload bundle analysis
-        uses: actions/upload-artifact@v4
-        with:
-          name: bundle-analysis
-          path: |
-            .next/analyze/
-            bundle-analysis.txt
-
-      - name: Comment PR
-        uses: actions/github-script@v8
-        if: github.event_name == 'pull_request'
-        with:
-          script: |
-            const comment = `## 📊 Bundle Size Analysis
-
-            Bundle analysis has been generated. You can download the analysis artifacts from the workflow run.
-
-            To run bundle analysis locally:
-            \`\`\`bash
-            ANALYZE=true npm run build
-            \`\`\`
-            `;
-
-            try {
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: comment
-              });
-            } catch (error) {
-              console.log('Could not create comment:', error.message);
-            }
