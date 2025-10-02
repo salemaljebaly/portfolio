@@ -1,21 +1,25 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { submitContactForm } from "@/services/contact";
 import nodemailer from "nodemailer";
+import type { Transporter } from "nodemailer";
 
 // Mock nodemailer
 vi.mock("nodemailer");
 
 describe("Contact Service", () => {
+  const mockVerify = vi.fn();
+  const mockSendMail = vi.fn();
+
   const mockTransporter = {
-    verify: vi.fn(),
-    sendMail: vi.fn(),
-  };
+    verify: mockVerify,
+    sendMail: mockSendMail,
+  } as unknown as Transporter;
 
   beforeEach(() => {
     vi.clearAllMocks();
     vi.mocked(nodemailer.createTransport).mockReturnValue(mockTransporter);
-    mockTransporter.verify.mockResolvedValue(true);
-    mockTransporter.sendMail.mockResolvedValue({ messageId: "test-id" });
+    mockVerify.mockResolvedValue(true);
+    mockSendMail.mockResolvedValue({ messageId: "test-id" });
   });
 
   afterEach(() => {
@@ -37,7 +41,7 @@ describe("Contact Service", () => {
 
       expect(result.success).toBe(true);
       expect(result.message).toContain("successfully");
-      expect(mockTransporter.sendMail).toHaveBeenCalledTimes(1);
+      expect(mockSendMail).toHaveBeenCalledTimes(1);
     });
 
     it("should handle submission without optional company field", async () => {
@@ -166,7 +170,7 @@ describe("Contact Service", () => {
         code: string;
       };
       authError.code = "EAUTH";
-      mockTransporter.verify.mockRejectedValue(authError);
+      mockVerify.mockRejectedValue(authError);
 
       const validData = {
         name: "John Doe",
@@ -183,9 +187,7 @@ describe("Contact Service", () => {
     });
 
     it("should handle general SMTP errors", async () => {
-      mockTransporter.sendMail.mockRejectedValue(
-        new Error("Network error occurred"),
-      );
+      mockSendMail.mockRejectedValue(new Error("Network error occurred"));
 
       const validData = {
         name: "John Doe",
@@ -214,7 +216,7 @@ describe("Contact Service", () => {
 
       await submitContactForm(validData);
 
-      expect(mockTransporter.sendMail).toHaveBeenCalledWith(
+      expect(mockSendMail).toHaveBeenCalledWith(
         expect.objectContaining({
           subject: expect.stringContaining("collaboration"),
           replyTo: "test@example.com",
