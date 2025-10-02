@@ -26,14 +26,6 @@ jobs:
           node-version: "22"
           cache: "npm"
 
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Install dependencies
         run: npm ci
 
@@ -55,14 +47,6 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm ci
@@ -86,14 +70,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
 
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Cache Next.js build
         uses: actions/cache@v4
         with:
@@ -111,30 +87,9 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: Upload production build
-        uses: actions/upload-artifact@v4
-        with:
-          name: next-build
-          path: .next
-
-  security:
-    name: Security Scan
+  test:
+    name: test
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Run security audit
-        run: npm audit --production --audit-level=moderate
-        continue-on-error: true
-
-  bundle-analysis:
-    name: Bundle Size Analysis
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -148,41 +103,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build and analyze bundle
-        run: |
-          ANALYZE=true npm run build > bundle-analysis.txt 2>&1 || true
-          echo "Bundle analysis completed"
+      - name: Run tests with coverage
+        run: npm run test:coverage
 
-      - name: Upload bundle analysis
+      - name: Upload coverage artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: bundle-analysis
-          path: |
-            .next/analyze/
-            bundle-analysis.txt
+          name: coverage-report
+          path: coverage/
 
-      - name: Comment PR
-        uses: actions/github-script@v8
-        if: github.event_name == 'pull_request'
-        with:
-          script: |
-            const comment = `## 📊 Bundle Size Analysis
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-            Bundle analysis has been generated. You can download the analysis artifacts from the workflow run.
-
-            To run bundle analysis locally:
-            \`\`\`bash
-            ANALYZE=true npm run build
-            \`\`\`
-            `;
-
-            try {
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: comment
-              });
-            } catch (error) {
-              console.log('Could not create comment:', error.message);
-            }
+      - name: Run security audit
+        run: npm audit --production --audit-level=moderate
+        continue-on-error: true

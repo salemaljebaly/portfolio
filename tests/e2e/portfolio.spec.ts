@@ -155,6 +155,67 @@ test.describe("Contact form", () => {
       ),
     ).toBeVisible();
   });
+
+  test("shows error message on API failure", async ({ page }) => {
+    await page.goto("/contact");
+
+    await page.route("**/api/contact", async (route) => {
+      await route.fulfill({
+        status: 500,
+        contentType: "application/json",
+        body: JSON.stringify({
+          success: false,
+          message: "An unexpected error occurred. Please try again later.",
+        }),
+      });
+    });
+
+    await page.getByRole("textbox", { name: "Name *" }).fill("Test User");
+    await page
+      .getByRole("textbox", { name: "Email *" })
+      .fill("test@example.com");
+    await page
+      .getByRole("combobox", { name: "Inquiry Type" })
+      .selectOption("general");
+    await page
+      .getByRole("textbox", { name: "Message *" })
+      .fill("Test message for error handling.");
+
+    await page.getByRole("button", { name: "Send Message" }).click();
+
+    await expect(
+      page.getByText(
+        "Sorry, there was an error sending your message. Please try again or contact me directly via email.",
+      ),
+    ).toBeVisible({ timeout: 5000 });
+  });
+
+  test("handles network timeout gracefully", async ({ page }) => {
+    await page.goto("/contact");
+
+    await page.route("**/api/contact", async (route) => {
+      await route.abort("timedout");
+    });
+
+    await page.getByRole("textbox", { name: "Name *" }).fill("Test User");
+    await page
+      .getByRole("textbox", { name: "Email *" })
+      .fill("test@example.com");
+    await page
+      .getByRole("combobox", { name: "Inquiry Type" })
+      .selectOption("general");
+    await page
+      .getByRole("textbox", { name: "Message *" })
+      .fill("Test message for timeout.");
+
+    await page.getByRole("button", { name: "Send Message" }).click();
+
+    await expect(
+      page.getByText(
+        "Sorry, there was an error sending your message. Please try again or contact me directly via email.",
+      ),
+    ).toBeVisible({ timeout: 5000 });
+  });
 });
 
 test.describe("Book a Call", () => {

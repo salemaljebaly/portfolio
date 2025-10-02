@@ -31,29 +31,42 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('./package-lock.json').packages['node_modules/@playwright/test'].version")" >> $GITHUB_OUTPUT
+
       - name: Cache Playwright browsers
         id: cache-playwright
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.os }}-playwright-
+          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
 
-      - name: Install Playwright system dependencies
+      - name: Install Playwright browsers and system dependencies
         if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install-deps
+        run: npx playwright install --with-deps
+
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
 
       - name: Build application
         run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: "1"
 
-      - name: Install Playwright browsers
-        if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install
+      - name: Run Playwright E2E tests
+        run: npm run test:e2e
+        env:
+          CI: "true"
+          NEXT_TELEMETRY_DISABLED: "1"
 
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Run Accessibility tests
+        run: npm run test:a11y
         env:
           CI: "true"
           NEXT_TELEMETRY_DISABLED: "1"
