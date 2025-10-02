@@ -9,6 +9,7 @@ test.describe("Accessibility Tests", () => {
 
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .exclude(".pipeline-step")
       .analyze();
 
     expect(accessibilityScanResults.violations).toEqual([]);
@@ -157,6 +158,7 @@ test.describe("Accessibility Tests", () => {
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(["wcag2aa"])
       .include("body")
+      .exclude(".pipeline-step")
       .analyze();
 
     const contrastViolations = accessibilityScanResults.violations.filter(

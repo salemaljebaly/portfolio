@@ -75,7 +75,9 @@ export default function DevOpsAnimation() {
                   <div className="w-20 h-20 rounded-full bg-background border-2 border-border flex items-center justify-center mb-4 group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
                     <div className="text-primary">{step.icon}</div>
                   </div>
-                  <h3 className="font-semibold mb-1">{step.label}</h3>
+                  <h3 className="font-semibold mb-1 text-foreground">
+                    {step.label}
+                  </h3>
                   <p className="text-sm text-muted-foreground">
                     {step.description}
                   </p>
