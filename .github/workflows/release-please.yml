@@ -36,7 +36,7 @@ jobs:
 
       - name: Build project
         if: ${{ steps.release.outputs.release_created }}
-        run: npm run build:static
+        run: npm run build
 
       - name: Create release artifacts
         if: ${{ steps.release.outputs.release_created }}
