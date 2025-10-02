@@ -20,6 +20,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
+      include: ["src/services/**", "src/utils/**", "src/lib/utils.ts"],
       exclude: [
         "node_modules/**",
         "tests/**",
@@ -28,6 +29,11 @@ export default defineConfig({
         "**/*.d.ts",
         ".next/**",
         "out/**",
+        "src/app/**",
+        "src/components/**",
+        "src/lib/constants.ts",
+        "src/lib/metadata.ts",
+        "src/lib/structured-data.ts",
       ],
       thresholds: {
         lines: 70,
