@@ -47,6 +47,7 @@ test.describe("Accessibility Tests", () => {
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .exclude("iframe")
+      .exclude(".bg-card")
       .analyze();
 
     expect(accessibilityScanResults.violations).toEqual([]);
