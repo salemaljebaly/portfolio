@@ -183,9 +183,9 @@ test.describe("Contact form", () => {
 
     await page.getByRole("button", { name: "Send Message" }).click();
 
-    await expect(page.getByText(/error|failed|try again/i)).toBeVisible({
-      timeout: 5000,
-    });
+    await expect(
+      page.getByText("An unexpected error occurred. Please try again later."),
+    ).toBeVisible({ timeout: 5000 });
   });
 
   test("shows validation error for invalid email", async ({ page }) => {
@@ -219,9 +219,9 @@ test.describe("Contact form", () => {
 
     await page.getByRole("button", { name: "Send Message" }).click();
 
-    await expect(page.getByText(/valid email|email/i)).toBeVisible({
-      timeout: 5000,
-    });
+    await expect(
+      page.getByText("Please enter a valid email address"),
+    ).toBeVisible({ timeout: 5000 });
   });
 
   test("handles network timeout gracefully", async ({ page }) => {
@@ -244,9 +244,9 @@ test.describe("Contact form", () => {
 
     await page.getByRole("button", { name: "Send Message" }).click();
 
-    await expect(page.getByText(/error|failed|try again/i)).toBeVisible({
-      timeout: 5000,
-    });
+    await expect(
+      page.getByText("An unexpected error occurred. Please try again later."),
+    ).toBeVisible({ timeout: 5000 });
   });
 });
 
