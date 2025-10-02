@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.3](https://github.com/salemaljebaly/portfolio/compare/v1.3.2...v1.3.3) (2025-10-02)
+
+
+### Bug Fixes
+
+* correct build script in release workflow ([9b10017](https://github.com/salemaljebaly/portfolio/commit/9b100173a524c41819111686d2de9236ebf56fb8))
+* remove circular dependency in dependabot auto-merge ([7ae5a41](https://github.com/salemaljebaly/portfolio/commit/7ae5a41d25bdc0881706895e004e1e45af798aac))
+* resolve workflow issues ([b5b382e](https://github.com/salemaljebaly/portfolio/commit/b5b382e7aaf178dceeffc72c857977d415cede38))
+
 ## [1.3.2](https://github.com/salemaljebaly/portfolio/compare/v1.3.1...v1.3.2) (2025-09-30)
 
 
