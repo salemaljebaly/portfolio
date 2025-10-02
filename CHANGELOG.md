@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.3.3](https://github.com/salemaljebaly/portfolio/compare/v1.3.2...v1.3.3) (2025-10-02)
+
+
+### Bug Fixes
+
+* correct build script in release workflow ([9b10017](https://github.com/salemaljebaly/portfolio/commit/9b100173a524c41819111686d2de9236ebf56fb8))
+* remove circular dependency in dependabot auto-merge ([7ae5a41](https://github.com/salemaljebaly/portfolio/commit/7ae5a41d25bdc0881706895e004e1e45af798aac))
+* resolve workflow issues ([b5b382e](https://github.com/salemaljebaly/portfolio/commit/b5b382e7aaf178dceeffc72c857977d415cede38))
+
+## [1.3.2](https://github.com/salemaljebaly/portfolio/compare/v1.3.1...v1.3.2) (2025-09-30)
+
+
+### Bug Fixes
+
+* add file path ([061b553](https://github.com/salemaljebaly/portfolio/commit/061b55365988c1ca59bf81ca5b7b8e7b6c66ab7e))
+* adjust label sync permissions ([c45638e](https://github.com/salemaljebaly/portfolio/commit/c45638e4526ff51194b15e750332fd3f5cdf576e))
+* adjust label sync permissions ([631938c](https://github.com/salemaljebaly/portfolio/commit/631938cc2f96b8f5a6d57af71fa57ad25bf821b9))
+* conform labeler config to changed-files schema ([295ea11](https://github.com/salemaljebaly/portfolio/commit/295ea11f5821b38b81f97a4fc110b29789c78655))
+* expand labeler globs per action schema ([4478d1a](https://github.com/salemaljebaly/portfolio/commit/4478d1a8f216a75958427fe2129be807f1a6951d))
+
+
+### Performance Improvements
+
+* pre-render locale routes and reuse cta section ([4c4b750](https://github.com/salemaljebaly/portfolio/commit/4c4b750e4c49591f22b1dd6fe826eefde3c81417))
+* pre-render locale shell for faster ttfb ([9f003d4](https://github.com/salemaljebaly/portfolio/commit/9f003d4553832a152515c48d84e5d708eb6a3932))
+
 ## [1.3.1](https://github.com/salemaljebaly/portfolio/compare/v1.3.0...v1.3.1) (2025-09-28)
 
 
