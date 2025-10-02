@@ -13,9 +13,7 @@ describe("Contact Service", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    (nodemailer.createTransport as unknown as typeof vi.fn).mockReturnValue(
-      mockTransporter,
-    );
+    vi.mocked(nodemailer.createTransport).mockReturnValue(mockTransporter);
     mockTransporter.verify.mockResolvedValue(true);
     mockTransporter.sendMail.mockResolvedValue({ messageId: "test-id" });
   });
@@ -244,9 +242,7 @@ describe("Contact Service", () => {
       const originalUser = process.env.SMTP_USER;
       delete process.env.SMTP_USER;
 
-      (
-        nodemailer.createTransport as unknown as typeof vi.fn
-      ).mockImplementation(() => {
+      vi.mocked(nodemailer.createTransport).mockImplementation(() => {
         throw new Error("Missing required environment variables: SMTP_USER");
       });
 
@@ -269,9 +265,7 @@ describe("Contact Service", () => {
       const originalPassword = process.env.SMTP_PASSWORD;
       delete process.env.SMTP_PASSWORD;
 
-      (
-        nodemailer.createTransport as unknown as typeof vi.fn
-      ).mockImplementation(() => {
+      vi.mocked(nodemailer.createTransport).mockImplementation(() => {
         throw new Error(
           "Missing required environment variables: SMTP_PASSWORD",
         );
