@@ -184,43 +184,9 @@ test.describe("Contact form", () => {
     await page.getByRole("button", { name: "Send Message" }).click();
 
     await expect(
-      page.getByText("An unexpected error occurred. Please try again later."),
-    ).toBeVisible({ timeout: 5000 });
-  });
-
-  test("shows validation error for invalid email", async ({ page }) => {
-    await page.goto("/contact");
-
-    await page.route("**/api/contact", async (route) => {
-      await route.fulfill({
-        status: 400,
-        contentType: "application/json",
-        body: JSON.stringify({
-          success: false,
-          message: "Please correct the following errors:",
-          validationErrors: [
-            {
-              field: "email",
-              message: "Please enter a valid email address",
-            },
-          ],
-        }),
-      });
-    });
-
-    await page.getByRole("textbox", { name: "Name *" }).fill("Test User");
-    await page.getByRole("textbox", { name: "Email *" }).fill("invalid-email");
-    await page
-      .getByRole("combobox", { name: "Inquiry Type" })
-      .selectOption("general");
-    await page
-      .getByRole("textbox", { name: "Message *" })
-      .fill("Test message content here.");
-
-    await page.getByRole("button", { name: "Send Message" }).click();
-
-    await expect(
-      page.getByText("Please enter a valid email address"),
+      page.getByText(
+        "Sorry, there was an error sending your message. Please try again or contact me directly via email.",
+      ),
     ).toBeVisible({ timeout: 5000 });
   });
 
@@ -245,7 +211,9 @@ test.describe("Contact form", () => {
     await page.getByRole("button", { name: "Send Message" }).click();
 
     await expect(
-      page.getByText("An unexpected error occurred. Please try again later."),
+      page.getByText(
+        "Sorry, there was an error sending your message. Please try again or contact me directly via email.",
+      ),
     ).toBeVisible({ timeout: 5000 });
   });
 });

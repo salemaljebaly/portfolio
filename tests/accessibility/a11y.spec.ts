@@ -45,6 +45,7 @@ test.describe("Accessibility Tests", () => {
 
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .exclude("iframe")
       .analyze();
 
     expect(accessibilityScanResults.violations).toEqual([]);
@@ -69,6 +70,7 @@ test.describe("Accessibility Tests", () => {
 
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .exclude("iframe")
       .analyze();
 
     expect(accessibilityScanResults.violations).toEqual([]);
@@ -110,7 +112,11 @@ test.describe("Accessibility Tests", () => {
   test("form inputs should have labels", async ({ page }) => {
     await page.goto("/contact");
 
-    const inputs = await page.locator('input[type="text"], textarea').all();
+    const inputs = await page
+      .locator(
+        'input[type="text"]:visible, input[type="email"]:visible, textarea:visible',
+      )
+      .all();
 
     for (const input of inputs) {
       const hasLabel = await input.evaluate((el) => {

@@ -215,6 +215,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                     style={{ display: "none" }}
                     tabIndex={-1}
                     autoComplete="off"
+                    aria-hidden="true"
                   />
 
                   {/* Submit Button */}
