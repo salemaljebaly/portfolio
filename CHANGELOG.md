@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.4.0](https://github.com/salemaljebaly/portfolio/compare/v1.3.3...v1.4.0) (2025-10-02)
+
+
+### Features
+
+* add comprehensive testing infrastructure ([432dd6d](https://github.com/salemaljebaly/portfolio/commit/432dd6d4910892686ad74b10baa322e41da51e2e))
+
+
+### Bug Fixes
+
+* configure coverage to only measure unit-tested files ([b4ac77a](https://github.com/salemaljebaly/portfolio/commit/b4ac77a8a3b4a6318a3f54fec858507d12f36e38))
+* correct TypeScript types in contact service tests ([2d1de31](https://github.com/salemaljebaly/portfolio/commit/2d1de319fda2f56cddd09ef9c5441cf2d1af7a56))
+* darken border color for better accessibility ([e429aaf](https://github.com/salemaljebaly/portfolio/commit/e429aaff4352e826cfcdfc066df6ff426da0a5e7))
+* exclude animated pipeline from a11y contrast checks ([397e943](https://github.com/salemaljebaly/portfolio/commit/397e9431699296a0843902d1380954a25954711d))
+* exclude Playwright tests from Vitest ([53ded21](https://github.com/salemaljebaly/portfolio/commit/53ded21bbd30fafafb7b7564a2f523720478fcab))
+* improve color contrast and exclude cards from a11y ([74dfb44](https://github.com/salemaljebaly/portfolio/commit/74dfb443f0673439d6c87554aefd057144572d05))
+* improve TypeScript types in contact service tests ([a6b1bf6](https://github.com/salemaljebaly/portfolio/commit/a6b1bf64a7fc7e2b617a75236d97319b53006ea2))
+* use specific selectors in E2E tests ([d27ec23](https://github.com/salemaljebaly/portfolio/commit/d27ec23349a15d717cb79a2d9d124b87c74ab4a8))
+
+
+### Performance Improvements
+
+* improve Playwright workflow caching ([af6168c](https://github.com/salemaljebaly/portfolio/commit/af6168c06aeab0d5b91edd47da97611e236c49da))
+
 ## [1.3.3](https://github.com/salemaljebaly/portfolio/compare/v1.3.2...v1.3.3) (2025-10-02)
 
 
