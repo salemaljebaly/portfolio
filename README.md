@@ -38,22 +38,44 @@ npx magicui-cli@latest add particles typing-animation number-ticker magic-card a
 npm run dev
 ```
 
-## End-to-End Tests
+## Testing
 
-Playwright smoke tests cover core desktop and mobile flows.
+Comprehensive test suite with 56+ tests across all layers. See [Testing Guide](docs/TESTING.md) for detailed documentation.
+
+### Quick Start
 
 ```bash
-# install Playwright browsers once
-npm run playwright:install
+# Run all tests
+npm run test:all
 
-# run the suite (Playwright starts/stops the Next.js server automatically)
-npm run test:e2e
+# Run individual test suites
+npm run test:unit         # Unit tests (34 tests)
+npm run test:integration  # API integration tests (10 tests)
+npm run test:e2e          # E2E tests with Playwright (12 tests)
+npm run test:a11y         # Accessibility tests (14 tests)
 
-# watch the tests interactively
-npx playwright test --headed --debug
-# or
-PWDEBUG=1 npx playwright test --headed --project=chromium
+# Development
+npm run test:watch        # Watch mode for unit/integration
+npm run test:coverage     # Generate coverage report
 ```
+
+### Test Coverage
+
+- **Unit Tests**: Services, utilities, data loading
+- **Integration Tests**: API endpoints, error handling
+- **E2E Tests**: User workflows, form submissions, navigation
+- **Accessibility Tests**: WCAG 2.1 AA compliance
+
+**Coverage**: 70%+ (lines, functions, branches, statements)
+
+### First Time Setup
+
+```bash
+# Install Playwright browsers once
+npm run playwright:install
+```
+
+See [docs/TESTING.md](docs/TESTING.md) for testing strategies, best practices, and troubleshooting.
 
 ## Key Features
 
@@ -62,7 +84,8 @@ PWDEBUG=1 npx playwright test --headed --project=chromium
 - ✅ Edge runtime ready
 - ✅ Accessible (WCAG 2.1 AA)
 - ✅ Contact form with server actions
-- ✅ Automated Playwright smoke tests
+- ✅ Comprehensive test coverage (56+ tests)
+- ✅ Automated accessibility testing
 - ✅ Responsive design
 
 ## Deployment
@@ -77,7 +100,14 @@ PWDEBUG=1 npx playwright test --headed --project=chromium
 │   ├── app/            # Next.js App Router routes
 │   ├── components/     # Reusable UI building blocks
 │   └── lib/            # Utilities and helpers
-├── tests/              # Playwright end-to-end tests
+├── tests/              # Test suites
+│   ├── unit/           # Unit tests (services, utils)
+│   ├── integration/    # API integration tests
+│   ├── e2e/            # Playwright end-to-end tests
+│   └── accessibility/  # WCAG compliance tests
+├── docs/               # Documentation
+│   ├── TESTING.md      # Testing guide
+│   └── github-actions-tips.md  # GitHub CLI tips
 ├── public/             # Static assets and documents
 └── .github/            # Workflows, issue templates, label automation
 ```
