@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.1](https://github.com/salemaljebaly/portfolio/compare/v1.4.0...v1.4.1) (2025-10-03)
+
+
+### Bug Fixes
+
+* changed out/ to .next/ in the release workflow ([cc34c8b](https://github.com/salemaljebaly/portfolio/commit/cc34c8bb3205a51965deb99f246716122a215543))
+* changed out/ to .next/ in the release workflow ([d37c40f](https://github.com/salemaljebaly/portfolio/commit/d37c40ff12f024fcbae2de329ff92f14e8c7f6f6))
+
 ## [1.4.0](https://github.com/salemaljebaly/portfolio/compare/v1.3.3...v1.4.0) (2025-10-02)
 
 
