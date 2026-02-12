@@ -28,9 +28,9 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
           Senior Platform Engineer
-        </h3>
+        </h1>
         <div className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
           <TypingAnimation
             className="text-lg sm:text-xl lg:text-2xl text-muted-foreground"
