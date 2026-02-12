@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/salemaljebaly/portfolio/compare/v1.4.1...v1.5.0) (2026-02-12)
+
+
+### Features
+
+* **portfolio:** refresh positioning and case study experience ([5a15754](https://github.com/salemaljebaly/portfolio/commit/5a1575410c5f668854c091331f49adc3f3bba916))
+* **portfolio:** reposition content and add scalable case-study routes ([d8f65e1](https://github.com/salemaljebaly/portfolio/commit/d8f65e1a0f484f25cb06241f1e2d5166f791a846))
+
+
+### Bug Fixes
+
+* use semantic h1 in home hero heading ([fc43686](https://github.com/salemaljebaly/portfolio/commit/fc43686547d8f903a37e95d3a8a7e8f193967d70))
+
 ## [1.4.1](https://github.com/salemaljebaly/portfolio/compare/v1.4.0...v1.4.1) (2025-10-03)
 
 
