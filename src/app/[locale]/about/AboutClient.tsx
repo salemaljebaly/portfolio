@@ -13,42 +13,37 @@ interface AboutClientProps {
 
 const skills = [
   {
-    category: "Frontend Development",
+    category: "Platform Engineering",
     items: [
-      "React",
+      "Kubernetes",
+      "Infrastructure as Code",
+      "CI/CD",
+      "Linux",
+      "Docker",
+      "Monitoring",
+      "Incident Response",
+    ],
+  },
+  {
+    category: "Cloud & FinOps",
+    items: [
+      "AWS",
+      "Hetzner",
+      "Cloud Migration",
+      "Cost Optimization",
+      "Cloud Security",
+      "Service Reliability",
+    ],
+  },
+  {
+    category: "Development",
+    items: [
       "Next.js",
       "TypeScript",
-      "JavaScript",
-      "Tailwind CSS",
-      "Material-UI",
-      "Flutter",
-      "Dart",
-    ],
-  },
-  {
-    category: "Backend Development",
-    items: [
       "Node.js",
-      "Express",
-      "NestJS",
+      "Flutter",
       "REST APIs",
-      "GraphQL",
-      "MongoDB",
-      "PostgreSQL",
-      "MySQL",
-    ],
-  },
-  {
-    category: "Tools & Technologies",
-    items: [
-      "Git",
-      "GitHub",
-      "Docker",
-      "CI/CD",
-      "Android",
-      "Java",
-      "Figma",
-      "Plugin Development",
+      "Technical Leadership",
     ],
   },
 ];
@@ -75,7 +70,6 @@ export default function AboutClient({ locale }: AboutClientProps) {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
       <main className="pt-20">
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,10 +79,20 @@ export default function AboutClient({ locale }: AboutClientProps) {
             <p className="text-xl text-muted-foreground max-w-3xl">
               {String(t("about.description"))}
             </p>
+            <div className="mt-6 max-w-4xl space-y-3 text-muted-foreground">
+              <p>
+                I led a cloud migration from AWS to Hetzner that reduced
+                infrastructure spend by more than 90% and introduced an
+                automated disaster recovery workflow with RTO under 30 minutes.
+              </p>
+              <p>
+                My focus is measurable platform outcomes: lower cost, safer
+                releases, and faster recovery.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Professional Journey */}
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-12 text-center text-foreground">
@@ -96,16 +100,13 @@ export default function AboutClient({ locale }: AboutClientProps) {
             </h2>
 
             <div className="max-w-4xl mx-auto">
-              {/* Timeline */}
               <div className="relative">
-                {/* Timeline line */}
                 <div
                   className={`absolute ${
                     isRTL ? "right-8" : "left-8"
                   } top-0 bottom-0 w-0.5 bg-border`}
                 />
 
-                {/* Timeline items */}
                 <div className="space-y-12">
                   {timeline.map((item, index) => (
                     <div
@@ -115,14 +116,12 @@ export default function AboutClient({ locale }: AboutClientProps) {
                       }`}
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      {/* Icon */}
                       <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-background border-2 border-primary shadow-lg group-hover:shadow-xl transition-shadow">
                         <div className="text-primary">
                           {getTimelineIcon(item.type)}
                         </div>
                       </div>
 
-                      {/* Content */}
                       <div className="flex-1 pb-8">
                         <div className="bg-card p-6 rounded-lg border shadow-sm group-hover:shadow-md transition-shadow">
                           <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -137,15 +136,6 @@ export default function AboutClient({ locale }: AboutClientProps) {
                                 </span>
                               </>
                             )}
-                            {/* Location withheld until updated details are available */}
-                            {/* {item.location && (
-                              <>
-                                <span className="text-muted-foreground">•</span>
-                                <span className="text-sm text-muted-foreground">
-                                  {item.location}
-                                </span>
-                              </>
-                            )} */}
                           </div>
                           <h3 className="text-xl font-semibold mb-2 text-foreground">
                             {item.title}
@@ -187,7 +177,6 @@ export default function AboutClient({ locale }: AboutClientProps) {
           </div>
         </section>
 
-        {/* Skills Matrix */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-12 text-center text-foreground">
@@ -220,7 +209,6 @@ export default function AboutClient({ locale }: AboutClientProps) {
           </div>
         </section>
 
-        {/* Personal Philosophy */}
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold mb-8 text-foreground">
@@ -235,7 +223,6 @@ export default function AboutClient({ locale }: AboutClientProps) {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold mb-4 text-foreground">

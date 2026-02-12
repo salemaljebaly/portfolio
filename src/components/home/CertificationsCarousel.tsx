@@ -1,7 +1,7 @@
 "use client";
 
 import { Marquee } from "@/components/magicui/marquee";
-import { loadCertifications } from "@/utils/loadData";
+import { getRelevantCertifications } from "@/utils/loadData";
 import { ExternalLink, Shield } from "lucide-react";
 import { useParams } from "next/navigation";
 
@@ -22,7 +22,7 @@ interface Certification {
 export default function CertificationsCarousel() {
   const params = useParams();
   const locale = (params?.locale as string) || "en";
-  const certifications: Certification[] = loadCertifications(locale);
+  const certifications: Certification[] = getRelevantCertifications(locale);
 
   return (
     <section className="py-20 bg-muted/50">
@@ -32,8 +32,8 @@ export default function CertificationsCarousel() {
             Professional Certifications
           </h2>
           <p className="text-lg text-muted-foreground">
-            Continuously learning and staying updated with the latest
-            technologies
+            Most relevant credentials for cloud architecture, development, and
+            platform operations
           </p>
         </div>
 

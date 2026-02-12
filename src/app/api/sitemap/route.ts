@@ -5,6 +5,7 @@ const baseUrl = "https://docker.com.ly";
 const pages = [
   { url: "/", changefreq: "weekly", priority: 1.0 },
   { url: "/about", changefreq: "monthly", priority: 0.8 },
+  { url: "/case-study", changefreq: "monthly", priority: 0.9 },
   { url: "/projects", changefreq: "weekly", priority: 0.9 },
   { url: "/certifications", changefreq: "monthly", priority: 0.7 },
   { url: "/contact", changefreq: "monthly", priority: 0.8 },

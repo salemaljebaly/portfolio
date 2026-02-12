@@ -1,20 +1,21 @@
 {
   "common": {
     "name": "Salem Aljebaly",
-    "title": "CTO & DevOps Architect",
+    "title": "Senior Platform Engineer | Cloud & FinOps Specialist",
     "downloadCV": "CV",
     "allRightsReserved": "All rights reserved."
   },
   "nav": {
     "home": "Home",
     "about": "About",
+    "caseStudy": "Case Study",
     "projects": "Projects",
     "certifications": "Certifications",
     "contact": "Contact",
     "book": "Book a Call"
   },
   "home": {
-    "heroSubtitle": "Transforming businesses through automation, cloud infrastructure & technical leadership",
+    "heroSubtitle": "Reduced infrastructure costs by 96% through cloud migration and built an automated disaster recovery system (RTO < 25 min).",
     "ctaTitle": "Interested in transforming your tech infrastructure?",
     "ctaDescription": "Let's discuss how I can help your organization achieve its goals.",
     "ctaButton": "Let's Talk"
@@ -26,7 +27,7 @@
   },
   "projects": {
     "title": "Projects Portfolio",
-    "description": "Showcasing innovative solutions in DevOps, cloud architecture, and automation that have delivered real business value.",
+    "description": "Structured portfolio across Cloud & DevOps, Mobile/IoT, Design Tools, and Web engineering work.",
     "more": "more",
     "sourceCode": "Source Code",
     "liveDemo": "Live Demo",
@@ -45,7 +46,7 @@
   },
   "about": {
     "title": "About Me",
-    "description": "From optimizing assembly lines to optimizing cloud pipelines - my journey has been about continuous improvement and technological innovation.",
+    "description": "Senior Platform Engineer with a focus on FinOps, reliability, and infrastructure automation. I build platforms that lower spend and improve recovery confidence.",
     "professionalJourney": "Professional Journey",
     "technicalExpertise": "Technical Expertise",
     "myPhilosophy": {
@@ -62,7 +63,7 @@
   },
   "certifications": {
     "title": "Certifications",
-    "description": "Professional certifications and achievements that demonstrate my expertise in cloud computing, DevOps, and software development.",
+    "description": "Relevant credentials in cloud architecture, development, and platform operations.",
     "stats": {
       "total": "Total Certifications"
     },
@@ -77,7 +78,7 @@
   },
   "contact": {
     "title": "Get In Touch",
-    "description": "Let's discuss how I can help transform your organization's technical infrastructure and drive innovation through DevOps excellence.",
+    "description": "Let's discuss platform modernization, cost optimization, and reliability improvements for your engineering organization.",
     "form": {
       "title": "Send a Message",
       "name": "Name *",

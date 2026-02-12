@@ -24,9 +24,9 @@ export default function Footer() {
               {String(t("common.name"))}
             </h3>
             <p className="text-muted-foreground mb-4">
-              CTO & DevOps Architect specializing in transforming businesses
-              through automation, cloud infrastructure, and technical
-              leadership.
+              Platform Engineer & FinOps Strategist focused on cloud cost
+              optimization, resilient delivery systems, and measurable
+              operational outcomes.
             </p>
             <div className="flex justify-center gap-4">
               <a
@@ -69,6 +69,14 @@ export default function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {String(t("nav.about"))}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={getLocalizedPath("/case-study")}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {String(t("nav.caseStudy"))}
                 </Link>
               </li>
               <li>

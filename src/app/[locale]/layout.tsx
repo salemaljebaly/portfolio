@@ -19,7 +19,8 @@ const zain = Zain({
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Salem Aljebaly - Portfolio",
-    description: "Full Stack Developer & DevOps Engineer",
+    description:
+      "Senior Platform Engineer and Cloud & FinOps Specialist with proven cost optimization and reliability outcomes.",
   };
 }
 

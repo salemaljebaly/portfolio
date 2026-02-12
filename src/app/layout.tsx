@@ -13,9 +13,9 @@ const zain = Zain({
 });
 
 export const metadata: Metadata = {
-  title: "Salem Aljebaly - CTO & DevOps Architect",
+  title: "Salem Aljebaly - Senior Platform Engineer",
   description:
-    "Transforming businesses through automation, cloud infrastructure & technical leadership",
+    "Senior Platform Engineer and Cloud & FinOps Specialist. Reduced infrastructure costs by 96% with automated disaster recovery (RTO < 25 min).",
   metadataBase: new URL("https://docker.com.ly"),
   alternates: {
     canonical: "/",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Salem Aljebaly - CTO & DevOps Architect Portfolio",
+    title: "Salem Aljebaly - Senior Platform Engineer Portfolio",
     description:
-      "Transforming businesses through automation, cloud infrastructure & technical leadership",
+      "Senior Platform Engineer and Cloud & FinOps Specialist. Reduced infrastructure costs by 96% with automated disaster recovery (RTO < 25 min).",
     url: "https://docker.com.ly",
     siteName: "Salem Aljebaly Portfolio",
     locale: "en_US",
@@ -36,15 +36,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Salem Aljebaly - CTO & DevOps Architect",
+        alt: "Salem Aljebaly - Senior Platform Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salem Aljebaly - CTO & DevOps Architect",
+    title: "Salem Aljebaly - Senior Platform Engineer",
     description:
-      "Transforming businesses through automation, cloud infrastructure & technical leadership",
+      "Senior Platform Engineer and Cloud & FinOps Specialist. Reduced infrastructure costs by 96% with automated disaster recovery (RTO < 25 min).",
     images: ["/og-image.png"],
   },
   robots: {

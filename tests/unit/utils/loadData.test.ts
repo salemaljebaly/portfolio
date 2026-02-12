@@ -24,7 +24,7 @@ describe("loadData utilities", () => {
     it("should normalize categories", () => {
       const projects = loadProjects("en");
       const hasNormalizedCategory = projects.some(
-        (p) => p.category === "Developer Tools",
+        (p) => p.category === "Cloud & DevOps",
       );
       expect(hasNormalizedCategory).toBe(true);
     });
