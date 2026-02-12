@@ -2,19 +2,15 @@
 
 import { X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function CookieBanner() {
-  const [showBanner, setShowBanner] = useState(false);
+  const [showBanner, setShowBanner] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !localStorage.getItem("cookie-consent");
+  });
   const pathname = usePathname();
   const isArabic = pathname.startsWith("/ar");
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      setShowBanner(true);
-    }
-  }, []);
 
   const acceptCookies = () => {
     localStorage.setItem("cookie-consent", "accepted");
