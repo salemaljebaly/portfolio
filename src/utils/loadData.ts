@@ -5,7 +5,7 @@ import projectsEn from "@/data/projects.en.json";
 import timelineAr from "@/data/timeline.ar.json";
 import timelineEn from "@/data/timeline.en.json";
 
-function normalizeCategory(category: string): string {
+export function normalizeCategory(category: string): string {
   const map: Record<string, string> = {
     DevOps: "Cloud & DevOps",
     "Development Tools": "Cloud & DevOps",
@@ -26,12 +26,12 @@ export function loadProjects(locale: string) {
   return data.map((p) => ({ ...p, category: normalizeCategory(p.category) }));
 }
 
-function parseMonthYear(value: string): number {
+export function parseMonthYear(value: string): number {
   const parsed = Date.parse(`${value} 1`);
   return Number.isNaN(parsed) ? 0 : parsed;
 }
 
-function normalizeCertificationName(name: string): string {
+export function normalizeCertificationName(name: string): string {
   return name
     .replace(/early adopter/gi, "")
     .replace(/[–—-]/g, " ")

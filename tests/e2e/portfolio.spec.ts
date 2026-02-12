@@ -33,7 +33,7 @@ test.describe("Portfolio navigation", () => {
       .click();
     await expect(page).toHaveURL(/\/$/);
     await expect(
-      page.getByRole("heading", { level: 1, name: "Salem Aljebaly" }),
+      page.getByRole("heading", { name: "Senior Platform Engineer" }),
     ).toBeVisible();
   });
 });
