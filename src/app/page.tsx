@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
+import CaseStudyPreview from "@/components/home/CaseStudyPreview";
 import CertificationsCarousel from "@/components/home/CertificationsCarousel";
 import DevOpsAnimation from "@/components/home/DevOpsAnimation";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
@@ -20,6 +21,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <StatsSection />
+        <CaseStudyPreview />
         <FeaturedProjects />
         <CertificationsCarousel />
         <DevOpsAnimation />

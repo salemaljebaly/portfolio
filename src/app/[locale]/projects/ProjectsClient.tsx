@@ -40,6 +40,7 @@ export default function ProjectsClient({
   categories,
   locale,
 }: ProjectsClientProps) {
+  const totalDeliveredProjects = 43;
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const { t } = useTranslations();
@@ -65,6 +66,30 @@ export default function ProjectsClient({
             <p className="text-xl text-muted-foreground max-w-3xl">
               {String(t("projects.description"))}
             </p>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+              <div className="rounded-lg border bg-card p-4">
+                <p className="text-3xl font-bold text-primary">
+                  {totalDeliveredProjects}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Total Projects Delivered
+                </p>
+              </div>
+              <div className="rounded-lg border bg-card p-4">
+                <p className="text-3xl font-bold text-primary">
+                  {projects.length}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Public Portfolio Projects
+                </p>
+              </div>
+              <div className="rounded-lg border bg-card p-4">
+                <p className="text-3xl font-bold text-primary">
+                  {Math.max(categories.length - 1, 0)}
+                </p>
+                <p className="text-sm text-muted-foreground">Categories</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -91,6 +116,11 @@ export default function ProjectsClient({
                 </button>
               ))}
             </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Categories are organized into Cloud & DevOps, Mobile & IoT, Design
+              Tools, and Web Development to match recruiter-facing portfolio
+              review flows.
+            </p>
           </div>
         </section>
 

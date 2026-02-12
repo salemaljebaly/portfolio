@@ -58,6 +58,10 @@ export default function CertificationsClient({
             <p className="text-xl text-muted-foreground max-w-3xl">
               {String(t("certifications.description"))}
             </p>
+            <p className="text-sm text-muted-foreground mt-3">
+              Certifications are de-duplicated and prioritized by role
+              relevance.
+            </p>
           </div>
         </section>
 

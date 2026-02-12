@@ -4,9 +4,9 @@ export function generatePersonSchema() {
     "@type": "Person",
     name: "Salem Aljebaly",
     alternateName: "سالم الجبالي",
-    jobTitle: "CTO & DevOps Architect",
+    jobTitle: "Senior Platform Engineer",
     description:
-      "Experienced CTO & DevOps Architect specializing in cloud infrastructure, automation, and technical leadership. 4x AWS Certified and GitHub Certified professional.",
+      "Senior Platform Engineer and Cloud & FinOps Specialist focused on cloud migration, cost optimization, and automated disaster recovery.",
     url: "https://docker.com.ly",
     image: "https://docker.com.ly/salem-aljebaly.jpg",
     sameAs: [
@@ -18,6 +18,8 @@ export function generatePersonSchema() {
       "DevOps",
       "Cloud Architecture",
       "AWS",
+      "Hetzner",
+      "FinOps",
       "Kubernetes",
       "Docker",
       "CI/CD",
@@ -46,7 +48,7 @@ export function generateWebsiteSchema() {
     alternateName: "ملف سالم الجبالي",
     url: "https://docker.com.ly",
     description:
-      "Professional portfolio of Salem Aljebaly - CTO & DevOps Architect",
+      "Professional portfolio of Salem Aljebaly - Senior Platform Engineer and Cloud & FinOps Specialist",
     author: {
       "@type": "Person",
       name: "Salem Aljebaly",

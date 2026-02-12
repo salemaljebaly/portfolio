@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import CaseStudyPreview from "@/components/home/CaseStudyPreview";
 import CTASection from "@/components/home/CTASection";
 import CertificationsCarousel from "@/components/home/CertificationsCarousel";
 import DevOpsAnimation from "@/components/home/DevOpsAnimation";
@@ -27,6 +28,7 @@ export default async function Home({ params }: HomePageProps) {
       <main>
         <HeroSection />
         <StatsSection />
+        <CaseStudyPreview />
         <FeaturedProjects />
         <CertificationsCarousel />
         <DevOpsAnimation />

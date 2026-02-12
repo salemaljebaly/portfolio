@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberTicker } from "@/components/magicui/number-ticker";
-import { Award, Briefcase, Code } from "lucide-react";
+import { Award, Briefcase, Code, TrendingDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 interface Stat {
@@ -14,21 +14,27 @@ interface Stat {
 const stats: Stat[] = [
   {
     icon: <Briefcase className="w-8 h-8" />,
-    value: 6,
+    value: 9,
     suffix: "+",
     label: "Years Experience",
   },
   {
     icon: <Code className="w-8 h-8" />,
-    value: 40,
+    value: 43,
     suffix: "+",
     label: "Projects Delivered",
   },
   {
     icon: <Award className="w-8 h-8" />,
-    value: 8,
+    value: 9,
     suffix: "x",
     label: "Certified (AWS, Google, GitHub)",
+  },
+  {
+    icon: <TrendingDown className="w-8 h-8" />,
+    value: 90,
+    suffix: "%+",
+    label: "Infrastructure Cost Reduction",
   },
 ];
 
@@ -57,7 +63,7 @@ export default function StatsSection() {
   return (
     <section ref={sectionRef} className="py-20 bg-muted/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}

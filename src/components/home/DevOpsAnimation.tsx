@@ -13,28 +13,28 @@ interface PipelineStep {
 const pipelineSteps: PipelineStep[] = [
   {
     icon: <GitBranch className="w-8 h-8" />,
-    label: "Git Commit",
-    description: "Code changes pushed",
+    label: "IaC + App Changes",
+    description: "Terraform/Kubernetes changes committed",
   },
   {
     icon: <Github className="w-8 h-8" />,
-    label: "GitHub",
-    description: "Version control",
+    label: "GitHub Actions",
+    description: "CI, policy checks, and rollout gates",
   },
   {
     icon: <Cpu className="w-8 h-8" />,
-    label: "CI/CD Pipeline",
-    description: "Automated testing & building",
+    label: "Build + Deploy",
+    description: "Container build and progressive deployment",
   },
   {
     icon: <Cloud className="w-8 h-8" />,
-    label: "Cloud Deploy",
-    description: "Cloud deployment",
+    label: "Observability",
+    description: "Metrics, logs, and alert-driven validation",
   },
   {
     icon: <Server className="w-8 h-8" />,
-    label: "Production",
-    description: "Live application",
+    label: "Backup + Recovery",
+    description: "Automated restore path with tested DR runbooks",
   },
 ];
 
@@ -51,11 +51,11 @@ export default function DevOpsAnimation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            End-to-End DevOps Automation
+            Platform Automation Used in the Migration
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Streamlining development workflows from code commit to production
-            deployment
+            The same CI/CD, IaC, and observability stack that powered the AWS to
+            Hetzner migration and improved delivery reliability.
           </p>
         </div>
 
@@ -110,10 +110,10 @@ export default function DevOpsAnimation() {
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground">
-            Automated pipeline reduces deployment time by{" "}
-            <span className="font-semibold text-primary">80%</span> and ensures{" "}
-            <span className="font-semibold text-primary">99.9%</span>{" "}
-            reliability
+            This automation model reduced infrastructure cost by{" "}
+            <span className="font-semibold text-primary">more than 90%</span>{" "}
+            and enabled a tested disaster recovery target of{" "}
+            <span className="font-semibold text-primary">RTO &lt; 30 min</span>.
           </p>
         </div>
       </div>

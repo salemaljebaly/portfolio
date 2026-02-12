@@ -28,24 +28,16 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          Salem Aljebaly
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          Senior Platform Engineer
         </h1>
-        <p className="text-2xl sm:text-3xl lg:text-4xl text-muted-foreground mb-8">
-          CTO & DevOps Architect
-        </p>
-
         <div className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-          {/* <span className="inline-block animate-fadeIn">
-            Transforming businesses through automation, cloud infrastructure &
-            technical leadership
-          </span> */}
           <TypingAnimation
             className="text-lg sm:text-xl lg:text-2xl text-muted-foreground"
             duration={100}
           >
             {
-              "Transforming businesses through automation, cloud infrastructure & technical leadership"
+              "Cloud migration & infrastructure optimization 90% cost reduction • <30 min recovery."
             }
           </TypingAnimation>
         </div>
@@ -64,10 +56,10 @@ export default function HeroSection() {
           </a>
 
           <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-1 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-all hover:scale-105 text-foreground"
+            href="/case-study"
+            className="inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded-lg border border-border hover:bg-accent transition-all hover:scale-105 text-foreground"
           >
-            Get In Touch
+            Case Study
           </Link>
         </div>
       </div>

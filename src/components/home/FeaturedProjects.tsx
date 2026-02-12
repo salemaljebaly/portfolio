@@ -34,7 +34,8 @@ export default function FeaturedProjects() {
             Featured Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Showcasing innovative solutions in design, IoT, and development
+            Selected highlights from 43 delivered projects across cloud, DevOps,
+            mobile/IoT, and tooling.
           </p>
         </div>
 
@@ -53,7 +54,7 @@ export default function FeaturedProjects() {
             href="/projects"
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
           >
-            View All Projects
+            View All 43 Projects
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

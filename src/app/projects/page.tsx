@@ -22,7 +22,18 @@ export default function ProjectsPage() {
     return a.id - b.id;
   });
 
-  const categories = ["All", ...new Set(sorted.map((p) => p.category))];
+  const categoryOrder = [
+    "Cloud & DevOps",
+    "Mobile & IoT",
+    "Design Tools",
+    "Web Development",
+  ];
+  const categorySet = new Set(sorted.map((p) => p.category));
+  const categories = [
+    "All",
+    ...categoryOrder.filter((category) => categorySet.has(category)),
+    ...[...categorySet].filter((category) => !categoryOrder.includes(category)),
+  ];
   return (
     <ProjectsClient projects={sorted} categories={categories} locale={locale} />
   );
