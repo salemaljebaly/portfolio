@@ -71,7 +71,7 @@ touch src/lib/metadata.ts
 
 # Create public assets placeholders
 echo "📄 Creating public asset placeholders..."
-touch public/SalemAljebalyCV.pdf
+touch public/SalemResume.pdf
 touch public/og-image.png
 touch public/og-image-ar.png
 touch public/certifications/aws-sa-associate.png

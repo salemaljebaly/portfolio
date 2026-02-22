@@ -111,7 +111,7 @@ export default function Navigation() {
 
             {/* CV Download */}
             <a
-              href="/SalemAljebalyCV.pdf"
+              href="/SalemResume.pdf"
               download
               className="hidden sm:flex items-center gap-2 text-sm font-medium px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
               aria-label={"Download CV"}
@@ -155,7 +155,7 @@ export default function Navigation() {
                 </Link>
               ))}
               <a
-                href="/SalemAljebalyCV.pdf"
+                href="/SalemResume.pdf"
                 download
                 className="sm:hidden flex items-center gap-2 text-sm font-medium px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
               >

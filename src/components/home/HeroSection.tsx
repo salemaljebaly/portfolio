@@ -45,12 +45,12 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/SalemAljebalyCV.pdf"
+            href="/SalemResume.pdf"
             download
             className="inline-flex items-center justify-center gap-2 px-0 py-1 text-lg font-medium  text-primary-foreground transition-all hover:scale-105"
           >
             <ShimmerButton className="gap-2">
-              <Download href="/SalemAljebalyCV.pdf" />
+              <Download href="/SalemResume.pdf" />
               Download CV
             </ShimmerButton>
           </a>
