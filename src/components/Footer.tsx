@@ -48,7 +48,7 @@ export default function Footer() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="mailto:contact@docker.com.ly"
+                href="mailto:salemaljebaly@gmail.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
@@ -116,7 +116,7 @@ export default function Footer() {
               {/* <li>{String(t("footer.location"))}</li> */}
               <li>
                 <a
-                  href="mailto:contact@docker.com.ly"
+                  href="mailto:salemaljebaly@gmail.com"
                   className="hover:text-primary transition-colors"
                 >
                   salemaljebaly@gmail.com

@@ -274,7 +274,7 @@ test.describe("Footer", () => {
     ).toHaveAttribute("target", "_blank");
     await expect(footer.getByRole("link", { name: "Email" })).toHaveAttribute(
       "href",
-      "mailto:contact@docker.com.ly",
+      "mailto:salemaljebaly@gmail.com",
     );
   });
 });
