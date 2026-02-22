@@ -233,7 +233,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/SalemAljebalyCV.pdf"
+                href="/SalemResume.pdf"
                 download
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
